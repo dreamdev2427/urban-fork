@@ -1,0 +1,32 @@
+/* vietnamese */
+@font-face {
+    font-family: 'OpenSans-Bold';
+    font-style: bold;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans-ExtraBold';
+    font-style: bold;
+    font-weight: 900;
+    font-display: swap;
+    src: url(../fonts/OpenSans-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans-Light';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../fonts/OpenSans-Light.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../fonts/OpenSans-SemiBold.ttf);
+}

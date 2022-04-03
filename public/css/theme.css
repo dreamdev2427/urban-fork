@@ -1,0 +1,466 @@
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+
+
+
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+/* color */
+
+.c-w {
+    color: white;
+}
+
+.c-yellow {
+    color: #c89656;
+}
+
+.c-purple {
+    color: #231846;
+}
+
+
+.c-gray {
+    color: #707070;
+}
+
+
+.c-3080be {
+    color: #3080be;
+}
+
+.c-a4a3a2 {
+    color: #a4a3a2;
+}
+
+.c-black {
+    color: black;
+}
+
+.c-brown {
+    color: #955402;
+}
+
+/* .c-purple {
+    color: #9f7aea;
+} */
+
+.c-8fced5 {
+    color: #8fced5;
+}
+
+.c-yellow {
+    color: #c89656;
+}
+
+.c-a3a3a2 {
+    color: #a3a3a2;
+}
+
+.c-green {
+    color: #66cf8e;
+}
+
+.c-4cce13 {
+    color: #4cce13;
+}
+
+
+.c-df238e {
+    color: #df238e;
+}
+
+
+/* background color */
+
+.bg-344d61 {
+    background-color: #344d61bb;
+}
+
+.bg-yellow {
+    background-color: #c89656;
+}
+
+
+
+
+/* margin */
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-t-30 {
+    margin-top: 30px;
+}
+
+.m-t-40 {
+    margin-top: 40px;
+}
+
+.m-t-50 {
+    margin-top: 50px;
+}
+
+.m-t-60 {
+    margin-top: 60px;
+}
+
+.m-t-70 {
+    margin-top: 70px;
+}
+
+.m-t-80 {
+    margin-top: 80px;
+}
+
+.m-t-100 {
+    margin-top: 100px;
+}
+
+.m-t-110 {
+    margin-top: 110px;
+}
+
+.m-t-130 {
+    margin-top: 130px;
+}
+
+
+
+
+
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.m-r-20 {
+    margin-right: 20px;
+}
+
+.m-r-30 {
+    margin-right: 30px;
+}
+
+.m-r-40 {
+    margin-right: 40px;
+}
+
+.m-r-80 {
+    margin-right: 80px;
+}
+
+.m-l-20 {
+    margin-left: 20px;
+}
+
+.m-l-30 {
+    margin-left: 30px;
+}
+
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.m-b-70 {
+    margin-bottom: 70px;
+}
+
+
+
+
+.pos-rel {
+    position: relative;
+}
+
+.pos-abs {
+    position: absolute;
+}
+
+
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.fs-26 {
+    font-size: 26px;
+}
+
+.fs-28 {
+    font-size: 28px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
+
+.fs-32 {
+    font-size: 32px;
+}
+
+.fs-35 {
+    font-size: 35px;
+}
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.fs-45 {
+    font-size: 45px;
+}
+
+.fs-50 {
+    font-size: 50px;
+}
+
+.fs-60 {
+    font-size: 60px;
+}
+
+.fs-70 {
+    font-size: 70px;
+}
+
+.fs-75 {
+    font-size: 75px;
+}
+
+.fs-80 {
+    font-size: 80px;
+}
+
+.fs-82 {
+    font-size: 82px;
+}
+
+.fs-100 {
+    font-size: 100px;
+}
+
+.fs-180 {
+    font-size: 180px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+.noto-thin {
+    font-weight: 400;
+}
+
+.noto-regular {
+    font-weight: 600;
+}
+
+.noto-medium {
+    font-weight: 800;
+}
+
+.noto-bold {
+    font-weight: 900;
+}
+
+
+.l-h-1-1 {
+    line-height: 1.1;
+}
+
+.l-h-1-4 {
+    line-height: 1.4;
+}
+
+
+.h-30 {
+    height: 30px;
+}
+
+.h-40 {
+    height: 40px;
+}
+
+.h-55 {
+    height: 55px;
+}
+
+.h-60 {
+    height: 60px;
+}
+
+.h-70 {
+    height: 70px;
+}
+
+.h-80 {
+    height: 80px;
+}
+
+.h-100 {
+    height: 100px !important;
+}
+
+.h-130 {
+    height: 130px;
+}
+
+.h-150 {
+    height: 150px;
+}
+
+.h-160 {
+    height: 160px;
+}
+
+.h-180 {
+    height: 180px;
+}
+
+.h-200 {
+    height: 200px;
+}
+
+.h-220 {
+    height: 220px;
+}
+
+
+
+
+.padder-20 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.padder-10 {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.padder-50 {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.padder-80 {
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+.padder-210 {
+    padding-right: 210px;
+    padding-left: 201px;
+}
+
+
+.p-r-20 {
+    padding-right: 20px;
+}
+
+.p-r-40 {
+    padding-right: 40px;
+}
+
+
+.p-r-70 {
+    padding-right: 70px;
+}
+
+.p-r-100 {
+    padding-right: 100px;
+}
+
+
+.text-blue {
+    color: var(--blue);
+}
+
+
+.w-full {
+    width: 100%;
+}
+.h-full {
+    height: 100%;
+}

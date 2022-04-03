@@ -1,0 +1,671 @@
+@media (max-width: 1200px) {
+    #qodef-page-header {
+        display: block;
+    }
+    #qodef-page-mobile-header {
+        display: none;
+    }
+    .right_image,
+    .growthchat_image_area {
+        width: 320px;
+        height: 340px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 320px;
+        height: 320px;
+    }
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 1600px) {
+    #qodef-page-header {
+        display: block;
+    }
+    #qodef-page-mobile-header {
+        display: none;
+    }
+    .right_image,
+    .growthchat_image_area {
+        width: 360px;
+        height: 390px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 360px;
+        height: 360px;
+    }
+
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 1980px) {
+    #qodef-page-header {
+        display: block;
+    }
+    #qodef-page-mobile-header {
+        display: none;
+    }
+    .right_image,
+    .growthchat_image_area {
+        width: 360px;
+        height: 390px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 360px;
+        height: 360px;
+    }
+    
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 100px;
+    }
+    .control_mint_panel{
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #qodef-page-header {
+        display: none;
+    }
+    #qodef-page-mobile-header {
+        display: block;
+    }
+    
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 120px;
+    }
+
+    .mint_pannel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .NFT_image_preview,
+    .control_mint_panel{
+        padding: 10px;
+        width: "auto";
+    }
+
+    #section_tokenomics_22 {
+        flex-direction: column;
+    }
+
+    .clanz_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .clanz_content>.left {
+        margin-right: 0px;
+    }
+
+    .clanz_buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 70px;
+    }
+
+    .clanz_content>.right {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .rhino-container {
+        flex-direction: column;
+    }
+
+
+    .rhino-container>.right {
+        margin-top: 20px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .team-member {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+
+    .roadmap-row {
+        /* height: 100px; */
+    }
+
+    .roadmap-row>.fs-30 {
+        font-size: 22px;
+    }
+
+    .nft>.fs-35 {
+        font-size: 28px;
+    }
+    
+    #section_tokenomics_00{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .half_image_area {
+        transform: rotate(90deg);
+    }
+    .teamrate_explain{
+        display: none;
+    }
+    #section_tokenomics_11{
+        justify-content: center;
+    }
+    #section_tokenomics_mobile
+    {
+        display: flex !important;
+        justify-content: center;
+    }
+    .minting_panel_out_borderdiv{
+        overflow-x: clip;
+    }
+    .staking_explain,
+    .growth_explain,
+    .airdroprate_explain {
+        width:auto;
+    }
+    .roadmaprow, .roadmaprow1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .yellowpanel{
+        width: 80%;
+    }
+
+    .btn_roadmap {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        font-size: 20px !important;
+    }
+
+    .btn_collection {
+        font-size: 20px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+    }
+
+    #section_clanz {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .padder-80 {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    #sectoin_team {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+
+    #section_footer {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .right_image,
+    .growthchat_image_area {
+        width: 280px;
+        height: 300px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 280px;
+        height: 280px;
+    }
+
+}
+
+@media (max-width: 850px) {
+    #qodef-page-header {
+        display: none;
+    }
+    #qodef-page-mobile-header {
+        display: block;
+    }
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 120px;
+    }
+    .mint_pannel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .NFT_image_preview,
+    .control_mint_panel{
+        padding: 10px;
+        width: "auto";
+    }
+
+    .team-member {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .padder-50 {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+
+    .right_image,
+    .growthchat_image_area {
+        width: 280px;
+        height: 300px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 700px) {
+    #qodef-page-header {
+        display: none;
+    }
+    #qodef-page-mobile-header {
+        display: block;
+    }
+
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 120px;
+    }
+    .mint_pannel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .NFT_image_preview,
+    .control_mint_panel{
+        padding: 10px;
+        width: "auto";
+    }
+
+    .rhino-container>.left {
+        width: 400px;
+        height: 400px;
+    }
+
+    .padder-50 {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    #section_clanz {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .padder-80 {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    #sectoin_team {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    #section_footer {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .contract>.fs-30 {
+        font-size: 18px;
+    }
+
+    .team-member {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    #qodef-page-header {
+        display: none;
+    }
+    #qodef-page-mobile-header {
+        display: block;
+    }
+
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 120px;
+    }
+    .mint_pannel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .NFT_image_preview,
+    .control_mint_panel{
+        padding: 10px;
+        width: "auto";
+    }
+
+    .mint-title {
+        font-size: 60px;
+        height: 100px;
+        line-height: 1.1;
+        text-align: center;
+        margin-bottom: 20px;
+        /* height: unset !important; */
+    }
+
+    .mint-subtitle {
+        font-size: 27px;
+
+    }
+    
+    .right_image,
+    .growthchat_image_area {
+        width: 280px;
+        height: 300px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 550px) {
+    #qodef-page-header {
+        display: none;
+    }
+    #qodef-page-mobile-header {
+        display: block;
+    }
+
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 120px;
+    }
+    .mint_pannel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .NFT_image_preview,
+    .control_mint_panel{
+        padding: 10px;
+        width: "auto";
+    }
+
+    .rhino-container>.left {
+        width: 330px;
+        height: 330px;
+    }
+
+    .contract>.fs-50 {
+        font-size: 40px;
+    }
+
+    .contract {
+        height: 120px;
+    }
+
+    .link>.fs-24 {
+        font-size: 20px;
+    }
+
+    .roadmap-row>.fs-30 {
+        font-size: 18px;
+    }
+
+    .nft>.fs-35 {
+        font-size: 22px;
+    }
+
+    .padder-50 {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .team-member {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .padder-80 {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    #section_clanz {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .padder-80 {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    #sectoin_team {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    #section_footer {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    #section_roadmap>.title {
+        height: 224px;
+        font-size: 60px;
+    }
+
+    .rhino-item {
+        font-size: 32px;
+    }
+
+    .btn_roadmap {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        font-size: 15px !important;
+    }
+
+    .btn_collection {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        font-size: 15px !important;
+    }
+
+    .right_image,
+    .growthchat_image_area {
+        width: 280px;
+        height: 300px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 450px) {
+    #qodef-page-header {
+        display: none;
+    }
+    #qodef-page-mobile-header {
+        display: block;
+    }
+
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 120px;
+    }
+    .mint_pannel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .NFT_image_preview,
+    .control_mint_panel{
+        padding: 10px;
+        width: "auto";
+    }
+
+    .mint-title {
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .mint-subtitle {
+        font-size: 20px;
+    }
+
+    .clanz_content>.left>.fs-20 {
+        font-size: 16px;
+    }
+
+    .clanz_buttons {
+        margin-top: 40px;
+    }
+
+    .btn_roadmap {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .btn_collection {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .right_image,
+    .growthchat_image_area {
+        width: 280px;
+        height: 300px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 280px;
+        height: 280px;
+    }
+
+    .rhino-container {
+        padding: 20px 20px;
+    }
+
+    .rhino-container>.left {
+        width: 300px;
+        height: 300px;
+    }
+
+    .rhino-item {
+        font-size: 20px;
+        height: 50px;
+    }
+
+    #section_roadmap>.title {
+        height: 150px;
+        font-size: 60px;
+    }
+
+    .roadmap_index {
+        width: 50px;
+    }
+
+    .roadmap_item {
+        width: 50px;
+    }
+
+    .roadmap_row > .fs-30 {
+        font-size: 16px;
+    }
+
+    .nft > .fs-35 {
+        font-size: 20px;
+    }
+
+    .photo_item {
+        width: 150px;
+        height: 150px;
+    }
+
+    .contract > .fs-50 {
+        font-size: 30px;
+    }
+
+    .contract > .fs-30 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 370px) {
+    #qodef-page-header {
+        display: none;
+    }
+    #qodef-page-mobile-header {
+        display: block;
+    }
+
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 120px;
+    }
+    .rhino-container>.left {
+        width: 270px;
+        height: 270px;
+    }
+}
