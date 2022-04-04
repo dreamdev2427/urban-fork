@@ -1,0 +1,133 @@
+.section-faq {
+  background: transparent;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: #E700FF;
+}
+
+.section-faq__inner {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.section-faq__title {
+  text-align: center;
+  font-style: italic;
+  padding: 50px;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .section-faq__title {
+    font-size: 2em;
+    text-align: center;
+    font-style: italic;
+  }
+}
+
+.section-faq__content {
+  margin: 0 100px 100px 100px;
+  background: transparent;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: #E700FF;
+  color: #fff;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.accordion-wrapper {
+  border-bottom: 1px solid #C500FF;
+}
+
+.accordion {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+  line-height: 34px;
+  color: #000;
+  padding: 20px 0;
+}
+
+.accordion__title {
+  font-weight: bold;
+  padding: 20px 0;
+  color: #6ec1e4;
+  font-family: "Oxanium", "Sans-serif";
+  font-weight: 700;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.accordion::after {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  display: block;
+  content: " ";
+  background-image: #000;
+  background-size: cover;
+  height: 15px;
+  width: 15px;
+  margin: 4px;
+  transform: rotate(0deg);
+  transition: all 0.3s;
+}
+
+.accordion.active::after {
+  transform: rotate(90deg);
+}
+
+.panel {
+  padding: 20px 20px 20px 30px;
+  font-size: 1em;
+  display: none;
+  overflow: hidden;
+  color: #fff;
+  margin-bottom: 10px;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+.panel a {
+  color: #c89656;
+  text-decoration: underline !important;
+}
+.panel b.contract {
+  word-break: break-all;
+  font-size: 20px;
+}
+span.faqQw {
+  max-width: 80%;
+}
+.accordion.active+.panel {
+  display: block !important;
+}
+
+.accordion.active .accordion__title{
+  color: #61ce70;
+}
+
+.accordion.active .elementor-toggle-icon .fas{
+  color: #61ce70;
+  transform: rotate(-90deg);
+  padding: 5px;
+}
+
+.accordion .elementor-toggle-icon .fas{
+  color: #61c1e4;
+  transform: rotate(0deg);
+  padding: 5px;
+}

@@ -1,15 +1,16 @@
 
-import { useState } from 'react';
-import Slider from '@mui/material/Slider';
-import { NotificationManager } from 'react-notifications';
+import { useEffect, useState } from 'react';
+// import Slider from '@mui/material/Slider';
+// import { NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { styled } from '@mui/material/styles';
-import Web3 from 'web3';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
+// import Web3 from 'web3';
 import { makeStyles } from '@mui/styles';
 import Gallery from "./components/SwiperCarousel";
 import SingleGallery from './components/SingleGallery';
+import FAQList from './components/FaqAccrodian';
 
 const useStyles = makeStyles({
   aa: {
@@ -56,79 +57,83 @@ const useStyles = makeStyles({
   },
 });
 
-const connectTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#ffbd59",
-    },
-  },
-});
-
-const mintTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#ff9a3d"
-    }
-  }
-})
-
-const loadmapTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#ff9a3d"
-    }
-  }
-})
-
-const PrettoSlider = styled(Slider)({
-  color: '#ff9a3d',
-  height: 4,
-  '& .MuiSlider-track': {
-    border: 'none',
-  },
-  '& .MuiSlider-thumb': {
-    height: 24,
-    width: 24,
-    backgroundColor: '#ff9a3d',
-    border: '2px solid #df7a1d',
-    borderRadius: "0",
-    transform: "translate(-50%, -50%) rotate(45deg)",
-    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-      boxShadow: 'inherit',
-    },
-    '&:before': {
-      display: 'none',
-    },
-  },
-  '& .MuiSlider-valueLabel': {
-    lineHeight: 1.2,
-    fontSize: 12,
-    background: 'unset',
-    padding: 0,
-    width: 32,
-    height: 32,
-    borderRadius: '50% 50% 50% 0',
-    backgroundColor: '#ff9a3d',
-    transformOrigin: 'bottom left',
-    '&:before': { display: 'none' },
-    '&.MuiSlider-valueLabelOpen': {
-      transform: 'translate(0%, -90%) rotate(270deg) scale(1)',
-    },
-    '& > *': {
-      transform: 'rotate(45deg)',
-    },
-  },
-});
-
-const web3 = new Web3();
-
 function App() {
 
   const classes = useStyles();
+  const mintingStartTime = (new Date("2022/04/16 00:00:00")).getTime();
+  const [currentTime, setCurrentTime] = useState(Date.now());
+
+  const getLeftDuration = () => {
+
+    var currentTime = Date.now();
+    var diff = mintingStartTime - currentTime;
+    diff = diff / 1000;
+
+    var day = 0;
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+
+    if (diff > 0) {
+      day = Math.floor(diff / 3600 / 24); 
+      hr = Math.floor((diff / 3600 ) - day*24);
+      min = Math.floor((diff / 60) - day*24*60 - hr*60 );
+      sec = Math.floor(diff - 24*3600*day - 3600 * hr - 60 * min);
+    } else if (!isNaN(diff) && diff <= 0) {
+      // update banner list when this item's auction time is ended
+      // getNftBannerList(5)(dispatch);
+    }
+
+    const days = () => {
+      return day;
+    }
+    const hours = () => {
+      return hr;
+    }
+    const minutes = () => {
+      return min;
+    }
+    const seconds = () => {
+      return sec;
+    }
+    return { hours, minutes, seconds, days }
+  }
+
+  useEffect(() =>{
+
+    setInterval(() =>{
+      setCurrentTime(Date.now());
+    }, 1000);
+
+    window.onscroll = function() {myFunction()};
+
+    // Get the header
+    var header = document.getElementById("qodef-page-header");
+    var header2 = document.getElementById("qodef-page-mobile-header");
+    
+    // Get the offset position of the navbar
+    var sticky = header.offsetTop;
+    var sticky2 = header2.offsetTop;
+    
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+      if (window.pageYOffset > sticky2) {
+        header2.classList.add("sticky");
+      } else {
+        header2.classList.remove("sticky");
+      }
+    }
+    
+  }, [])
 
   return (
     <>
-      <header id="qodef-page-header">
+      <div className="header" id="qodef-page-header">
         <div id="qodef-page-header-inner" className=" qodef-skin--light">
           <a className="qodef-header-logo-link qodef-height--set qodef-source--image" href="#" rel="home">
             <img width="1000" height="150" src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-3.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" />
@@ -170,8 +175,9 @@ function App() {
             </div>
           </div>
         </div>
-      </header>
-      <header id="qodef-page-mobile-header">
+      </div>
+
+      <div className='header' id="qodef-page-mobile-header">
         <div id="qodef-page-mobile-header-inner" className="">
           <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="#" rel="home">
             <img width="1000" height="150" src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-3.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
@@ -201,7 +207,8 @@ function App() {
             </ul>
           </nav>
         </div>
-      </header>
+      </div>
+
       <section data-marvy_enable_drop_animation="false" data-marvy_enable_fancy_rotate="false" data-marvy_enable_flying_object="false" data-marvy_enable_ripples_animation="false" data-marvy_enable_waves_animation="false" data-marvy_enable_rings_animation="false" data-marvy_enable_topology_animation="false" data-marvy_enable_gradient_animation="false" data-marvy_enable_snow_animation="true" data-marvy_snow_animation_count="200" data-marvy_snow_animation_size="10" data-marvy_snow_animation_color="#ffffff" data-marvy_snow_animation_shadow_color="#FFFFFF" data-marvy_snow_animation_shadow_size="10" data-marvy_enable_firework_animation="false" className="elementor-section elementor-top-section elementor-element elementor-element-1529de6 elementor-section-full_width elementor-section-stretched elementor-section-content-middle elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle qodef-elementor-content-no marvy-snow-animtion-section marvy-custom-snow-section-1529de6" data-id="1529de6" data-element_type="section" id="home" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/urbanfuturists.com\/wp-content\/uploads\/2022\/03\/BANNER2.mp4&quot;}" style={{ position: "relative", width: "100%" }}>
         <div className="elementor-background-video-container elementor-hidden-phone" >
           <video className="elementor-background-video-hosted elementor-html5-video" autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} ></video>
@@ -381,36 +388,30 @@ function App() {
       <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
         MINT STARTING IN
       </div>
-
       <div className='pink_div_for_time' >
-        <div className='golden_time_number' > 26 </div>
+        <div className='golden_time_number' > {getLeftDuration().days()}</div>
         <div className='white_time_number' >Days</div>
       </div>
       <div className='pink_div_for_time' >
-        <div className='golden_time_number' > 11 </div>
+        <div className='golden_time_number' > {getLeftDuration().hours()} </div>
         <div className='white_time_number' >Hours</div>
       </div>
       <div className='pink_div_for_time' >
-        <div className='golden_time_number' > 10 </div>
+        <div className='golden_time_number' > {getLeftDuration().minutes()} </div>
         <div className='white_time_number' >Minutes</div>
       </div>
       <div className='pink_div_for_time' >
-        <div className='golden_time_number' > 31 </div>
+        <div className='golden_time_number' > {getLeftDuration().seconds()} </div>
         <div className='white_time_number' >Seconds</div>
       </div>
-
       <div className='mint_button' >
         <Button className={classes.ee}>Mint</Button>
       </div>
-
-      <div className="elementor-divider" >
-			<span className="elementor-divider-separator">
-				</span>
-		  </div>
       
       <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
         INSIDE INFO
       </div>
+
       <div className="insideInfo_text">
         <p style={{ textAlign: "center" }} ><span style={{ color: "#ffffff" }} >Urban Futurists is the conceptualization from Speed Painter and Entertainer, Brad Blaze. He thought of a world combining the type of art he is known to produce on stage (he uses traditional mediums of paints / brushes) and what could happen in the future.</span>
           <br></br><br></br>
@@ -521,11 +522,6 @@ function App() {
         </div>
       </div>
 
-      <div className="elementor-divider" >
-			<span className="elementor-divider-separator">
-				</span>
-		  </div>
-
       <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>
         WHO WE ARE
       </div>
@@ -562,105 +558,18 @@ function App() {
         FAQ'S
       </div>
 
-      <div style={{ margin: "0 100px 100px 100px" }}>
-        <div className="elementor-toggle" role="tablist">
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6921" className="elementor-tab-title" data-tab="1" role="tab" aria-controls="elementor-tab-content-6921" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">When Will Urban Futurists Officially Launch?</a>
-            </div>
-            <div id="elementor-tab-content-6921" className="elementor-tab-content elementor-clearfix" data-tab="1" role="tabpanel" aria-labelledby="elementor-tab-title-6921"><p>Urban Futurists will officially launch on the TBD with a price of 0.5 ETH (Whitelisted) &amp; 0.07 ETH (Public Sale). Please make sure you don’t miss the launch by joining our Discord and Twitter. We will notify you when the project officially goes live.</p></div>
-          </div>
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6922" className="elementor-tab-title" data-tab="2" role="tab" aria-controls="elementor-tab-content-6922" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">Where Will The Funding From NFT’s Be Put To Use?</a>
-            </div>
-            <div id="elementor-tab-content-6922" className="elementor-tab-content elementor-clearfix" data-tab="2" role="tabpanel" aria-labelledby="elementor-tab-title-6922"><p style={{ textAlign: "justify" }} >The funds raised from the launch of Urban Futurists are detailed in our roadmap with the Virtual Symposium being planned immediately, the charitable component being distributed and funding for art and tech ventures being decided by the community. Further developments include an online shop with profits going into the DAO. This will only make your NFT worth more and ensure more people the desire to own one of the exclusive Urban Futurists.</p></div>
-          </div>
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6923" className="elementor-tab-title" data-tab="3" role="tab" aria-controls="elementor-tab-content-6923" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">Can I Earn Money With My Urban Futurist NFT?</a>
-            </div>
-            <div id="elementor-tab-content-6923" className="elementor-tab-content elementor-clearfix" data-tab="3" role="tabpanel" aria-labelledby="elementor-tab-title-6923"><p style={{ textAlign: "justify" }} >Yes. We are absolutely committed to ensuring your NFT gains as much value as possible by strongly investing in the community and following our roadmap.</p></div>
-          </div>
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6924" className="elementor-tab-title" data-tab="4" role="tab" aria-controls="elementor-tab-content-6924" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">How Do I Know If This Project Is In Good Hands?</a>
-            </div>
-            <div id="elementor-tab-content-6924" className="elementor-tab-content elementor-clearfix" data-tab="4" role="tabpanel" aria-labelledby="elementor-tab-title-6924"><p style={{ textAlign: "justify" }} >Great question. Unlike many NFT’s that are made by the anonymous, this project is driven by Brad Blaze, already a successful artist and entertainer who has turned over millions of dollars from his art ventures.</p><p style={{ textAlign: "justify" }} >Already in high demand and believing in this project so much, he is altering his performances with Virtual Reality performances at live events. There will be a particular emphasis on NFT growth and this project in his new keynote.</p></div>
-          </div>
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6925" className="elementor-tab-title" data-tab="5" role="tab" aria-controls="elementor-tab-content-6925" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">On Which Blockchain Will Urban Futurists Be Hosted?</a>
-            </div>
-            <div id="elementor-tab-content-6925" className="elementor-tab-content elementor-clearfix" data-tab="5" role="tabpanel" aria-labelledby="elementor-tab-title-6925"><p style={{ textAlign: "justify" }} >Urban Futurists is hosted on the Ethereum Blockchain. We chose this blockchain because of its security and decentralization. Ethereum gives an easy way to verify who owns the NFT.</p></div>
-          </div>
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6926" className="elementor-tab-title" data-tab="6" role="tab" aria-controls="elementor-tab-content-6926" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">How many pieces will be sold ?</a>
-            </div>
-            <div id="elementor-tab-content-6926" className="elementor-tab-content elementor-clearfix" data-tab="6" role="tabpanel" aria-labelledby="elementor-tab-title-6926"><p>Total Supply – 5555 NFTs</p><p>Presale WL –&nbsp; 0.05 ETH&nbsp;<br></br>Public Sale –&nbsp; 0.07 ETH&nbsp;</p><p>Whitelist Spot – 2000<br></br>Giveaways – 200 pieces</p><p>Whales, Partners, Influencers – 100 pieces</p></div>
-          </div>
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6927" className="elementor-tab-title" data-tab="7" role="tab" aria-controls="elementor-tab-content-6927" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">How do I get on the Whitelist?</a>
-            </div>
-            <div id="elementor-tab-content-6927" className="elementor-tab-content elementor-clearfix" data-tab="7" role="tabpanel" aria-labelledby="elementor-tab-title-6927"><p>Please check the whitelist info on our Discord. It will be regularly updated.</p></div>
-          </div>
-          <div className="elementor-toggle-item">
-            <div id="elementor-tab-title-6928" className="elementor-tab-title" data-tab="8" role="tab" aria-controls="elementor-tab-content-6928" aria-expanded="false">
-              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
-                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
-                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
-              </span>
-              <a href="" className="elementor-toggle-title">Is there a limit to mint?</a>
-            </div>
-            <div id="elementor-tab-content-6928" className="elementor-tab-content elementor-clearfix" data-tab="8" role="tabpanel" aria-labelledby="elementor-tab-title-6928"><p>Yes there will be a limit of 2 ‘Urban Futurists NFT’ per wallet during WL mint and a limit of 5 per wallet during the public sale.</p></div>
-          </div>
-        </div>
-      </div>
+      <FAQList />
 
       <div id="qodef-page-footer-top-area">
         <div className="footer-innner ">
             <div className="footer-grid-item">
-              <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">
-               
-                    <img className="wp-image-7723" style={{ marginTop: "0px" }} src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-1.png" alt="" width="200px" />
-                  
+              <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">               
+                <img className="wp-image-7723" style={{ marginTop: "0px" }} src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-1.png" alt="" width="200px" />                  
               </div>
             </div>
             <div className="footer-grid-item">
-              <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">
-               
-                  <div style={{ fontSize: "17px", lineHeight: "31px", marginLeft: "40px" }} >© 2022 Urban Futurists.</div>
-             
+              <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">               
+                  <div style={{ fontSize: "17px", lineHeight: "31px", marginLeft: "40px" }} >© 2022 Urban Futurists.</div>             
               </div>
             </div>
             <div className="footer-grid-item">
@@ -680,7 +589,7 @@ function App() {
       <a id="qodef-back-to-top" href="#" className="qodef--stamp-btt qodef--light qodef--on">
         <span className="qodef-back-to-top-icon">
           <span className="qodef-shortcode qodef-m qodef-stamp qodef--appear qodef--init" data-appearing-delay="0">
-            <span className="qodef-m-text rotating_chars" data-count="24">
+            <span className="qodef-m-text rotating" data-count="24">
               <span className="qodef-m-character" style={{ transform: "rotate(-90deg) translateZ(0px)", transitionDelay: "0ms" }}>B</span>
               <span className="qodef-m-character" style={{ transform: "rotate(-75deg) translateZ(0px)", transitionDelay: "0ms" }}>a</span>
               <span className="qodef-m-character" style={{ transform: "rotate(-60deg) translateZ(0px)", transitionDelay: "0ms" }}>c</span>

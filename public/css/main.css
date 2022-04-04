@@ -417,12 +417,15 @@ body {
 
 #qodef-page-header{
     position: relative;
-    display: inline-block;
+    display: contents;
     width: 100%;
     vertical-align: top;
     height: 105px;
     z-index: 100;
-    margin-top: 15px;
+    margin: 0;
+}
+#qodef-page-header.sticky, #qodef-page-mobile-header.sticky{
+    background-color: rgba(148,0,193,0.54);
 }
 
 #qodef-page-header-inner {
@@ -573,6 +576,7 @@ body {
     display: none;
     height: 70px;
     z-index: 100;
+    margin: 0;
 }
 
 #qodef-page-mobile-header-inner {
@@ -1142,7 +1146,7 @@ body, #qodef-page-wrapper {
 
 .sneek_content{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     text-align: left;
     align-content: center;
     font-family: "Sans-serif";
@@ -1378,11 +1382,19 @@ body, #qodef-page-wrapper {
     mix-blend-mode: difference;
     filter: invert(1);
 }
+
 #qodef-back-to-top.qodef--on {
     opacity: 1;
     visibility: visible;
     transition: opacity .3s ease;
 }
+
+#qodef-back-to-top.qodef--off {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .15s ease,visibility 0s .15s;
+}
+
 #qodef-back-to-top.qodef--light:not(.qodef--stamp-btt.qodef-back-to-top-icon) {
     color: #fff;
 }
@@ -1402,7 +1414,7 @@ body, #qodef-page-wrapper {
 }
 .qodef-stamp {
     position: relative;
-    display: inline-block;
+    display: flex;
     vertical-align: top;
     width: 120px;
     height: 120px;
@@ -1416,13 +1428,7 @@ body, #qodef-page-wrapper {
     width: 100%;
     height: 100%;
 }
-.qodef-stamp .qodef-m-text .rotating_chars{
-    position: relative;
-    display: block;
-    height: 100%;
-    animation: qode-rotate-circles 7s linear infinite;
-    color: #fff !important;
-}
+
 .qodef-stamp .qodef-m-centred-icon {
     color: currentColor;
     position: absolute;
@@ -1488,24 +1494,74 @@ body, #qodef-page-wrapper {
     --divider-pattern-size: 20px;
 }
 
-.qodef-stamp .qodef-m-text {
-    position: relative;
-    display: block;
-    height: 100%;
-    animation-duration: 7s;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    animation-name: qode-rotate-circles;
+@keyframes qode-rotate-circles {    
+    0%   {transtion: rotate(0deg);}
+    25%  {transtion: rotate(90deg);}
+    50%  {transtion: rotate(270deg);}
+    100% {transtion: rotate(360deg);}
 }
 
+@-webkit-keyframes rotating /* Safari and Chrome */ 
+{
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+}
 
+@keyframes rotating 
+{
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+}
+.rotating {
+    -webkit-animation: rotating 7s linear infinite;
+    -moz-animation: rotating 7s linear infinite;
+    -ms-animation: rotating 7s linear infinite;
+    -o-animation: rotating 7s linear infinite;
+    animation: rotating 7s linear infinite;
+}
+.qodef-m-text {
+    position: relative;
+    display: block;
+    width: 100%;
+}
 
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed !important;
+    top: 0;
+    width: 100%
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
 
-
+.elementor-toggle-icon{
+    padding-left: 20px;
+    font-size: 18px;
+    color: #fff;
+}
 
 
 
