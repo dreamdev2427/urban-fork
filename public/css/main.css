@@ -11,394 +11,6 @@ body {
     align-items: center;
 }
 
-
-.roadmap_index {
-    width: 70px;
-}
-
-.btn_connect {
-    height: 45px;
-    width: 180px;
-    font-weight: 900;
-    letter-spacing: -2px;
-    padding: none !important;
-    font-family: OpenSans-extraBold !important;
-    /* font-size: 23px !important; */
-}
-
-#section_mint {
-    height: 735px;
-    /* background-image: url(/img/mint.jpg); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.mint_pannel {
-    width: 250px;
-    background-color: #545454;
-    border-radius: 40px;
-    padding: 30px 30px 30px 30px;
-}
-
-.pannel-pattern {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background-color: black;
-    border-radius: 50%;
-}
-
-.pannel-pattern.left-top {
-    left: -80px;
-    top: -80px;
-}
-
-.pannel-pattern.right-top {
-    right: -80px;
-    top: -80px;
-}
-
-.pannel-pattern.left-bottom {
-    left: -80px;
-    bottom: -80px;
-}
-
-.pannel-pattern.right-bottom {
-    right: -80px;
-    bottom: -80px;
-}
-
-.link-twitter {
-    font-size: 30px;
-    color: white;
-}
-
-.link-twitter:active, .link-twitter:focus, .link-twitter:hover {
-    color: #ffbd59;
-}
-
-
-.link-discord {
-    margin-left: 20px;
-    font-size: 30px;
-    color: white;
-}
-
-.link-discord:active, .link-discord:focus, .link-discord:hover {
-    color: #ffbd59;
-}
-
-
-
-
-.btn_roadmap {
-    color: white !important;
-    font-family: OpenSans-Bold !important;
-    padding-right: 10px !important;
-    padding-left: 10px !important;
-    border-radius: 20px;
-}
-
-.btn_collection {
-    color: white !important;
-    font-family: OpenSans-Bold !important;
-    padding-right: 10px !important;
-    padding-left: 10px !important;
-    border-radius: 20px;
-}
-
-.btn_mint {
-    width: 120px;
-    height: 45px;
-    font-size: 30px !important;
-}
-
-#section_clanz {   
-     margin-top: 120px;
-    padding: 25px 80px 90px 80px;
-    /* height: 1650px; */
-}
-
-#section_clanz>.title {
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.clanz_content {
-    display: flex;
-}
-
-.clanz_content>.left {
-    margin-right: 100px;
-}
-
-.team-member {
-    display: flex;
-    padding-right: 210px;
-    padding-left: 210px;
-    justify-content: space-between;
-}
-
-
-
-.roadmap-row {
-    height: 70px;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
-
-
-.mint-title {
-    font-size: 75px;
-    height: 130px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: OpenSans-ExtraBold;
-}
-
-
-.mint-subtitle {
-    font-size: 30px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-
-.contract {
-    height: 160px;
-}
-
-.clanz_buttons {
-    display: flex;
-    margin-top: 100px;
-}
-
-
-#section_footer {
-    padding-right: 80px;
-    padding-left: 80px;
-}
-
-#section_tokenomics_00{
-    display: flex;
-    justify-content: center;    
-    align-items: center;
-}
-
-#section_tokenomics_22 {
-    margin-top: 50px;
-    padding-right: 80px;
-    padding-left: 80px;
-    display: flex;
-    justify-content: center;    
-    align-items: center;
-}
-
-#section_tokenomics_11{
-    padding-right: 80px;
-    padding-left: 80px;
-    display: flex;
-}
-
-#section_tokenomics_33 {
-    display: flex;
-    padding-right: 80px;
-    padding-left: 80px;
-}
-
-.teamrate_explain,
-.airdroprate_explain {
-    width: 50%;
-    margin: 20px;
-}
-
-.staking_explain,
-.growth_explain
-{
-    width: 40%;
-    margin: 20px;    
-    align-items: center;
-}
-
-.middle_empty_area {
-    width: 20%;
-}
-
-.right_image {
-    /* background-image: url(/img/pic.png); */
-    background-image: url(/img/Evo_Bullz.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.half_image_area {
-    /* background-image: url(/img/pic.png); */
-    background-image: url(/img/HalfDevidedCircle.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.stakingpercent_image_area {
-    background-image: url(/img/80percentCircle.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 20px;
-}
-
-.growthchat_image_area {
-    background-image: url(/img/growthchat.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.rhino-item {
-    height: 80px;
-    align-items: center;
-    display: flex;
-    font-size: 40px;
-    font-family: OpenSans-Bold;
-}
-
-.rhino-container {
-    padding: 40px 40px;
-    /* width: 654px; */
-    width: 100%;
-    /* height: 654px; */
-    background: #5ce1e6;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.rhino-container>.right {
-    /* width: 654px; */
-    flex: 1;
-    height: 100%;
-}
-
-.rhino-container>.left {
-
-    height: 500px;
-    width: 500px;
-    /* min-width: 640px; */
-    /* height: 100%; */
-    /* width: calc(100% - 700px); */
-    background-image: url(/img/website.gif);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#section_roadmap {
-    height: fit-content;
-    padding: 25px 80px 90px 80px;
-}
-
-#section_roadmap>.title {
-    font-size: 80px;
-    height: 224px;
-    color: white;
-}
-
-.content-max {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* #section_roadmap > content {
-    max-width: 1200px;
-    margin-right: auto;
-    margin-left: auto;
-} */
-
-.roadmaprow{
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.roadmaprow1{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.yellowpanel {
-    background-color: #ff9a3d;
-    border-radius: 40px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    height: 300px;
-    width: 52%;
-}
-
-.photo_item {
-    width: 186px;
-    height: 186px;
-    border-radius: 93px;
-    background-image: url(/img/pic.png);
-    background-size: cover;
-    background-position: center;
-
-}
-
-#sectoin_team {
-    padding: 0px 80px 90px 80px;
-}
-
-.roadmap_item {
-    height: 45px;
-    width: 70px;
-    background-image: url(/img/icon_normal.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-.roadmap_item>span {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: OpenSans-ExtraBold;
-}
-
-
-.roadmap_item.active {
-    background-image: url(/img/icon_act.png);
-
-}
-
-.roadmap_item>span.active {
-    top: -1px;
-    left: -11px;
-}
-
-
 .font-regular {
     font-family: OpenSans-Light;
 }
@@ -415,6 +27,10 @@ body {
     font-family: OpenSans-Bold;
 }
 
+body{
+    font-family: "Oxanium";
+}
+
 #qodef-page-header{
     position: relative;
     display: contents;
@@ -424,8 +40,10 @@ body {
     z-index: 100;
     margin: 0;
 }
+
 #qodef-page-header.sticky, #qodef-page-mobile-header.sticky{
     background-color: rgba(148,0,193,0.54);
+    transition:  transform .5s ease,top .5s ease;
 }
 
 #qodef-page-header-inner {
@@ -553,14 +171,25 @@ body {
 }
 
 #qodef-page-header-inner.qodef-skin--light nav>ul>li>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>a {
-    font-family: "Aldrich", Sans-serif !important;
-    /* color: #1906d2 !important; */
+    font-family: "Oxanium" !important;
     height: 30%;
     padding: 15px 10px 10px 10px;
     background: rgba(0,255,255,0.1);
     border-radius: 5px;
     text-decoration: none !important;
     font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+#qodef-page-header-inner.qodef-skin--light nav>ul>li>a:hover, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>a:hover {
+    font-family: "Oxanium" !important;
+    height: 30%;
+    padding: 15px 10px 10px 10px;
+    background: rgba(0,255,255,0.3);
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
 }
 
 #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-ancestor>a, #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-item>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-ancestor>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-item>a {
@@ -793,6 +422,11 @@ body {
     width: 100%;
 }
 
+.elementor-heading-title {
+    font-family: "Oxanium";
+    text-transform: uppercase;
+}
+
 .elementor-7794 .elementor-element.elementor-element-1529de6 > .elementor-container > .elementor-row > .elementor-column > .elementor-column-wrap > .elementor-widget-wrap {
     align-content: center;
     align-items: center;
@@ -894,6 +528,8 @@ body {
 
 .cretive-button-text{
     text-decoration: none;
+    user-select: none;
+    text-transform: none;
 }
 
 .elementor-section.elementor-section-stretched {
@@ -910,14 +546,14 @@ body {
 .gradient_buttons> button {
     color: white;
     border-radius: 20px;
-    font-family: "Aldrich", "Sans-serif";
+    font-family: "Oxanium", "Sans-serif";
     font-weight: 600;
 }
 
 .timeline_title{
     text-align: center;
     color: #00cff6 !important;
-    font-family: "Aldrich", "Sans-serif";
+    font-family: "Oxanium";
     font-weight: bold;
     font-size: 40px;
     text-shadow: 0 0 40px #bd3df9;
@@ -1107,7 +743,7 @@ body, #qodef-page-wrapper {
 .sneek_title, .mintingStarttime_title{
     text-align: center;
     color: #00cff6 !important;
-    font-family: "Aldrich", "Sans-serif";
+    font-family: "Oxanium";
     font-weight: bold;
     font-size: 40px;
     text-shadow: 0 0 40px #bd3df9;
@@ -1120,6 +756,7 @@ body, #qodef-page-wrapper {
 .sneek_subtitle{
     color: white;
     font-size: 25px !important;
+    font-family: "Oxanium";
 }
 
 .sneek_content{
@@ -1140,10 +777,9 @@ body, #qodef-page-wrapper {
 
 .sneek_content{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: left;
-    align-content: center;
-    font-family: "Sans-serif";
+    align-content: flex-start;
     font-size: 18px;
 }
 
@@ -1156,7 +792,6 @@ body, #qodef-page-wrapper {
 .golden_time_number{
     padding-top: 10px;
     font-size: 54px;
-    font-family: "Sans-serif";
     font-weight: bold;
     line-height: 1;
     color: #fec503;
@@ -1179,7 +814,6 @@ body, #qodef-page-wrapper {
 
 .insideInfo_text{
     padding: 0 100px 0 100px;
-    font-family: "Sans-serif";
     font-size: 18px;
 }
 
@@ -1245,7 +879,6 @@ body, #qodef-page-wrapper {
 }
 
 .qodef-e-role{    
-    font-family: "sans-serif";
     font-weight: 400;
     color: #fff;
     font-size: 18px;
@@ -1539,11 +1172,12 @@ body, #qodef-page-wrapper {
     width: 100%;
 }
 
+
   /* The sticky class is added to the header with JS when it reaches its scroll position */
   .sticky {
     position: fixed !important;
-    top: 0;
-    width: 100%
+    width: 100%;
+    top: 0px;
   }
   
   /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
@@ -1557,7 +1191,10 @@ body, #qodef-page-wrapper {
     color: #fff;
 }
 
-
+.join_discord_explain{
+    text-align: center;
+    padding: 0 100px 0 100px;
+}
 
 
 

@@ -11,6 +11,11 @@ import { makeStyles } from '@mui/styles';
 import Gallery from "./components/SwiperCarousel";
 import SingleGallery from './components/SingleGallery';
 import FAQList from './components/FaqAccrodian';
+import {
+  ScrollingProvider,
+  useScrollSection,
+  Section,
+} from 'react-scroll-section';
 
 const useStyles = makeStyles({
   aa: {
@@ -18,7 +23,7 @@ const useStyles = makeStyles({
     border: "#000 solid",
     borderRadius: "20px",
     height: "100px",
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background: 'linear-gradient(0deg, #7409A8 0%, #C810BC 100%)',
     color: 'white',
   },
   bb: {
@@ -54,6 +59,15 @@ const useStyles = makeStyles({
     fontFamily: " 'Aldrich' , 'Sans-serif' ",
     fontWeight: "600",
     fontSize: "25px !important",
+  },
+  ff: {
+    width: "20% !important",
+    border: "#000 solid",
+    borderRadius: "20px",
+    height: "70px",
+    background: 'linear-gradient(180deg, #7C00FF 0%, #F229F0 100%)',
+    textDecoration: "none",
+    color: 'white',
   },
 });
 
@@ -229,11 +243,11 @@ function App() {
         </div>
         <div className="elementor-column-gap-default">
 
-          <div className="elementor-element elementor-widget elementor-widget-heading" >
+          <div className="elementor-element elementor-widget-heading" >
             
-            <h3 className="elementor-heading-title elementor-size-medium">Urban Futurists NFT</h3>		
+            <h3 className="elementor-heading-title ">Urban Futurists NFT</h3>		
           </div>          
-          <div className="elementor-element elementor-widget elementor-widget-text-editor" >
+          <div className="elementor-element elementor-widget-text-editor" >
 
             <div className="elementor-text-editor elementor-clearfix">
               <p style={{ textAlign: "center" }} >
@@ -249,7 +263,7 @@ function App() {
           <div className="elementor-element elementor-widget-eael-creative-button" >
             <div className="eael-creative-button-wrapper">
                 <div className="creative-button-inner">
-                  <span className="eael-creative-button-icon-left"><i aria-hidden="true" className="fab fa-discord"></i></span>
+                  <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
                   <span className="cretive-button-text">Join Our Discord</span>
                 </div>
             </div>
@@ -271,6 +285,23 @@ function App() {
       <div className="elementor-divider" >
         <span className="elementor-divider-separator">
         </span>
+      </div>
+  
+      <div className="join_discord_explain" >
+        <span style={{ color: "#ffffff" }} >Hi There NFT Collector,</span>
+        <br></br><br></br>
+        <span style={{ color: "#ffffff" }} >We want you to be apart of our FUTURIST community!</span>
+        <br></br><br></br>
+        <span style={{ color: "#ffffff" }} >Firstly, you get a cool Personal Profile Pic to use on the mint (this will be verified shortly by social media platforms). You’ll get access to real art giveaways, VR giveaways, we’re creating unique merch (our designs are on our avatars) and a community that discusses all things art/future/nfts.</span>
+        <br></br><br></br>
+        <span style={{ color: "#ffffff" }} >We’re on the ground floor. Let’s rise up together.</span>        
+      </div>
+
+      <div className='gradient_buttons' style={{ paddingTop: "0px", paddingBottom: "60px" }}>
+        <Button className={classes.ff}>
+          <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
+          <span className="cretive-button-text">Join Our Discord</span>
+        </Button>
       </div>
 
       <div className='timeline_title' id="timeline">
@@ -570,15 +601,15 @@ function App() {
             </div>
           </div>
           <div className="footer-grid-item">
-            <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">
-              <p >© 2022 Urban Futurists.</p>
-            </div>
-          </div>
-          <div className="footer-grid-item">
             <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
               <p>Support : team (@ ) urbanfuturists.com</p>
             </div>
             <div id="block-16" className="widget widget_block" data-area="qodef-footer-top-area-column-2"><a href="https://raritysniper.com/nft-drops-calendar" style={{ textDecoration: "none" }}>NFT Drops</a></div>
+          </div>
+          <div className="footer-grid-item">
+            <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">
+              <p >© 2022 Urban Futurists.</p>
+            </div>
           </div>
           <div className="footer-grid-item">
             <div id="block-15" className="widget widget_block widget_text" data-area="qodef-footer-top-area-column-4">
