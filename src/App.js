@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     borderRadius: "20px",
     height: "100px",
     background: 'linear-gradient(180deg, #900EB6 0%, #29D3F2 100%)',
-    color: 'white',
+    color: 'white'
   },
   dd: {
     width: "20% !important",
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
     borderRadius: "20px",
     height: "100px",
     background: 'linear-gradient(180deg, #65019C 0%, #F27829 100%)',
-    color: 'white',
+    color: 'white'
   },
   ee: {
     width: "30% !important",
@@ -58,17 +58,16 @@ const useStyles = makeStyles({
     color: 'white !important',
     fontFamily: " 'Aldrich' , 'Sans-serif' ",
     fontWeight: "600",
-    fontSize: "25px !important",
+    fontSize: "25px !important"
   },
   ff: {
-    width: "20% !important",
-    border: "#000 solid",
-    borderRadius: "20px",
+    width: "100% !important",
     height: "70px",
     background: 'linear-gradient(180deg, #7C00FF 0%, #F229F0 100%)',
     textDecoration: "none",
     color: 'white',
-  },
+    borderRadius: "20px"
+  }
 });
 
 function App() {
@@ -76,6 +75,7 @@ function App() {
   const classes = useStyles();
   const mintingStartTime = (new Date("2022/04/16 00:00:00")).getTime();
   const [currentTime, setCurrentTime] = useState(Date.now());
+  const [show2TopButton, setShow2TopButton] = useState(false);
 
   const getLeftDuration = () => {
 
@@ -141,6 +141,12 @@ function App() {
       } else {
         header2.classList.remove("sticky");
       }
+      if(window.pageYOffset > 450)
+      {
+        setShow2TopButton(true);
+      }else{
+        setShow2TopButton(false);
+      }
     }
 
   }, [])
@@ -157,6 +163,18 @@ function App() {
       document.getElementById("qodef-mobile-header-navigation").style.display = "none";
     }
     setShowMobileMenu(!showMobileMenu);
+  }
+
+  const onMOverButton = (buttonId, initialClass) =>
+  {
+    if(!initialClass) document.getElementById(buttonId).className = "gradient_button animated pulse duration2 infinite";
+    else document.getElementById(buttonId).className = initialClass + " gradient_button animated pulse duration2 infinite";
+  }
+
+  const onMLeaveButton = (buttonId, initialClass) =>
+  {
+    if(!initialClass) document.getElementById(buttonId).className = "gradient_button";
+    else document.getElementById(buttonId).className = initialClass;
   }
 
   return (
@@ -261,7 +279,7 @@ function App() {
             </div>
           </div>
           <div className="elementor-element elementor-widget-eael-creative-button" >
-            <div className="eael-creative-button-wrapper">
+            <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh", "eael-creative-button-wrapper") } onMouseLeave={() => onMLeaveButton("hh", "eael-creative-button-wrapper")}>
                 <div className="creative-button-inner">
                   <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
                   <span className="cretive-button-text">Join Our Discord</span>
@@ -275,11 +293,19 @@ function App() {
         <Gallery />
       </div>
 
-      <div className='gradient_buttons' >
-        <Button className={classes.aa}>WL MINT 0.05 ETH</Button>
-        <Button className={classes.bb}>PUBLIC MINT 0.07 ETH</Button>
-        <Button className={classes.cc}>TOTAL SUPPLY 5555 (PHASE 1)</Button>
-        <Button className={classes.dd}>MINT DATE TBD</Button>
+      <div className='gradient_buttons'>
+        <div className='gradient_button' id="aa" onMouseOver={() => onMOverButton("aa") } onMouseLeave={() => onMLeaveButton("aa")} >      
+          <Button className={classes.aa}  >WL MINT 0.05 ETH</Button>
+        </div>
+        <div className='gradient_button' id="bb" onMouseOver={() => onMOverButton("bb") } onMouseLeave={() => onMLeaveButton("bb")} >
+          <Button className={classes.bb}  >PUBLIC MINT 0.07 ETH</Button>
+        </div>
+        <div className='gradient_button' id="cc" onMouseOver={() => onMOverButton("cc") } onMouseLeave={() => onMLeaveButton("cc")} >
+          <Button className={classes.cc}  >TOTAL SUPPLY 5555 (PHASE 1)</Button>
+        </div>
+        <div className='gradient_button' id="dd" onMouseOver={() => onMOverButton("dd") } onMouseLeave={() => onMLeaveButton("dd")} >
+          <Button className={classes.dd}  >MINT DATE TBD</Button>
+        </div>
       </div>
 
       <div className="elementor-divider" >
@@ -297,11 +323,13 @@ function App() {
         <span style={{ color: "#ffffff" }} >We’re on the ground floor. Let’s rise up together.</span>        
       </div>
 
-      <div className='gradient_buttons' style={{ paddingTop: "0px", paddingBottom: "60px" }}>
-        <Button className={classes.ff}>
-          <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
-          <span className="cretive-button-text">Join Our Discord</span>
-        </Button>
+      <div className='join_discord_button_wrapper'>
+        <div className='join_discord_button' id="ii" onMouseOver={() => onMOverButton("ii", "join_discord_button") } onMouseLeave={() => onMLeaveButton("ii", "join_discord_button")} style={{ paddingTop: "0px", paddingBottom: "60px" }} >
+          <Button className={classes.ff}>
+            <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
+            <span className="cretive-button-text">Join Our Discord</span>
+          </Button>
+        </div>
       </div>
 
       <div className='timeline_title' id="timeline">
@@ -619,6 +647,8 @@ function App() {
         </div>
       </div>
 
+      {
+        show2TopButton && 
       <a id="qodef-back-to-top" href="#" className="qodef--stamp-btt qodef--light qodef--on">
         <span className="qodef-back-to-top-icon">
           <span className="qodef-shortcode qodef-m qodef-stamp qodef--appear qodef--init" data-appearing-delay="0">
@@ -657,6 +687,7 @@ function App() {
           </span>
         </span>
       </a>
+      }
 
     </>
 
