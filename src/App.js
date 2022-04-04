@@ -223,7 +223,7 @@ function App() {
         </div>
       </div>
 
-      <section  style={{ position: "relative", width: "100%" , display: "flex", alignContent: "center"}}>
+      <section id="home" style={{ position: "relative", width: "100%" , display: "flex", alignContent: "center"}}>
         <div className="elementor-background-video-container elementor-hidden-phone" >
           <video className="elementor-background-video-hosted elementor-html5-video" autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} ></video>
         </div>
@@ -273,7 +273,7 @@ function App() {
         </span>
       </div>
 
-      <div className='timeline_title'>
+      <div className='timeline_title' id="timeline">
         OUR TIMELINE
       </div>
 
@@ -357,7 +357,7 @@ function App() {
         </span>
       </div>
 
-      <div className='sneek_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
+      <div className='sneek_title' id="sneak" style={{ marginTop: "100px", marginBottom: "30px" }}>
         SNEAK PEEK
       </div>
 
@@ -386,9 +386,10 @@ function App() {
         </span>
       </div>
 
-      <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
+      <div className='mintingStarttime_title' id="mint" style={{ marginTop: "100px", marginBottom: "30px" }}>
         MINT STARTING IN
       </div>
+
       <div className='pink_div_for_time' >
         <div className='golden_time_number' > {getLeftDuration().days()}</div>
         <div className='white_time_number' >Days</div>
@@ -444,7 +445,7 @@ function App() {
         </span>
       </div>
 
-      <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "-30px" }}>
+      <div className='mintingStarttime_title' id="team" style={{ marginTop: "100px", marginBottom: "-30px" }}>
         OUR TEAM
       </div>
 
@@ -555,7 +556,7 @@ function App() {
         </span>
       </div>
 
-      <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>
+      <div className='mintingStarttime_title' id="faqs" style={{ marginTop: "50px", marginBottom: "30px" }}>
         FAQ'S
       </div>
 
