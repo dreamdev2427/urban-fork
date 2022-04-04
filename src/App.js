@@ -131,6 +131,20 @@ function App() {
 
   }, [])
 
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const onClickShowMobileMenu = () =>
+  {
+    if(showMobileMenu)
+    {
+      document.getElementById("qodef-mobile-header-navigation").style.display = "block";
+    }
+    else{
+      document.getElementById("qodef-mobile-header-navigation").style.display = "none";
+    }
+    setShowMobileMenu(!showMobileMenu);
+  }
+
   return (
     <>
       <div className="header" id="qodef-page-header">
@@ -182,7 +196,7 @@ function App() {
           <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="#" rel="home">
             <img width="1000" height="150" src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-3.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
           </a>
-          <a href="javascript:void(0)" className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
+          <a href="javascript:void(0)" onClick={() => onClickShowMobileMenu()} className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
             <span className="qodef-m-icon qodef--open">
               <span className="qodef-m-lines">
                 <span className="qodef-m-line qodef--1"></span>
@@ -196,7 +210,7 @@ function App() {
               </span>
             </span>
           </a>
-          <nav className="qodef-mobile-header-navigation" role="navigation" aria-label="Mobile Menu">
+          <nav className="qodef-mobile-header-navigation" id="qodef-mobile-header-navigation" role="navigation" aria-label="Mobile Menu">
             <ul id="menu-primary-menu-4" className="qodef-content-grid">
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-8087"><a href="#home"><span className="qodef-menu-item-text">Home</span></a></li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-8054"><a href="#timeline"><span className="qodef-menu-item-text">Timeline</span></a></li>
