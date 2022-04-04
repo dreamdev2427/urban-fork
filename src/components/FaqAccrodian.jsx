@@ -4,7 +4,7 @@ import './FaqAccrodianstyles.scss';
 
 const FAQList = () => {
     
-    const [selId, setSelId] = useState(1);
+    const [selId, setSelId] = useState(-1);
     const clickItem = useCallback((index) => {
         if (selId === index) {
             setSelId(-1);
