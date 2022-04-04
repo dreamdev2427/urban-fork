@@ -1,14 +1,60 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Slider from '@mui/material/Slider';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import Web3 from 'web3';
+import { makeStyles } from '@mui/styles';
 import Gallery from "./components/SwiperCarousel";
- 
+import SingleGallery from './components/SingleGallery';
+
+const useStyles = makeStyles({
+  aa: {
+    width: "20% !important",
+    border: "#000 solid",
+    borderRadius: "20px",
+    height: "100px",
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    color: 'white',
+  },
+  bb: {
+    width: "20% !important",
+    border: "#000 solid",
+    borderRadius: "20px",
+    height: "100px",
+    background: 'linear-gradient(180deg, #541113 0%, #4729F2 100%)',
+    color: 'white',
+  },
+  cc: {
+    width: "20% !important",
+    border: "#000 solid",
+    borderRadius: "20px",
+    height: "100px",
+    background: 'linear-gradient(180deg, #900EB6 0%, #29D3F2 100%)',
+    color: 'white',
+  },
+  dd: {
+    width: "20% !important",
+    border: "#000 solid",
+    borderRadius: "20px",
+    height: "100px",
+    background: 'linear-gradient(180deg, #65019C 0%, #F27829 100%)',
+    color: 'white',
+  },
+  ee: {
+    width: "30% !important",
+    height: "70px",
+    borderRadius: "0 !important",
+    background: 'linear-gradient(180deg, #29D3F2 0%, #900EB6 100%)',
+    color: 'white !important',
+    fontFamily: " 'Aldrich' , 'Sans-serif' ",
+    fontWeight: "600",
+    fontSize: "25px !important",
+  },
+});
 
 const connectTheme = createTheme({
   palette: {
@@ -33,18 +79,6 @@ const loadmapTheme = createTheme({
     }
   }
 })
-
-
-const marks = [
-  {
-    value: 0,
-    label: '0',
-  },
-  {
-    value: 20,
-    label: '20',
-  }
-];
 
 const PrettoSlider = styled(Slider)({
   color: '#ff9a3d',
@@ -90,29 +124,8 @@ const web3 = new Web3();
 
 function App() {
 
-  const [count, setCount] = useState(5);
-  const [account, setAccount] = useState();
+  const classes = useStyles();
 
-  const handleChange = (event, newValue) => {
-    setCount(newValue);
-  };
-
-  const connectWallet = async () => {
-    // var web3 = new Web3(web3)
-    await window.ethereum.enable();
-    // const provider = Web3.providers.HttpProvider(config.testNetUrl);
-    const web3 = new Web3(Web3.givenProvider);
-    web3.eth.getAccounts((err, accounts) => {
-      setAccount(accounts[0]);
-      console.log("account", accounts[0]);
-    })
-  }
-
-  const onMint = () => {
-    NotificationManager.info('Please connect wallet', "", 2000);
-  }
-
-  
   return (
     <>
       <header id="qodef-page-header">
@@ -134,7 +147,7 @@ function App() {
             <div className="widget widget_block" data-area="social-icons-sidebar">
               <p>
                 <a href="#">
-                  <img src="https://urbanfuturists.com/wp-content/uploads/2022/03/Logomark-Transparent-White.png" alt="" width="22px" className="wp-image-8095 osicon eds-on-hover" />
+                  <img src="./img/Logomark-Transparent-White.png" alt="" width="22px" className="wp-image-8095 osicon eds-on-hover" />
                 </a>
               </p>
             </div>
@@ -241,246 +254,468 @@ function App() {
       </div>
 
       <div className='gradient_buttons' >
-        <button className='aa' >
-          <div >
-            WL MINT 0.05 ETH
-          </div>
-        </button>
-        <button  className='bb' >
-          <div>
-            WL MINT 0.05 ETH
-          </div>
-        </button>
-        <button  className='cc' >
-          <div>
-            WL MINT 0.05 ETH
-          </div>
-        </button>
-        <button  className='dd' >
-          <div>
-            WL MINT 0.05 ETH
-          </div>
-        </button>
+        <Button className={classes.aa}>WL MINT 0.05 ETH</Button>
+        <Button className={classes.bb}>PUBLIC MINT 0.07 ETH</Button>
+        <Button className={classes.cc}>TOTAL SUPPLY 5555 (PHASE 1)</Button>
+        <Button className={classes.dd}>MINT DATE TBD</Button>
       </div>
 
-      <div className='header padder-50' style={{ justifyContent: "flex-end" }}>
-        <ThemeProvider theme={connectTheme}>
-          <Button variant="contained" color="primary" className="btn_connect" onClick={connectWallet}>Connect Wallet</Button>
-        </ThemeProvider>
+      <div className="elementor-divider" >
+			<span className="elementor-divider-separator">
+				</span>
+		  </div>
+
+      <div className='timeline_title'>
+        OUR TIMELINE
       </div>
-      <div id='section_mint'>
-        <div style={{ marginBottom: "20px" }}>
-          <div className='mint-title' >
-            Evo Bullz
-          </div>
-          <div className='mint-subtitle'>
-            333 Bullz on the Cronos Chain
-          </div>
-        </div>
-        <div className="minting_panel_out_borderdiv"
-          style={{
-            width: "85%",
-            display: "flex",
-            flexWrap: "wrap",
-            background: "#ff9a3d",
-            padding: "25px",
-            position: "relative"
-          }}>
-          <div className="pannel-pattern left-top">
 
-          </div>
-          <div className="pannel-pattern right-top">
+      <div className="twae-vertical twae-wrapper twae-one-sided-wrapper">
+        <div className="twae-timeline-centered twae-timeline-sm twae-line twae-one-sided-timeline">
+          <article className="twae-timeline-entry twae-right-aligned">
+            <div className="twae-timeline-entry-inner">
+              <div className="twae-label-extra-label">
+                <span className="twae-label">Phase 1</span>
+                <span className="twae-extra-label">February/March, 2022</span>
+              </div>
+              <div className="twae-icon"><i aria-hidden="true" className="fas fa-brain"></i></div>
+              <div className="twae-data-container ">
+                <span className="twae-title">NFT Art Design</span>
 
-          </div>
-          <div className="pannel-pattern left-bottom">
-
-          </div>
-          <div className="pannel-pattern right-bottom">
-
-          </div>
-          <div className='mint_pannel'
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-around"
-            }}>
-            <div className="NFT_image_preview" style={{ justifyContent: "flex-end" }} >
-              <img src="/img/Asset 1.png" alt="/" width="100%" height="100%" ></img>
-            </div>
-            <div className="control_mint_panel" style={{ justifyContent: "flex-start" }}>
-              <div className='c-w fs-60 h-60 flex align-center justify-center noto-bold font-bold'>
-                0°  /  333
-              </div>
-              <div className='c-w h-50 fs-20 flex align-center noto-bold font-bold'>
-                minted
-              </div>
-              <div className='c-w h-70 fs-32 flex align-center noto-bold font-bold'>
-                Price: {count * 50} CRO
-              </div>
-              <div className='flex flex-col align-center justify-center h-100' >
-                <PrettoSlider
-                  valueLabelDisplay="auto"
-                  aria-label="pretto slider"
-                  defaultValue={3}
-                  min={1}
-                  max={10}
-                  value={count}
-                  onChange={handleChange}
-                />
-                <div className='flex w-full justify-between'>
-                  <span className='c-w fs-20 noto-bold font-extraBold'>1</span>
-                  <span className='c-w fs-15 flex1'></span>
-                  <span className='c-w fs-20 noto-bold font-extraBold'>10</span>
-                </div>
-              </div>
-              <div className='flex justify-center'>
-                <ThemeProvider theme={mintTheme}>
-                  <Button className='btn_mint font-bold' style={{ color: "white" }} variant='contained'>MINT</Button>
-                </ThemeProvider>
+                <div className="twae-description"><p>Art Generation and Branding with emphasis on Art x Future.<br></br>Launch Website, Twitter, Discord, Community Development.</p></div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div id='section_clanz' >
-
-        <div className='title fs-40 c-w noto-bold font-extraBold'>
-          Evo Bullz NFT
-        </div>
-        <div className='clanz_content content-max'>
-          <div className='left flex flex-col flex1'>
-            <p className='fs-20 c-w'>
-              Evo Bullz is a project that firmly believes in the Cronos
-              Chain. We want to built an exclusive community around this
-              project.
-              Our goal is to grow together, bringing value to the
-              ecosystem and its owners.<p></p>
-              We are open to collaboration and we want to include the
-              owners in the growth and management of the project.
-              In our plans there are staking, governance tokens and DAO,
-              read more in the roadmaps.
-            </p>
-            <div className='clanz_buttons'>
-              <ThemeProvider theme={loadmapTheme}>
-                <Button variant="contained" color="primary" className='btn_roadmap'>
-                  <a href='#section_roadmap' style={{ width: "100%", height: "100%", color: "white", textDecoration: "none" }}>
-                    See Roadmaps
-                  </a>
-                </Button>
-              </ThemeProvider>
-              <div style={{ width: "80px" }}>
-
+          </article>
+          <article className="twae-timeline-entry twae-right-aligned">
+            <div className="twae-timeline-entry-inner">
+              <div className="twae-label-extra-label">
+                <span className="twae-label">Phase 2 </span>
+                <span className="twae-extra-label">April 2022</span>
               </div>
-              <ThemeProvider theme={loadmapTheme}>
-                <Button variant="contained" color="primary" className='btn_collection' >View Collection</Button>
-              </ThemeProvider>
-            </div>
-          </div>
-          <div className='right'>
-            <div className="right_image">
-            </div>
-          </div>
-        </div>
-        <div style={{ background: "white", height: "2px", marginTop: "100px", marginBottom: "100px" }}>
+              <div className="twae-icon"><i aria-hidden="true" className="far fa-object-group"></i></div>
+              <div className="twae-data-container ">
+                <span className="twae-title">Mint Launch</span>
 
-        </div>
-      </div>
+                <div className="twae-description"><p>Successful First Mint ( 5555 @ 0.05 ETH For Whitelisted &amp;&nbsp; 0.07 ETH Public Sale).<br></br>Secondary Market Listing – Opensea, Rarity Sniper.</p></div>
+              </div>
+            </div>
+          </article>
+          <article className="twae-timeline-entry twae-right-aligned">
+            <div className="twae-timeline-entry-inner">
+              <div className="twae-label-extra-label">
+                <span className="twae-label">Perks &amp; Benefits</span>
+                <span className="twae-extra-label">May, 2022</span>
+              </div>
+              <div className="twae-icon"><i aria-hidden="true" className="fa fa-rocket"></i></div>
+              <div className="twae-data-container ">
+                <span className="twae-title">After Successful Mint</span>
 
-      <div id="section_tokenomics_mobile" style={{ display: "none" }}>
-        <div className='airdroprate_explain' >
-          <div className='fs-20 c-w'>
-            The part destined for the team will be used for development and marketing.
-          </div>
-        </div>
-      </div>
-      <div id="section_tokenomics_00">
-        <div id="team_rate" className='title fs-40 c-w noto-bold font-extraBold'>
-          Team<br></br>&nbsp;&nbsp;50%
-        </div>
-        <div className='half_image_area' >
-        </div>
-        <div id="airdrop_rate" className='title fs-40 c-w noto-bold font-extraBold'>
-          Airdrop<br></br>&nbsp;&nbsp;&nbsp;&nbsp;50%
-        </div>
-      </div>
-      <div id="section_tokenomics_11" >
-        <div className='teamrate_explain' >
-          <div className='fs-20 c-w'>
-            The part destined for the team will be used for development and marketing.
-          </div>
-        </div>
-        <div className='airdroprate_explain' >
-          <div className='fs-20 c-w'>
-            A big part of the minting proceeds will be <strong>airdropped
-              to the holder</strong> who have not listed their Bullz in the first
-            month. This as a reward for believing in us, only Gen 0
-            will have such a great return for its owners.
-          </div>
-        </div>
-      </div>
-      <div id="section_tokenomics_22" >
-        <div className='staking_explain' style={{ display: "flex", flexDirection: "column" }}>
-          <div className='stakingpercent_image_area'>
-          </div>
-          <div className=" fs-30 c-w noto-bold font-extraBold" style={{ textAlign: "center" }} >Staking</div>
-          <div className='fs-20 c-w'>
-            Staking will return the 80% of the royalties to the stakers, every week, and further on, in our own token.
-          </div>
-        </div>
-        <div className='middle_empty_area'></div>
-        <div className='growth_explain' style={{ display: "flex", flexDirection: "column" }}>
-          <div className='growthchat_image_area' >
-          </div>
-          <div className=" fs-30 c-w noto-bold font-extraBold" style={{ textAlign: "center" }} >Growth</div>
-          <div className='fs-20 c-w'>
-            There will be an increase in the value of these NFTs with the increase of the volumes traded on the Cronos Chain.
-          </div>
+                <div className="twae-description"><p>We welcome holders of the NFT to the Urban Futurists community. We encourage you to use the NFT as your personal profile picture. Our sole aim is to increase the worth of the NFT. For early ‘flippers’ we’ll allocate a % to maintain the floor price of the NFT on secondary sales (if required).</p><p>To our loyal followers, we’re hosting give aways of Oculus Quest 2 VR’s and giveaways of art and weekly merchandise from our store to retain our membership. We’ll start commencing plans for the purchase of land on the metaverse and an online gallery.<br></br><br></br>Any profits from our merchandise shop will go straight into the DAO which the community owns.</p><p>We believe in karma – do good and good things will come to you. We’ll make a charity donation to an arts based charity of 5%. We’ll discuss this with our membership but we already have 2 children’s charities in mind that assist children recover from trauma with drawing and painting programs and are in hospitals.</p><p>As our floor grows we aim to release Phase 2. Only those who are holders of the NFT will be able to access at a discount an NFT for Phase 2.</p></div>
+              </div>
+            </div>
+          </article>
+          <article className="twae-timeline-entry twae-right-aligned">
+            <div className="twae-timeline-entry-inner">
+              <div className="twae-label-extra-label">
+                <span className="twae-label">Phase 3</span>
+                <span className="twae-extra-label">June, 2022</span>
+              </div>
+              <div className="twae-icon"><i aria-hidden="true" className="fa fa-brush"></i></div>
+              <div className="twae-data-container ">
+                <span className="twae-title">The Second Mint</span>
+
+                <div className="twae-description"><p>( More than 0.1 ETH). Price To Be Determined.</p><p>We will purchase land in the metaverse and establish an online store where Art meets Future fashion. We’ll sell Art, Clothing, Custom Wearables, Accessories with 80% of royalties going into DAO. Many of our designs will be featured on the avatars in Mint Phase 2.<br></br>We’ll explore collaborations with major brands that are in our existing network and past clients.</p></div>
+              </div>
+            </div>
+          </article>
+          <article className="twae-timeline-entry twae-right-aligned">
+            <div className="twae-timeline-entry-inner">
+              <div className="twae-label-extra-label">
+                <span className="twae-label">Phase 4</span>
+                <span className="twae-extra-label">August, 2022</span>
+              </div>
+              <div className="twae-icon"><i aria-hidden="true" className="fa fa-infinity"></i></div>
+              <div className="twae-data-container ">
+                <span className="twae-title">More Mints</span>
+
+                <div className="twae-description"><p>Just like successful other mints before us: BAYC, Azuki, WOW – other opportunities present themselves through partnerships. We’ll discuss with our community any ideas that will help raise the value of the NFT.</p></div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
 
-      <div id='section_roadmap'>
-        <div style={{ background: "white", height: "2px", marginTop: "100px", marginBottom: "10px" }}></div>
-        <div className='title flex align-center justify-center c-black noto-bold font-extraBold'>
-          Roadmap
+      <div className="elementor-divider" >
+			<span className="elementor-divider-separator">
+				</span>
+		  </div>
+
+      <div className='sneek_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
+        SNEAK PEEK
+      </div>
+
+      <div className='sneek_content ' style={{ marginLeft: "100px", marginRight: "100px" }} >
+        <div className='colMD7' >
+          <div className='sneek_subtitle'>
+            <h4>EXCLUSIVE SUCCESS</h4>
+          </div>
+          <div className='sneek_content' >
+            Urban Futurists is a community with an exciting roadmap. Being a member provides you with one of our hand drawn Urban Futurists NFT but also the community benefits, giveaways and preferred status for our metaverse plans into Phase 2. Join us today and get in on this ground floor opportunity.
+          </div>
+          <div className='sneek_subtitle'>
+            <h4>MINT GIVEAWAY</h4>
+          </div>
+          <div className='sneek_content' >
+            If you mint 5, we’ll send you a shirt, cap, or mask from our merchandise shop welcoming you into our community.
+          </div>
         </div>
-        <div className='content m-t-50 content-max'>
-          <div className='roadmaprow' >
-            <div className='yellowpanel '>
+        <div className='colMD5' >
+          <SingleGallery />
+        </div>
+      </div>
+
+      <div className="elementor-divider" >
+			<span className="elementor-divider-separator">
+				</span>
+		  </div>
+
+      <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
+        MINT STARTING IN
+      </div>
+
+      <div className='pink_div_for_time' >
+        <div className='golden_time_number' > 26 </div>
+        <div className='white_time_number' >Days</div>
+      </div>
+      <div className='pink_div_for_time' >
+        <div className='golden_time_number' > 11 </div>
+        <div className='white_time_number' >Hours</div>
+      </div>
+      <div className='pink_div_for_time' >
+        <div className='golden_time_number' > 10 </div>
+        <div className='white_time_number' >Minutes</div>
+      </div>
+      <div className='pink_div_for_time' >
+        <div className='golden_time_number' > 31 </div>
+        <div className='white_time_number' >Seconds</div>
+      </div>
+
+      <div className='mint_button' >
+        <Button className={classes.ee}>Mint</Button>
+      </div>
+
+      <div className="elementor-divider" >
+			<span className="elementor-divider-separator">
+				</span>
+		  </div>
+      
+      <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
+        INSIDE INFO
+      </div>
+      <div className="insideInfo_text">
+        <p style={{ textAlign: "center" }} ><span style={{ color: "#ffffff" }} >Urban Futurists is the conceptualization from Speed Painter and Entertainer, Brad Blaze. He thought of a world combining the type of art he is known to produce on stage (he uses traditional mediums of paints / brushes) and what could happen in the future.</span>
+          <br></br><br></br>
+          <span style={{ color: "#ffffff" }} >The missing piece of the puzzle came together with the arrival of realistic Virtual Reality and the metaverse. Brad is already honing his skills to release a specific virtual reality show which will tie in with the successful launch of this NFT series. </span>
+          <br></br><br></br>
+          <span style={{ color: "#ffffff" }} >He wondered when art would meet the future. The time is NOW.</span></p>
+
+      </div>
+      <div className="elementor-social-icons-wrapper elementor-grid">
+        <span className="elementor-grid-item">
+          <a className="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-6269d4a" href="https://www.facebook.com/bradblazeartist" target="_blank">
+            <i className="fab fa-facebook"></i>
+          </a>
+        </span>
+        <span className="elementor-grid-item">
+          <a className="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-23a71bb" href="https://twitter.com/bradblaze" target="_blank">
+            <i className="fab fa-twitter"></i>
+          </a>
+        </span>
+        <span className="elementor-grid-item">
+          <a className="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-4f79941" href="https://www.instagram.com/wittypainter/" target="_blank">
+            <i className="fab fa-instagram"></i>
+          </a>
+        </span>
+      </div>
+
+      <div className="elementor-divider" >
+			<span className="elementor-divider-separator">
+				</span>
+		  </div>
+
+      <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "-30px" }}>
+        OUR TEAM
+      </div>
+
+      <div className="qodef-grid-inner ">
+        <div className="qodef-e qodef-grid-item post-2396 team type-team status-publish has-post-thumbnail hentry team-category-team">
+          <div className="qodef-e-inner">
+            <div className="qodef-e-image">
+              <div className="qodef-e-media-image">
+                <img loading="lazy" width="300" height="300" src="./img/c1-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" />			</div>
+            </div>
+            <div className="qodef-e-content">
+              <h6 itemProp="name" className="qodef-e-title entry-title">
+                Brad Blaze	</h6>
+              <p className="qodef-e-role">Artist &amp; Speed Painter</p>
+              <div className="qodef-team-member-social-icons">
+                <a className="qodef-team-member-social-icon" href="https://www.instagram.com/wittypainter/" target="_blank">
+                  <span className="qodef-icon-font-awesome fab fa-instagram-square"></span>					</a>
+                <a className="qodef-team-member-social-icon" href="https://twitter.com/bradblaze" target="_blank">
+                  <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
+                <a className="qodef-team-member-social-icon" href="https://www.facebook.com/bradblazeartist" target="_blank">
+                  <span className="qodef-icon-font-awesome fab fa-facebook-square"></span>					</a>
+              </div>
             </div>
           </div>
-          <div className='roadmaprow1'
-          >
-            <div className='yellowpanel'>
+        </div>
+        <div className="qodef-e qodef-grid-item post-2395 team type-team status-publish has-post-thumbnail hentry team-category-team">
+          <div className="qodef-e-inner">
+            <div className="qodef-e-image">
+              <div className="qodef-e-media-image">
+                <img width="300" height="300" src="./img/c3-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" loading="lazy" />			</div>
+            </div>
+            <div className="qodef-e-content">
+              <h6 itemProp="name" className="qodef-e-title entry-title">
+                Raheel Javed	</h6>
+              <p className="qodef-e-role">Web Dev &amp; Smart Contracts</p>
+              <div className="qodef-team-member-social-icons">
+                <a className="qodef-team-member-social-icon" href="https://twitter.com/GxXxXxX3XXxxXX1" target="_blank">
+                  <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
+              </div>
             </div>
           </div>
-          <div className='roadmaprow' >
-            <div className='yellowpanel '>
+        </div>
+        <div className="qodef-e qodef-grid-item post-8829 team type-team status-publish has-post-thumbnail hentry team-category-team">
+          <div className="qodef-e-inner">
+            <div className="qodef-e-image">
+              <div className="qodef-e-media-image">
+                <img width="300" height="300" src="./img/c4-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" loading="lazy" />			</div>
+            </div>
+            <div className="qodef-e-content">
+              <h6 itemProp="name" className="qodef-e-title entry-title">
+                Evobelle	</h6>
+              <p className="qodef-e-role">Community Moderator</p>
+              <div className="qodef-team-member-social-icons">
+                <a className="qodef-team-member-social-icon" href="https://twitter.com/evo_belle" target="_blank">
+                  <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="qodef-e qodef-grid-item post-8840 team type-team status-publish has-post-thumbnail hentry team-category-team">
+          <div className="qodef-e-inner">
+            <div className="qodef-e-image">
+              <div className="qodef-e-media-image">
+                <img width="300" height="300" src="./img/c5-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" loading="lazy" />			</div>
+            </div>
+            <div className="qodef-e-content">
+              <h6 itemProp="name" className="qodef-e-title entry-title">
+                Bobby	</h6>
+              <p className="qodef-e-role">Community Moderator</p>
+              <div className="qodef-team-member-social-icons">
+                <a className="qodef-team-member-social-icon" href="https://twitter.com/xxWRGxx" target="_blank">
+                  <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="section_footer">
-        <div style={{ background: "white", height: "2px" }}></div>
-        <div className='contract flex flex-col justify-around align-center'>
-          <div className='c-w fs-50 noto-bold font-extraBold'>
-            Contract Address
-          </div>
-          <div className='c-w fs-30'>
-            0x000000000000000000000000000000000000
-          </div>
+      <div className="elementor-divider" >
+			<span className="elementor-divider-separator">
+				</span>
+		  </div>
+
+      <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>
+        WHO WE ARE
+      </div>
+
+      <div className='whoWeAre_blocks' >
+        <div className='whoWeAre_block'>
+          <h4 style={{ textAlign: "justify" }} >
+            <span style={{ color: "#00cff6" }} >
+              <strong><span style={{ fontFamily: "Oxanium" }} >Brad Blaze</span></strong>
+            </span>
+          </h4>
+          <p style={{ textAlign: "justify" }} >
+            <span style={{ color: "#ffffff", fontSize: "12pt" }} >World renowned artist and entertainer is in high demand performing at Corporate and Special Events in over 20 countries. </span></p><p style={{ textAlign: "justify" }}><span style={{ color: "#ffffff", fontSize: "12pt" }} >Has painted four world leaders live onstage at events and celebrities such as Chris Hemsworth and Tiger Woods. He has raised over $3 million dollars for charities.</span></p><p style={{ textAlign: "justify" }} ><span style={{ color: "#ffffff", fontSize: "12pt" }} >Has a passion for art and technology, with NFT’s providing the perfect platform to merge the two.</span>
+          </p>
         </div>
-        <div style={{ background: "white", height: "2px" }}></div>
-        <div className='h-220 link flex flex-col align-center justify-center'>
-          <div>
-            <img className='m-r-40' src='/img/twitter.png'></img>
-            <img src='/img/discord.png'></img>
+        <div className='whoWeAre_block'>
+          <h4>
+            <span style={{ fontFamily: "Oxanium", color: "#00cff6" }} >
+              <strong>Raheel Javed</strong>
+            </span>
+          </h4>
+          <p style={{ textAlign: "justify" }} ><span style={{ fontSize: "12pt" }} ><span style={{ color: "#ffffff" }} >Full time freelance Designer &amp; Developer. Working with tech since Web 2.0. Thousands of websites and design projects done.</span></span></p>
+          <p style={{ textAlign: "justify" }} ><span style={{ fontSize: "12pt" }} ><span style={{ color: "#ffffff" }} >Working experience of Java, Python, Php, React. Moving &amp; Learning Web3 technologies, dapps &amp; Smart Contracts.</span></span></p>
+          <p style={{ textAlign: "justify" }} ><span style={{ color: "#ffffff", fontSize: "12pt" }} >Always excited for new projects and new technologies to further improve the User Experience online.</span></p>
+        </div>
+      </div>
+
+      <div className="elementor-divider" >
+			<span className="elementor-divider-separator">
+				</span>
+		  </div>
+
+      <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>
+        FAQ'S
+      </div>
+
+      <div style={{ margin: "0 100px 100px 100px" }}>
+        <div className="elementor-toggle" role="tablist">
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6921" className="elementor-tab-title" data-tab="1" role="tab" aria-controls="elementor-tab-content-6921" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">When Will Urban Futurists Officially Launch?</a>
+            </div>
+            <div id="elementor-tab-content-6921" className="elementor-tab-content elementor-clearfix" data-tab="1" role="tabpanel" aria-labelledby="elementor-tab-title-6921"><p>Urban Futurists will officially launch on the TBD with a price of 0.5 ETH (Whitelisted) &amp; 0.07 ETH (Public Sale). Please make sure you don’t miss the launch by joining our Discord and Twitter. We will notify you when the project officially goes live.</p></div>
           </div>
-          <div className='c-w fs-24 flex align-center text-center m-t-20'>
-            Evo Bullz<br />© 2022
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6922" className="elementor-tab-title" data-tab="2" role="tab" aria-controls="elementor-tab-content-6922" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">Where Will The Funding From NFT’s Be Put To Use?</a>
+            </div>
+            <div id="elementor-tab-content-6922" className="elementor-tab-content elementor-clearfix" data-tab="2" role="tabpanel" aria-labelledby="elementor-tab-title-6922"><p style={{ textAlign: "justify" }} >The funds raised from the launch of Urban Futurists are detailed in our roadmap with the Virtual Symposium being planned immediately, the charitable component being distributed and funding for art and tech ventures being decided by the community. Further developments include an online shop with profits going into the DAO. This will only make your NFT worth more and ensure more people the desire to own one of the exclusive Urban Futurists.</p></div>
+          </div>
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6923" className="elementor-tab-title" data-tab="3" role="tab" aria-controls="elementor-tab-content-6923" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">Can I Earn Money With My Urban Futurist NFT?</a>
+            </div>
+            <div id="elementor-tab-content-6923" className="elementor-tab-content elementor-clearfix" data-tab="3" role="tabpanel" aria-labelledby="elementor-tab-title-6923"><p style={{ textAlign: "justify" }} >Yes. We are absolutely committed to ensuring your NFT gains as much value as possible by strongly investing in the community and following our roadmap.</p></div>
+          </div>
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6924" className="elementor-tab-title" data-tab="4" role="tab" aria-controls="elementor-tab-content-6924" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">How Do I Know If This Project Is In Good Hands?</a>
+            </div>
+            <div id="elementor-tab-content-6924" className="elementor-tab-content elementor-clearfix" data-tab="4" role="tabpanel" aria-labelledby="elementor-tab-title-6924"><p style={{ textAlign: "justify" }} >Great question. Unlike many NFT’s that are made by the anonymous, this project is driven by Brad Blaze, already a successful artist and entertainer who has turned over millions of dollars from his art ventures.</p><p style={{ textAlign: "justify" }} >Already in high demand and believing in this project so much, he is altering his performances with Virtual Reality performances at live events. There will be a particular emphasis on NFT growth and this project in his new keynote.</p></div>
+          </div>
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6925" className="elementor-tab-title" data-tab="5" role="tab" aria-controls="elementor-tab-content-6925" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">On Which Blockchain Will Urban Futurists Be Hosted?</a>
+            </div>
+            <div id="elementor-tab-content-6925" className="elementor-tab-content elementor-clearfix" data-tab="5" role="tabpanel" aria-labelledby="elementor-tab-title-6925"><p style={{ textAlign: "justify" }} >Urban Futurists is hosted on the Ethereum Blockchain. We chose this blockchain because of its security and decentralization. Ethereum gives an easy way to verify who owns the NFT.</p></div>
+          </div>
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6926" className="elementor-tab-title" data-tab="6" role="tab" aria-controls="elementor-tab-content-6926" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">How many pieces will be sold ?</a>
+            </div>
+            <div id="elementor-tab-content-6926" className="elementor-tab-content elementor-clearfix" data-tab="6" role="tabpanel" aria-labelledby="elementor-tab-title-6926"><p>Total Supply – 5555 NFTs</p><p>Presale WL –&nbsp; 0.05 ETH&nbsp;<br></br>Public Sale –&nbsp; 0.07 ETH&nbsp;</p><p>Whitelist Spot – 2000<br></br>Giveaways – 200 pieces</p><p>Whales, Partners, Influencers – 100 pieces</p></div>
+          </div>
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6927" className="elementor-tab-title" data-tab="7" role="tab" aria-controls="elementor-tab-content-6927" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">How do I get on the Whitelist?</a>
+            </div>
+            <div id="elementor-tab-content-6927" className="elementor-tab-content elementor-clearfix" data-tab="7" role="tabpanel" aria-labelledby="elementor-tab-title-6927"><p>Please check the whitelist info on our Discord. It will be regularly updated.</p></div>
+          </div>
+          <div className="elementor-toggle-item">
+            <div id="elementor-tab-title-6928" className="elementor-tab-title" data-tab="8" role="tab" aria-controls="elementor-tab-content-6928" aria-expanded="false">
+              <span className="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+                <span className="elementor-toggle-icon-closed"><i className="fas fa-caret-right"></i></span>
+                <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
+              </span>
+              <a href="" className="elementor-toggle-title">Is there a limit to mint?</a>
+            </div>
+            <div id="elementor-tab-content-6928" className="elementor-tab-content elementor-clearfix" data-tab="8" role="tabpanel" aria-labelledby="elementor-tab-title-6928"><p>Yes there will be a limit of 2 ‘Urban Futurists NFT’ per wallet during WL mint and a limit of 5 per wallet during the public sale.</p></div>
           </div>
         </div>
       </div>
+
+      <div id="qodef-page-footer-top-area">
+        <div className="footer-innner ">
+            <div className="footer-grid-item">
+              <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">
+               
+                    <img className="wp-image-7723" style={{ marginTop: "0px" }} src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-1.png" alt="" width="200px" />
+                  
+              </div>
+            </div>
+            <div className="footer-grid-item">
+              <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">
+               
+                  <div style={{ fontSize: "17px", lineHeight: "31px", marginLeft: "40px" }} >© 2022 Urban Futurists.</div>
+             
+              </div>
+            </div>
+            <div className="footer-grid-item">
+              <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
+                <p>Support : team (@ ) urbanfuturists.com</p>
+              </div>
+              <div id="block-16" className="widget widget_block" data-area="qodef-footer-top-area-column-2"><a href="https://raritysniper.com/nft-drops-calendar" style={{textDecoration: "none"}}>NFT Drops</a></div>
+            </div>
+            <div className="footer-grid-item">
+              <div id="block-15" className="widget widget_block widget_text" data-area="qodef-footer-top-area-column-4">
+                <p>All Rights Reserved.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <a id="qodef-back-to-top" href="#" className="qodef--stamp-btt qodef--light qodef--on">
+        <span className="qodef-back-to-top-icon">
+          <span className="qodef-shortcode qodef-m qodef-stamp qodef--appear qodef--init" data-appearing-delay="0">
+            <span className="qodef-m-text rotating_chars" data-count="24">
+              <span className="qodef-m-character" style={{ transform: "rotate(-90deg) translateZ(0px)", transitionDelay: "0ms" }}>B</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(-75deg) translateZ(0px)", transitionDelay: "0ms" }}>a</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(-60deg) translateZ(0px)", transitionDelay: "0ms" }}>c</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(-45deg) translateZ(0px)", transitionDelay: "0ms" }}>k</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(-30deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
+              <span className="qodef-m-character" style={{ transform: "rotate(-15deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(0deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(15deg) translateZ(0px)",transitionDelay: "0ms" }}> </span>
+              <span className="qodef-m-character" style={{ transform: "rotate(30deg) translateZ(0px)",transitionDelay: "0ms" }}>T</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(45deg) translateZ(0px)",transitionDelay: "0ms" }}>o</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(60deg) translateZ(0px)",transitionDelay: "0ms" }}>p</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(75deg) translateZ(0px)",transitionDelay: "0ms" }}> </span>
+              <span className="qodef-m-character" style={{ transform: "rotate(90deg) translateZ(0px)",transitionDelay: "0ms" }}>B</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(105deg) translateZ(0px)", transitionDelay: "0ms" }}>a</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(120deg) translateZ(0px)", transitionDelay: "0ms" }}>c</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(135deg) translateZ(0px)", transitionDelay: "0ms" }}>k</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(150deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
+              <span className="qodef-m-character" style={{ transform: "rotate(165deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(180deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(195deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
+              <span className="qodef-m-character" style={{ transform: "rotate(210deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(225deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(240deg) translateZ(0px)", transitionDelay: "0ms" }}>p</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(255deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
+            </span>
+            <span className="qodef-m-centred-icon qodef-icon-arrow-up">
+              <svg xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" width="28" height="18" viewBox="0 0 28 18" >
+                <path d="M27.6,8.5c-5.5,0-9.5-8.1-9.5-8.2C17.9,0,17.7,0,17.5,0.1c-0.2,0.1-0.3,0.4-0.1,0.7c0.1,0.3,2.7,5.5,6.7,7.7H0.4C0.2,8.5,0,8.7,0,9c0,0.3,0.2,0.5,0.4,0.5h23.7c-4,2.2-6.6,7.4-6.7,7.7c-0.1,0.2,0,0.5,0.1,0.7c0.2,0.1,0.4,0.1,0.6-0.2c0-0.1,4.1-8.2,9.5-8.2C27.8,9.5,28,9.3,28,9C28,8.7,27.8,8.5,27.6,8.5z"></path>
+                <path d="M27.6,8.5c-5.5,0-9.5-8.1-9.5-8.2C17.9,0,17.7,0,17.5,0.1c-0.2,0.1-0.3,0.4-0.1,0.7c0.1,0.3,2.7,5.5,6.7,7.7H0.4C0.2,8.5,0,8.7,0,9c0,0.3,0.2,0.5,0.4,0.5h23.7c-4,2.2-6.6,7.4-6.7,7.7c-0.1,0.2,0,0.5,0.1,0.7c0.2,0.1,0.4,0.1,0.6-0.2c0-0.1,4.1-8.2,9.5-8.2C27.8,9.5,28,9.3,28,9C28,8.7,27.8,8.5,27.6,8.5z"></path>
+              </svg>
+            </span>
+          </span>
+        </span>
+      </a>
+
     </>
 
   );
