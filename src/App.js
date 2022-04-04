@@ -75,10 +75,10 @@ function App() {
     var sec = 0;
 
     if (diff > 0) {
-      day = Math.floor(diff / 3600 / 24); 
-      hr = Math.floor((diff / 3600 ) - day*24);
-      min = Math.floor((diff / 60) - day*24*60 - hr*60 );
-      sec = Math.floor(diff - 24*3600*day - 3600 * hr - 60 * min);
+      day = Math.floor(diff / 3600 / 24);
+      hr = Math.floor((diff / 3600) - day * 24);
+      min = Math.floor((diff / 60) - day * 24 * 60 - hr * 60);
+      sec = Math.floor(diff - 24 * 3600 * day - 3600 * hr - 60 * min);
     } else if (!isNaN(diff) && diff <= 0) {
       // update banner list when this item's auction time is ended
       // getNftBannerList(5)(dispatch);
@@ -99,22 +99,22 @@ function App() {
     return { hours, minutes, seconds, days }
   }
 
-  useEffect(() =>{
+  useEffect(() => {
 
-    setInterval(() =>{
+    setInterval(() => {
       setCurrentTime(Date.now());
     }, 1000);
 
-    window.onscroll = function() {myFunction()};
+    window.onscroll = function () { myFunction() };
 
     // Get the header
     var header = document.getElementById("qodef-page-header");
     var header2 = document.getElementById("qodef-page-mobile-header");
-    
+
     // Get the offset position of the navbar
     var sticky = header.offsetTop;
     var sticky2 = header2.offsetTop;
-    
+
     // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
       if (window.pageYOffset > sticky) {
@@ -128,7 +128,7 @@ function App() {
         header2.classList.remove("sticky");
       }
     }
-    
+
   }, [])
 
   return (
@@ -209,51 +209,38 @@ function App() {
         </div>
       </div>
 
-      <section data-marvy_enable_drop_animation="false" data-marvy_enable_fancy_rotate="false" data-marvy_enable_flying_object="false" data-marvy_enable_ripples_animation="false" data-marvy_enable_waves_animation="false" data-marvy_enable_rings_animation="false" data-marvy_enable_topology_animation="false" data-marvy_enable_gradient_animation="false" data-marvy_enable_snow_animation="true" data-marvy_snow_animation_count="200" data-marvy_snow_animation_size="10" data-marvy_snow_animation_color="#ffffff" data-marvy_snow_animation_shadow_color="#FFFFFF" data-marvy_snow_animation_shadow_size="10" data-marvy_enable_firework_animation="false" className="elementor-section elementor-top-section elementor-element elementor-element-1529de6 elementor-section-full_width elementor-section-stretched elementor-section-content-middle elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle qodef-elementor-content-no marvy-snow-animtion-section marvy-custom-snow-section-1529de6" data-id="1529de6" data-element_type="section" id="home" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/urbanfuturists.com\/wp-content\/uploads\/2022\/03\/BANNER2.mp4&quot;}" style={{ position: "relative", width: "100%" }}>
+      <section  style={{ position: "relative", width: "100%" , display: "flex", alignContent: "center"}}>
         <div className="elementor-background-video-container elementor-hidden-phone" >
           <video className="elementor-background-video-hosted elementor-html5-video" autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} ></video>
         </div>
-        <div className="elementor-container elementor-column-gap-default" style={{ zIndex: "99", width: "100%", position: "absolute", left: "0px", top: "0px", alignContent: "center", alignItems: "center" }}>
-          <div className="elementor-row">
-            <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a338f7f" data-id="a338f7f" data-element_type="column">
-              <div className="elementor-column-wrap elementor-element-populated">
-                <div className="elementor-widget-wrap">
-                  <div className="elementor-element elementor-element-1c82ef5 elementor-widget elementor-widget-heading" data-id="1c82ef5" data-element_type="widget" data-widget_type="heading.default">
-                    <div className="elementor-widget-container">
-                      <h3 className="elementor-heading-title elementor-size-medium">Urban Futurists NFT</h3>		</div>
-                  </div>
-                  <div className="elementor-element elementor-element-cebe92c elementor-widget elementor-widget-text-editor" data-id="cebe92c" data-element_type="widget" data-widget_type="text-editor.default">
-                    <div className="elementor-widget-container">
-                      <div className="elementor-text-editor elementor-clearfix">
-                        <p style={{ textAlign: "center" }} >
-                          <strong>
-                            <span style={{ fontFamily: "Oxanium" }} >Where Art Meets The Future.</span>
-                          </strong>
-                        </p>
-                        <p style={{ textAlign: "center" }} >
-                          <strong>A Collection Of 5555 Hand Drawn Avatars.</strong>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="elementor-element elementor-element-22850e7 eds-on-hover elementor-widget elementor-widget-eael-creative-button" data-id="22850e7" data-element_type="widget" data-widget_type="eael-creative-button.default">
-                    <div className="elementor-widget-container">
-                      <div className="eael-creative-button-wrapper">
-                        <a className="eael-creative-button eael-creative-button--default" href="#" data-text="">
-                          <div className="creative-button-inner">
-                            <span className="eael-creative-button-icon-left"><i aria-hidden="true" className="fab fa-discord"></i></span>
-                            <span className="cretive-button-text">Join Our Discord</span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+        <div className="elementor-column-gap-default">
+
+          <div className="elementor-element elementor-widget elementor-widget-heading" >
+            
+            <h3 className="elementor-heading-title elementor-size-medium">Urban Futurists NFT</h3>		
+          </div>          
+          <div className="elementor-element elementor-widget elementor-widget-text-editor" >
+
+            <div className="elementor-text-editor elementor-clearfix">
+              <p style={{ textAlign: "center" }} >
+                <strong>
+                  <span style={{ fontFamily: "Oxanium" }} >Where Art Meets The Future.</span>
+                </strong>
+              </p>
+              <p style={{ textAlign: "center" }} >
+                <strong>A Collection Of 5555 Hand Drawn Avatars.</strong>
+              </p>
+            </div>
+          </div>
+          <div className="elementor-element elementor-widget-eael-creative-button" >
+            <div className="eael-creative-button-wrapper">
+                <div className="creative-button-inner">
+                  <span className="eael-creative-button-icon-left"><i aria-hidden="true" className="fab fa-discord"></i></span>
+                  <span className="cretive-button-text">Join Our Discord</span>
                 </div>
-              </div>
             </div>
           </div>
         </div>
-        <div className="marvy-snow-1529de6"></div>
       </section>
 
       <div style={{ padding: "20px", background: "#7002da" }} >
@@ -268,9 +255,9 @@ function App() {
       </div>
 
       <div className="elementor-divider" >
-			<span className="elementor-divider-separator">
-				</span>
-		  </div>
+        <span className="elementor-divider-separator">
+        </span>
+      </div>
 
       <div className='timeline_title'>
         OUR TIMELINE
@@ -352,9 +339,9 @@ function App() {
       </div>
 
       <div className="elementor-divider" >
-			<span className="elementor-divider-separator">
-				</span>
-		  </div>
+        <span className="elementor-divider-separator">
+        </span>
+      </div>
 
       <div className='sneek_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
         SNEAK PEEK
@@ -381,9 +368,9 @@ function App() {
       </div>
 
       <div className="elementor-divider" >
-			<span className="elementor-divider-separator">
-				</span>
-		  </div>
+        <span className="elementor-divider-separator">
+        </span>
+      </div>
 
       <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
         MINT STARTING IN
@@ -407,7 +394,7 @@ function App() {
       <div className='mint_button' >
         <Button className={classes.ee}>Mint</Button>
       </div>
-      
+
       <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
         INSIDE INFO
       </div>
@@ -439,9 +426,9 @@ function App() {
       </div>
 
       <div className="elementor-divider" >
-			<span className="elementor-divider-separator">
-				</span>
-		  </div>
+        <span className="elementor-divider-separator">
+        </span>
+      </div>
 
       <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "-30px" }}>
         OUR TEAM
@@ -550,9 +537,9 @@ function App() {
       </div>
 
       <div className="elementor-divider" >
-			<span className="elementor-divider-separator">
-				</span>
-		  </div>
+        <span className="elementor-divider-separator">
+        </span>
+      </div>
 
       <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>
         FAQ'S
@@ -562,27 +549,27 @@ function App() {
 
       <div id="qodef-page-footer-top-area">
         <div className="footer-innner ">
-            <div className="footer-grid-item">
-              <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">               
-                <img className="wp-image-7723" style={{ marginTop: "0px" }} src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-1.png" alt="" width="200px" />                  
-              </div>
+          <div className="footer-grid-item">
+            <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">
+              <img className="wp-image-7723" style={{ marginTop: "0px" }} src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-1.png" alt="" width="200px" />
             </div>
-            <div className="footer-grid-item">
-              <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">               
-                  <div style={{ fontSize: "17px", lineHeight: "31px", marginLeft: "40px" }} >© 2022 Urban Futurists.</div>             
-              </div>
+          </div>
+          <div className="footer-grid-item">
+            <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">
+              <p >© 2022 Urban Futurists.</p>
             </div>
-            <div className="footer-grid-item">
-              <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
-                <p>Support : team (@ ) urbanfuturists.com</p>
-              </div>
-              <div id="block-16" className="widget widget_block" data-area="qodef-footer-top-area-column-2"><a href="https://raritysniper.com/nft-drops-calendar" style={{textDecoration: "none"}}>NFT Drops</a></div>
+          </div>
+          <div className="footer-grid-item">
+            <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
+              <p>Support : team (@ ) urbanfuturists.com</p>
             </div>
-            <div className="footer-grid-item">
-              <div id="block-15" className="widget widget_block widget_text" data-area="qodef-footer-top-area-column-4">
-                <p>All Rights Reserved.</p>
-              </div>
+            <div id="block-16" className="widget widget_block" data-area="qodef-footer-top-area-column-2"><a href="https://raritysniper.com/nft-drops-calendar" style={{ textDecoration: "none" }}>NFT Drops</a></div>
+          </div>
+          <div className="footer-grid-item">
+            <div id="block-15" className="widget widget_block widget_text" data-area="qodef-footer-top-area-column-4">
+              <p>All Rights Reserved.</p>
             </div>
+          </div>
         </div>
       </div>
 
@@ -597,12 +584,12 @@ function App() {
               <span className="qodef-m-character" style={{ transform: "rotate(-30deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
               <span className="qodef-m-character" style={{ transform: "rotate(-15deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
               <span className="qodef-m-character" style={{ transform: "rotate(0deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
-              <span className="qodef-m-character" style={{ transform: "rotate(15deg) translateZ(0px)",transitionDelay: "0ms" }}> </span>
-              <span className="qodef-m-character" style={{ transform: "rotate(30deg) translateZ(0px)",transitionDelay: "0ms" }}>T</span>
-              <span className="qodef-m-character" style={{ transform: "rotate(45deg) translateZ(0px)",transitionDelay: "0ms" }}>o</span>
-              <span className="qodef-m-character" style={{ transform: "rotate(60deg) translateZ(0px)",transitionDelay: "0ms" }}>p</span>
-              <span className="qodef-m-character" style={{ transform: "rotate(75deg) translateZ(0px)",transitionDelay: "0ms" }}> </span>
-              <span className="qodef-m-character" style={{ transform: "rotate(90deg) translateZ(0px)",transitionDelay: "0ms" }}>B</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(15deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
+              <span className="qodef-m-character" style={{ transform: "rotate(30deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(45deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(60deg) translateZ(0px)", transitionDelay: "0ms" }}>p</span>
+              <span className="qodef-m-character" style={{ transform: "rotate(75deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
+              <span className="qodef-m-character" style={{ transform: "rotate(90deg) translateZ(0px)", transitionDelay: "0ms" }}>B</span>
               <span className="qodef-m-character" style={{ transform: "rotate(105deg) translateZ(0px)", transitionDelay: "0ms" }}>a</span>
               <span className="qodef-m-character" style={{ transform: "rotate(120deg) translateZ(0px)", transitionDelay: "0ms" }}>c</span>
               <span className="qodef-m-character" style={{ transform: "rotate(135deg) translateZ(0px)", transitionDelay: "0ms" }}>k</span>
@@ -616,7 +603,7 @@ function App() {
               <span className="qodef-m-character" style={{ transform: "rotate(255deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
             </span>
             <span className="qodef-m-centred-icon qodef-icon-arrow-up">
-              <svg xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" width="28" height="18" viewBox="0 0 28 18" >
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="18" viewBox="0 0 28 18" >
                 <path d="M27.6,8.5c-5.5,0-9.5-8.1-9.5-8.2C17.9,0,17.7,0,17.5,0.1c-0.2,0.1-0.3,0.4-0.1,0.7c0.1,0.3,2.7,5.5,6.7,7.7H0.4C0.2,8.5,0,8.7,0,9c0,0.3,0.2,0.5,0.4,0.5h23.7c-4,2.2-6.6,7.4-6.7,7.7c-0.1,0.2,0,0.5,0.1,0.7c0.2,0.1,0.4,0.1,0.6-0.2c0-0.1,4.1-8.2,9.5-8.2C27.8,9.5,28,9.3,28,9C28,8.7,27.8,8.5,27.6,8.5z"></path>
                 <path d="M27.6,8.5c-5.5,0-9.5-8.1-9.5-8.2C17.9,0,17.7,0,17.5,0.1c-0.2,0.1-0.3,0.4-0.1,0.7c0.1,0.3,2.7,5.5,6.7,7.7H0.4C0.2,8.5,0,8.7,0,9c0,0.3,0.2,0.5,0.4,0.5h23.7c-4,2.2-6.6,7.4-6.7,7.7c-0.1,0.2,0,0.5,0.1,0.7c0.2,0.1,0.4,0.1,0.6-0.2c0-0.1,4.1-8.2,9.5-8.2C27.8,9.5,28,9.3,28,9C28,8.7,27.8,8.5,27.6,8.5z"></path>
               </svg>

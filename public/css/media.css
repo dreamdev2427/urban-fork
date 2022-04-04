@@ -1,57 +1,13 @@
-@media (max-width: 1200px) {
-    #qodef-page-header {
-        display: block;
-    }
-    #qodef-page-mobile-header {
-        display: none;
-    }
-    .right_image,
-    .growthchat_image_area {
-        width: 320px;
-        height: 340px;
-    }
-    
-    .half_image_area,
-    .stakingpercent_image_area{
-        width: 320px;
-        height: 320px;
-    }
-    .header{
-        margin-bottom: 50px;
-    }
-    #section_mint{
-        margin-top: 100px;
-    }
-}
-
-@media (max-width: 1600px) {
-    #qodef-page-header {
-        display: block;
-    }
-    #qodef-page-mobile-header {
-        display: none;
-    }
-    .right_image,
-    .growthchat_image_area {
-        width: 360px;
-        height: 390px;
-    }
-    
-    .half_image_area,
-    .stakingpercent_image_area{
-        width: 360px;
-        height: 360px;
-    }
-
-    .header{
-        margin-bottom: 50px;
-    }
-    #section_mint{
-        margin-top: 100px;
-    }
-}
 
 @media (max-width: 1980px) {
+    .elementor-heading-title {
+        padding-top: 6%;
+        font-size: 56px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 32px;        
+    }
     #qodef-page-header {
         display: block;
     }
@@ -81,7 +37,106 @@
     }
 }
 
+
+@media (max-width: 1600px) {
+    .elementor-heading-title {
+        padding-top: 3%;
+        font-size: 52px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 28px;        
+    }
+    #qodef-page-header {
+        display: block;
+    }
+    #qodef-page-mobile-header {
+        display: none;
+    }
+    .right_image,
+    .growthchat_image_area {
+        width: 360px;
+        height: 390px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 360px;
+        height: 360px;
+    }
+
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .elementor-heading-title {
+        font-size: 34px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 22px;        
+    }
+    .elementor-heading-title {
+        font-size: 36px;
+        font-weight: bold;
+    }
+    #qodef-page-header {
+        display: block;
+    }
+    #qodef-page-mobile-header {
+        display: none;
+    }
+    .right_image,
+    .growthchat_image_area {
+        width: 320px;
+        height: 340px;
+    }
+    
+    .half_image_area,
+    .stakingpercent_image_area{
+        width: 320px;
+        height: 320px;
+    }
+    .header{
+        margin-bottom: 50px;
+    }
+    #section_mint{
+        margin-top: 100px;
+    }
+}
+
 @media (max-width: 1024px) {
+    .elementor-heading-title {
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 20px;        
+    }
+    .gradient_buttons{
+        flex-direction: column;
+    }
+    .gradient_buttons>button {
+        width: 100% !important;
+        margin: 10px;
+    }
+    .sneek_content {
+        flex-direction: column;
+    }
+    .sneek_content> * {
+        width: 100%;
+    }
+    .whoWeAre_block{
+        width: 100%;
+    }
+    .footer-grid-item{
+        width: 50%;
+    }
     #qodef-page-header {
         display: none;
     }
@@ -248,6 +303,57 @@
 }
 
 @media (max-width: 850px) {
+    .elementor-heading-title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 18px;        
+    }
+    .twae-timeline-entry-inner .twae-data-container, .twae-timeline-centered .twae-timeline-entry.twae-left-aligned .twae-timeline-entry-inner .twae-data-container {
+        margin-left: 54px !important;
+    }
+    .twae-timeline-centered.twae-one-sided-timeline:before, .twae-timeline-centered:after {
+        left: 20px !important;
+    }
+    .twae-timeline-entry-inner {
+        margin-left: 0;
+        position: relative !important;
+    }
+    .twae-timeline-entry-inner .twae-icon {
+        width: 40px !important;
+        height: 40px !important;
+        line-height: 28px !important;
+        margin-left: 0 !important;
+        font-size: 18px!important;
+    }
+    .twae-label-extra-label {
+        position: relative !important;
+        left: 0;
+        text-align: left;
+        display: inline-block;
+        width: 100%;
+        padding-left: 54px;
+    }
+    .gradient_buttons{
+        flex-direction: column;
+    }
+    .gradient_buttons>button {
+        width: 100% !important;
+        margin: 10px;
+    }
+    .sneek_content {
+        flex-direction: column;
+    }
+    .sneek_content> * {
+        width: 100%;
+    }
+    .whoWeAre_block{
+        width: 100%;
+    }
+    .footer-grid-item{
+        width: 50%;
+    }
     #qodef-page-header {
         display: none;
     }
@@ -296,6 +402,32 @@
 }
 
 @media (max-width: 700px) {
+    .elementor-heading-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 16px;        
+    }
+    .gradient_buttons{
+        flex-direction: column;
+    }
+    .gradient_buttons>button {
+        width: 100% !important;
+        margin: 10px;
+    }
+    .sneek_content {
+        flex-direction: column;
+    }
+    .sneek_content> * {
+        width: 100%;
+    }
+    .whoWeAre_block{
+        width: 100%;
+    }
+    .footer-grid-item{
+        width: 50%;
+    }
     #qodef-page-header {
         display: none;
     }
@@ -362,8 +494,36 @@
 
 }
 
-
 @media (max-width: 600px) {
+    .eael-creative-button-wrapper{
+        padding: 7px;
+    }
+    .elementor-heading-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 16px;        
+    }
+    .gradient_buttons{
+        flex-direction: column;
+    }
+    .gradient_buttons>button {
+        width: 100% !important;
+        margin: 10px;
+    }
+    .sneek_content {
+        flex-direction: column;
+    }
+    .sneek_content> * {
+        width: 100%;
+    }
+    .whoWeAre_block{
+        width: 100%;
+    }
+    .footer-grid-item{
+        width: 50%;
+    }
     #qodef-page-header {
         display: none;
     }
@@ -417,6 +577,29 @@
 }
 
 @media (max-width: 550px) {
+    .eael-creative-button-wrapper{
+        padding: 3px;
+    }
+    .elementor-heading-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 16px;        
+    }
+    .gradient_buttons{
+        flex-direction: column;
+    }
+    .gradient_buttons>button {
+        width: 100% !important;
+        margin: 10px;
+    }
+    .whoWeAre_block{
+        width: 100%;
+    }
+    .footer-grid-item{
+        width: 50%;
+    }
     #qodef-page-header {
         display: none;
     }
@@ -537,6 +720,35 @@
 }
 
 @media (max-width: 450px) {
+    .eael-creative-button-wrapper{
+        padding: 1px;
+    }
+    .elementor-heading-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 14px;        
+    }
+    .gradient_buttons{
+        flex-direction: column;
+    }
+    .gradient_buttons>button {
+        width: 100% !important;
+        margin: 10px;
+    }
+    .sneek_content {
+        flex-direction: column;
+    }
+    .sneek_content> * {
+        width: 100%;
+    }
+    .whoWeAre_block{
+        width: 100%;
+    }
+    .footer-grid-item{
+        width: 50%;
+    }
     #qodef-page-header {
         display: none;
     }
@@ -651,6 +863,35 @@
 }
 
 @media (max-width: 370px) {
+    .eael-creative-button-wrapper{
+        padding: 1px;
+    }
+    .elementor-heading-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .elementor-text-editor{
+        font-size: 14px;        
+    }
+    .gradient_buttons{
+        flex-direction: column;
+    }
+    .gradient_buttons>button {
+        width: 100% !important;
+        margin: 10px;
+    }
+    .sneek_content {
+        flex-direction: column;
+    }
+    .sneek_content> * {
+        width: 100%;
+    }
+    .whoWeAre_block{
+        width: 100%;
+    }
+    .footer-grid-item{
+        width: 50%;
+    }
     #qodef-page-header {
         display: none;
     }
