@@ -6320,6 +6320,8 @@ body, #qodef-page-wrapper {
     visibility: visible;
     z-index: 10000;
     color: #fff;
+    cursor: pointer;
+    user-select: none;
 }
 #qodef-back-to-top> *{
     color: #fff;
