@@ -74,7 +74,7 @@ const StaticMenus = () =>
 {
   const homeSection = useScrollSection('home');
   const timelineSection = useScrollSection('timeline');
-  const sneakSection = useScrollSection('sneak');
+  const stakeSection = useScrollSection('stake');
   const mintSection = useScrollSection('mint');
   const faqsSection = useScrollSection('faqs');
   const teamSection = useScrollSection('team');
@@ -120,9 +120,9 @@ const StaticMenus = () =>
                 <span className="qodef-menu-item-text">Timeline</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
-                onClick={sneakSection.onClick} selected={sneakSection.selected}
+                onClick={stakeSection.onClick} selected={stakeSection.selected}
               >
-                <span className="qodef-menu-item-text">Sneak Peek</span>
+                <span className="qodef-menu-item-text">Stake</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={mintSection.onClick} selected={mintSection.selected}
@@ -211,9 +211,9 @@ const StaticMenus = () =>
                 <span className="qodef-menu-item-text">Timeline</span>
               </li>
               <li className="menu-item menu-item-type-custom "
-                onClick={sneakSection.onClick} selected={sneakSection.selected}
+                onClick={stakeSection.onClick} selected={stakeSection.selected}
               >
-                <span className="qodef-menu-item-text">Sneak Peek</span>
+                <span className="qodef-menu-item-text">Stake</span>
               </li>
               <li className="menu-item menu-item-type-custom "
                 onClick={mintSection.onClick} selected={mintSection.selected}
@@ -505,13 +505,13 @@ function App() {
 
         </Section>
 
-        <Section id="sneak" style={{ marginTop: "100px", marginBottom: "30px" }}>
-          <div className='sneek_title' >SNEAK PEEK</div>
+        <Section id="stake" style={{ marginTop: "100px", marginBottom: "30px" }}>
+          <div className='sneek_title' >STAKE</div>
 
           <div className='sneek_content ' style={{ marginLeft: "100px", marginRight: "100px" }} >
             <div className='colMD7' >
               <div className='sneek_subtitle'>
-                <h4>EXCLUSIVE SUCCESS</h4>
+                <h4>COMING SOON</h4>
               </div>
               <div className='sneek_content' >
                 Urban Futurists is a community with an exciting roadmap. Being a member provides you with one of our hand drawn Urban Futurists NFT but also the community benefits, giveaways and preferred status for our metaverse plans into Phase 2. Join us today and get in on this ground floor opportunity.
