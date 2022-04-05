@@ -70,15 +70,163 @@ const useStyles = makeStyles({
   }
 });
 
+const StaticMenus = () => 
+{
+  const homeSection = useScrollSection('home');
+  const timelineSection = useScrollSection('timeline');
+  const sneakSection = useScrollSection('sneak');
+  const mintSection = useScrollSection('mint');
+  const faqsSection = useScrollSection('faqs');
+  const teamSection = useScrollSection('team');
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const onClickShowMobileMenu = () => {
+    if (showMobileMenu) {
+      document.getElementById("qodef-mobile-header-navigation").style.display = "block";
+    }
+    else {
+      document.getElementById("qodef-mobile-header-navigation").style.display = "none";
+    }
+    setShowMobileMenu(!showMobileMenu);
+  }
+
+  return (
+    <>
+       <div className="header" id="qodef-page-header">
+        <div id="qodef-page-header-inner" className=" qodef-skin--light">
+          <span className="qodef-header-logo-link " >
+            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main"  />
+          </span>
+          <nav className="qodef-header-navigation" >
+            <ul id="menu-primary-menu-1" className="menu">
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={homeSection.onClick} selected={homeSection.selected}
+              >
+                <span className="qodef-menu-item-text">Home</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={timelineSection.onClick} selected={timelineSection.selected}
+              >
+                <span className="qodef-menu-item-text">Timeline</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={sneakSection.onClick} selected={sneakSection.selected}
+              >
+                <span className="qodef-menu-item-text">Sneak Peek</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={mintSection.onClick} selected={mintSection.selected}
+              >
+                <span className="qodef-menu-item-text">Mint</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={teamSection.onClick} selected={teamSection.selected}
+              >
+                <span className="qodef-menu-item-text">Our Team</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={faqsSection.onClick} selected={faqsSection.selected}
+              >
+                <span className="qodef-menu-item-text">FAQ’s</span>
+              </li>
+            </ul>
+          </nav>
+          <div className="qodef-widget-holder qodef--one">
+            <div className="widget widget_block" data-area="social-icons-sidebar">
+              <p>
+                <a href="#">
+                  <img src="./Logomark-Transparent-White.png" alt="" width="22px" className="wp-image-8095 osicon eds-on-hover" />
+                </a>
+              </p>
+            </div>
+            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
+              <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal" style={{ margin: "2" }} >
+                <a href="https://discord.gg/urbanfuturists" rel="noopener noreferrer" >
+                  <span className="qodef-icon-font-awesome fab fa-discord qodef-icon qodef-e" style={{ color: "white" }} ></span>
+                </a>
+              </span>
+            </div>
+            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
+              <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal">
+                <a href="https://twitter.com/FuturistsNft" rel="noopener noreferrer" >
+                  <span className="qodef-icon-font-awesome fab fa-twitter qodef-icon qodef-e" style={{ color: "white", fontSize: "22px" }}></span>
+                </a>
+              </span>
+            </div>
+            <div className="widget widget_block" data-area="social-icons-sidebar">
+              <ul className="wp-container-6247692e5b96d wp-block-social-links"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className='header' id="qodef-page-mobile-header">
+        <div id="qodef-page-mobile-header-inner" className="">
+          <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="#" rel="home">
+            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
+          </a>
+          <a href="javascript:void(0)" onClick={() => onClickShowMobileMenu()} className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
+
+          {/* <a href="javascript:void(0)" className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener"> */}
+            <span className="qodef-m-icon qodef--open">
+              <span className="qodef-m-lines">
+                <span className="qodef-m-line qodef--1"></span>
+                <span className="qodef-m-line qodef--2"></span>
+              </span>
+            </span>
+            <span className="qodef-m-icon qodef--close">
+              <span className="qodef-m-lines">
+                <span className="qodef-m-line qodef--1"></span>
+                <span className="qodef-m-line qodef--2"></span>
+              </span>
+            </span>
+          </a>
+          <nav className="qodef-mobile-header-navigation" id="qodef-mobile-header-navigation" role="navigation" aria-label="Mobile Menu">
+            <ul id="menu-primary-menu-4" className="qodef-content-grid">
+              <li className="menu-item menu-item-type-custom "
+                onClick={homeSection.onClick} selected={homeSection.selected}
+              >
+                <span className="qodef-menu-item-text">Home</span>
+              </li>
+              <li className="menu-item menu-item-type-custom "
+                onClick={timelineSection.onClick} selected={timelineSection.selected}
+              >
+                <span className="qodef-menu-item-text">Timeline</span>
+              </li>
+              <li className="menu-item menu-item-type-custom "
+                onClick={sneakSection.onClick} selected={sneakSection.selected}
+              >
+                <span className="qodef-menu-item-text">Sneak Peek</span>
+              </li>
+              <li className="menu-item menu-item-type-custom "
+                onClick={mintSection.onClick} selected={mintSection.selected}
+              >
+                <span className="qodef-menu-item-text">Mint</span>
+              </li>
+              <li className="menu-item menu-item-type-custom "
+                onClick={teamSection.onClick} selected={teamSection.selected}
+              >
+                <span className="qodef-menu-item-text">Our Team</span>
+              </li>
+              <li className="menu-item menu-item-type-custom "
+                onClick={faqsSection.onClick} selected={faqsSection.selected}
+              >
+                <span className="qodef-menu-item-text">FAQ’s</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </>
+  )
+}
+
 function App() {
 
   const classes = useStyles();
   const mintingStartTime = (new Date("2022/04/16 00:00:00")).getTime();
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
-
-  const homeSection = useScrollSection('home');
-  const teamSection = useScrollSection('team');
 
   const getLeftDuration = () => {
 
@@ -153,18 +301,6 @@ function App() {
 
   }, [])
 
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  const onClickShowMobileMenu = () => {
-    if (showMobileMenu) {
-      document.getElementById("qodef-mobile-header-navigation").style.display = "block";
-    }
-    else {
-      document.getElementById("qodef-mobile-header-navigation").style.display = "none";
-    }
-    setShowMobileMenu(!showMobileMenu);
-  }
-
   const onMOverButton = (buttonId, initialClass) => {
     if (!initialClass) document.getElementById(buttonId).className = "gradient_button animated pulse duration2 infinite";
     else document.getElementById(buttonId).className = initialClass + " gradient_button animated pulse duration2 infinite";
@@ -181,107 +317,14 @@ function App() {
 
   const onMLeaveMintButton = (buttonId) => {
     document.getElementById(buttonId).className = "mint_button";
-    
+
   }
 
   return (
     <>
-      <ScrollingProvider offset={100} debounceDelay={500} scrollBehavior='smooth' >
-        <div className="header" id="qodef-page-header">
-          <div id="qodef-page-header-inner" className=" qodef-skin--light">
-            <a className="qodef-header-logo-link qodef-height--set qodef-source--image" href="#" rel="home">
-              <img width="1000" height="150" src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-3.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" />
-            </a>
-            <nav className="qodef-header-navigation" role="navigation" aria-label="Top Menu">
-              <ul id="menu-primary-menu-1" className="menu">
-                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item " onClick={homeSection.onClick} selected={homeSection.selected} >
-                  <a href="#home">
-                    <span className="qodef-menu-item-text">Home</span>
-                  </a>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "><a href="#timeline"><span className="qodef-menu-item-text">Timeline</span></a></li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "><a href="#sneak"><span className="qodef-menu-item-text">Sneak Peek</span></a></li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "><a href="#mint"><span className="qodef-menu-item-text">Mint</span></a></li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item " onClick={teamSection.onClick} selected={teamSection.selected} >
-                  <a href="#team">
-                    <span className="qodef-menu-item-text">Our Team</span>
-                  </a>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "><a href="#faqs"><span className="qodef-menu-item-text">FAQ’s</span></a></li>
-              </ul>
-            </nav>
-            <div className="qodef-widget-holder qodef--one">
-              <div className="widget widget_block" data-area="social-icons-sidebar">
-                <p>
-                  <a href="#">
-                    <img src="./img/Logomark-Transparent-White.png" alt="" width="22px" className="wp-image-8095 osicon eds-on-hover" />
-                  </a>
-                </p>
-              </div>
-              <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
-                <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal" style={{ margin: "2" }} >
-                  <a href="https://discord.gg/urbanfuturists" rel="noopener noreferrer" >
-                    <span className="qodef-icon-font-awesome fab fa-discord qodef-icon qodef-e" style={{ color: "white" }} ></span>
-                  </a>
-                </span>
-              </div>
-              <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
-                <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal">
-                  <a href="https://twitter.com/FuturistsNft" rel="noopener noreferrer" >
-                    <span className="qodef-icon-font-awesome fab fa-twitter qodef-icon qodef-e" style={{ color: "white", fontSize: "22px" }}></span>
-                  </a>
-                </span>
-              </div>
-              <div className="widget widget_block" data-area="social-icons-sidebar">
-                <ul className="wp-container-6247692e5b96d wp-block-social-links"></ul>
-              </div>
-            </div>
-          </div>
-        </div>
+      <ScrollingProvider  offset={-200} >
 
-        <div className='header' id="qodef-page-mobile-header">
-          <div id="qodef-page-mobile-header-inner" className="">
-            <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="#" rel="home">
-              <img width="1000" height="150" src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-3.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
-            </a>
-            <a href="javascript:void(0)" onClick={() => onClickShowMobileMenu()} className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
-              <span className="qodef-m-icon qodef--open">
-                <span className="qodef-m-lines">
-                  <span className="qodef-m-line qodef--1"></span>
-                  <span className="qodef-m-line qodef--2"></span>
-                </span>
-              </span>
-              <span className="qodef-m-icon qodef--close">
-                <span className="qodef-m-lines">
-                  <span className="qodef-m-line qodef--1"></span>
-                  <span className="qodef-m-line qodef--2"></span>
-                </span>
-              </span>
-            </a>
-            <nav className="qodef-mobile-header-navigation" id="qodef-mobile-header-navigation" role="navigation" aria-label="Mobile Menu">
-              <ul id="menu-primary-menu-4" className="qodef-content-grid">
-                <li className="menu-item menu-item-type-custom " onClick={homeSection.onClick} selected={homeSection.selected}>
-                  <a href="#home"><span className="qodef-menu-item-text">Home</span></a>
-                </li>
-                <li className="menu-item menu-item-type-custom ">
-                  <a href="#timeline"><span className="qodef-menu-item-text">Timeline</span></a>
-                </li>
-                <li className="menu-item menu-item-type-custom ">
-                  <a href="#sneak"><span className="qodef-menu-item-text">Sneak Peek</span></a>
-                </li>
-                <li className="menu-item menu-item-type-custom ">
-                  <a href="#mint"><span className="qodef-menu-item-text">Mint</span></a>
-                </li>
-                <li className="menu-item menu-item-type-custom " onClick={teamSection.onClick} selected={teamSection.selected}>
-                  <a href="#team"><span className="qodef-menu-item-text">Our Team</span></a>
-                </li>
-                <li className="menu-item menu-item-type-custom ">
-                  <a href="#faqs"><span className="qodef-menu-item-text">FAQ’s</span></a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        <StaticMenus />
 
         <Section id="home" style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", flexDirection: "column" }}>
           <div className="elementor-background-video-container elementor-hidden-phone" >

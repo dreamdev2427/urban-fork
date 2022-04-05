@@ -5400,11 +5400,15 @@ body{
 
 .qodef-header-navigation>ul>li:first-child {
     margin-left: 0;
+    cursor: pointer;
+    user-select: none;
 }
 
 .qodef-header-navigation>ul>li {
     height: 40%;
     margin: 0 5px;    
+    cursor: pointer;
+    user-select: none;
 }
 
 #qodef-page-header .qodef-header-logo-link {
@@ -5450,7 +5454,12 @@ body{
     margin: 0 12px;
 }
 
-#qodef-page-header-inner.qodef-skin--light nav>ul>li>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>a {
+#qodef-page-header-inner.qodef-skin--light nav>ul>li{
+  cursor: pointer;
+  user-select: none;
+}
+
+#qodef-page-header-inner.qodef-skin--light nav>ul>li>span, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>span {
     font-family: "Oxanium" !important;
     height: 30%;
     padding: 15px 10px 10px 10px;
@@ -5460,9 +5469,10 @@ body{
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: .05em;
+    color: #fff;
 }
 
-#qodef-page-header-inner.qodef-skin--light nav>ul>li>a:hover, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>a:hover {
+#qodef-page-header-inner.qodef-skin--light nav>ul>li>span:hover, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>span:hover {
     font-family: "Oxanium" !important;
     height: 30%;
     padding: 15px 10px 10px 10px;
@@ -5470,6 +5480,7 @@ body{
     border-radius: 5px;
     text-transform: uppercase;
     letter-spacing: .05em;
+    color: #fff;
 }
 
 #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-ancestor>a, #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-item>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-ancestor>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-item>a {
@@ -5591,6 +5602,8 @@ body{
     position: relative;
     margin: 6px 0;
     padding: 0;
+    cursor: pointer;
+    user-select: none;
 }
 
 .qodef-mobile-header-navigation>ul {
