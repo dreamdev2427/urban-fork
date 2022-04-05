@@ -418,7 +418,7 @@ function App() {
             </div>
           </div>
 
-          <div style={{ padding: "20px", background: "#7002da", width: "100%" }} >
+          <div style={{ padding: "20px", background: "#7002da" }} >
             <Gallery />
           </div>
 

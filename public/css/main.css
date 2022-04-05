@@ -5321,8 +5321,9 @@ body{
     margin: 0;
 }
 
-#qodef-page-header.sticky, #qodef-page-mobile-header.sticky{
+#qodef-page-header.sticky{
     background-color: rgba(148,0,193,0.54);
+    transform: translateY(0);
     transition:  transform .5s ease,top .5s ease;
 }
 
