@@ -220,14 +220,14 @@ function App() {
               </div>
               <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
                 <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal" style={{ margin: "2" }} >
-                  <a href="#" rel="noopener noreferrer" >
+                  <a href="https://discord.gg/urbanfuturists" rel="noopener noreferrer" >
                     <span className="qodef-icon-font-awesome fab fa-discord qodef-icon qodef-e" style={{ color: "white" }} ></span>
                   </a>
                 </span>
               </div>
               <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
                 <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal">
-                  <a href="#" rel="noopener noreferrer" >
+                  <a href="https://twitter.com/FuturistsNft" rel="noopener noreferrer" >
                     <span className="qodef-icon-font-awesome fab fa-twitter qodef-icon qodef-e" style={{ color: "white", fontSize: "22px" }}></span>
                   </a>
                 </span>
