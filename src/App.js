@@ -382,10 +382,10 @@ function App() {
 
           <div className='gradient_buttons'  >
             <div className='gradient_button' id="aa" onMouseOver={() => onMOverButton("aa")} onMouseLeave={() => onMLeaveButton("aa")} >
-              <Button className={classes.aa}  >WL MINT 0.05 ETH</Button>
+              <Button className={classes.aa}  >WL MINT 5 AVAX</Button>
             </div>
             <div className='gradient_button' id="bb" onMouseOver={() => onMOverButton("bb")} onMouseLeave={() => onMLeaveButton("bb")} >
-              <Button className={classes.bb}  >PUBLIC MINT 0.07 ETH</Button>
+              <Button className={classes.bb}  >PUBLIC MINT 7 AVAX</Button>
             </div>
             <div className='gradient_button' id="cc" onMouseOver={() => onMOverButton("cc")} onMouseLeave={() => onMLeaveButton("cc")} >
               <Button className={classes.cc}  >TOTAL SUPPLY 5555 (PHASE 1)</Button>
@@ -449,7 +449,7 @@ function App() {
                   <div className="twae-data-container ">
                     <span className="twae-title">Mint Launch</span>
 
-                    <div className="twae-description"><p>Successful First Mint ( 5555 @ 0.05 ETH For Whitelisted &amp;&nbsp; 0.07 ETH Public Sale).<br></br>Secondary Market Listing – Opensea, Rarity Sniper.</p></div>
+                    <div className="twae-description"><p>Successful First Mint ( 5555 @ 0.05 AVAX For Whitelisted &amp;&nbsp; 0.07 AVAX Public Sale).<br></br>Secondary Market Listing – Opensea, Rarity Sniper.</p></div>
                   </div>
                 </div>
               </article>
@@ -477,7 +477,7 @@ function App() {
                   <div className="twae-data-container ">
                     <span className="twae-title">The Second Mint</span>
 
-                    <div className="twae-description"><p>( More than 0.1 ETH). Price To Be Determined.</p><p>We will purchase land in the metaverse and establish an online store where Art meets Future fashion. We’ll sell Art, Clothing, Custom Wearables, Accessories with 80% of royalties going into DAO. Many of our designs will be featured on the avatars in Mint Phase 2.<br></br>We’ll explore collaborations with major brands that are in our existing network and past clients.</p></div>
+                    <div className="twae-description"><p>( More than 0.1 AVAX). Price To Be Determined.</p><p>We will purchase land in the metaverse and establish an online store where Art meets Future fashion. We’ll sell Art, Clothing, Custom Wearables, Accessories with 80% of royalties going into DAO. Many of our designs will be featured on the avatars in Mint Phase 2.<br></br>We’ll explore collaborations with major brands that are in our existing network and past clients.</p></div>
                   </div>
                 </div>
               </article>
