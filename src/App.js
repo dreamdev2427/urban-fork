@@ -90,6 +90,16 @@ const StaticMenus = () =>
     setShowMobileMenu(!showMobileMenu);
   }
 
+  const onMOverIcon = (buttonId, initialClass) => {
+    if(!initialClass) document.getElementById(buttonId).className = " animated spinner duration1 infinite";
+    else document.getElementById(buttonId).className = initialClass + " animated spinner duration1 infinite";
+  }
+
+  const onMLeaveIcon = (buttonId, initialClass) => {
+    if(!initialClass) document.getElementById(buttonId).className = "";
+    else document.getElementById(buttonId).className = initialClass;
+  }
+
   return (
     <>
        <div className="header" id="qodef-page-header">
@@ -135,23 +145,30 @@ const StaticMenus = () =>
             <div className="widget widget_block" data-area="social-icons-sidebar">
               <p>
                 <a href="#">
-                  <img src="./Logomark-Transparent-White.png" alt="" width="22px" className="wp-image-8095 osicon eds-on-hover" />
+                  <img src="./Logomark-Transparent-White.png" alt="" width="22px" 
+                    id="logoIcon" onMouseOver={() => onMOverIcon("logoIcon")} onMouseLeave={() => onMLeaveIcon("logoIcon")}
+                  />
                 </a>
               </p>
             </div>
-            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
-              <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal" style={{ margin: "2" }} >
+            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">              
                 <a href="https://discord.gg/urbanfuturists" rel="noopener noreferrer" >
-                  <span className="qodef-icon-font-awesome fab fa-discord qodef-icon qodef-e" style={{ color: "white" }} ></span>
+                  <span className=" fab fa-discord qodef-icon " style={{ color: "white" }} 
+                    id="discordIcon" 
+                    onMouseOver={() => onMOverIcon("discordIcon", " fab fa-discord qodef-icon ")} 
+                    onMouseLeave={() => onMLeaveIcon("discordIcon", " fab fa-discord qodef-icon ")}
+                  >                    
+                  </span>
                 </a>
-              </span>
             </div>
-            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">
-              <span className="qodef-shortcode qodef-m eds-on-hover qodef-icon-holder qodef-size--tiny qodef-layout--normal">
+            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">              
                 <a href="https://twitter.com/FuturistsNft" rel="noopener noreferrer" >
-                  <span className="qodef-icon-font-awesome fab fa-twitter qodef-icon qodef-e" style={{ color: "white", fontSize: "22px" }}></span>
+                  <span className=" fab fa-twitter qodef-icon " style={{ color: "white", fontSize: "22px" }}
+                    id="twitterIcon" 
+                    onMouseOver={() => onMOverIcon("twitterIcon", " fab fa-twitter qodef-icon ")} 
+                    onMouseLeave={() => onMLeaveIcon("twitterIcon", " fab fa-twitter qodef-icon ")}
+                  ></span>
                 </a>
-              </span>
             </div>
             <div className="widget widget_block" data-area="social-icons-sidebar">
               <ul className="wp-container-6247692e5b96d wp-block-social-links"></ul>
@@ -224,13 +241,13 @@ const StaticMenus = () =>
 function App() {
 
   const classes = useStyles();
-  const mintingStartTime = (new Date("2022/04/16 00:00:00")).getTime();
+  const mintingStartTime = (new Date("2022/04/26 00:00:00")).getTime();
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
 
   const getLeftDuration = () => {
 
-    var currentTime = Date.now();
+    // var currentTime = Date.now();
     var diff = mintingStartTime - currentTime;
     diff = diff / 1000;
 
