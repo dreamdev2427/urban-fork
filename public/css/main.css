@@ -5894,7 +5894,7 @@ body{
 }
 
 .join_discord_button{
-    width: 20%;
+    width: 15%;
 }
 .join_discord_button>button{
     border-radius: 20px;
@@ -6107,10 +6107,18 @@ body, #qodef-page-wrapper {
     text-align: center;
 }
 
+.mint_button_wrapper{
+  width: 100%;  
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .mint_button{
+    width: 13%;
     display: flex !important;
     justify-content: space-around;
-    padding: 30px 100px 30px 100px;
     margin-top: 30px;
 }
 
