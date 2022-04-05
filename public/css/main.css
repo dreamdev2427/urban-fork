@@ -5469,6 +5469,7 @@ body{
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: .05em;
+    color: #fff;
 }
 
 #qodef-page-header-inner.qodef-skin--light nav>ul>li>span:hover, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>span:hover {
@@ -5479,6 +5480,7 @@ body{
     border-radius: 5px;
     text-transform: uppercase;
     letter-spacing: .05em;
+    color: #fff;
 }
 
 #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-ancestor>a, #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-item>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-ancestor>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-item>a {
