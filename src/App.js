@@ -215,7 +215,6 @@ const StaticMenus = () =>
               </li>
             </ul>
           </nav>          
-          <div className="qodef-widget-holder qodef--one"></div>
         </div>
       </div>
 

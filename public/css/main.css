@@ -5333,11 +5333,16 @@ body{
   display: flex;
 }
 
+#qodef_page_header_for_sticky.sticky>#qodef-page-header-inner_for_sticky{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 #qodef_page_header_for_sticky{  
   position: fixed !important;
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
   z-index: 100;
   margin: 0;
   transform: translateY(-100%);
