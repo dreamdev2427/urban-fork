@@ -176,6 +176,48 @@ const StaticMenus = () =>
           </div>
         </div>
       </div>
+      <div className="header" id="qodef_page_header_for_sticky">
+        <div id="qodef-page-header-inner_for_sticky" className=" qodef-skin--light">
+          <span className="qodef-header-logo-link " >
+            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main"  />
+          </span>
+          <nav className="qodef-header-navigation" >
+            <ul id="menu-primary-menu-1_for_sticky" className="menu">
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={homeSection.onClick} selected={homeSection.selected}
+              >
+                <span className="qodef-menu-item-text">Home</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={timelineSection.onClick} selected={timelineSection.selected}
+              >
+                <span className="qodef-menu-item-text">Timeline</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={stakeSection.onClick} selected={stakeSection.selected}
+              >
+                <span className="qodef-menu-item-text">Stake</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={mintSection.onClick} selected={mintSection.selected}
+              >
+                <span className="qodef-menu-item-text">Mint</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={teamSection.onClick} selected={teamSection.selected}
+              >
+                <span className="qodef-menu-item-text">Our Team</span>
+              </li>
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+                onClick={faqsSection.onClick} selected={faqsSection.selected}
+              >
+                <span className="qodef-menu-item-text">FAQ’s</span>
+              </li>
+            </ul>
+          </nav>          
+          <div className="qodef-widget-holder qodef--one"></div>
+        </div>
+      </div>
 
       <div className='header' id="qodef-page-mobile-header">
         <div id="qodef-page-mobile-header-inner" className="">
@@ -339,7 +381,7 @@ function App() {
     window.onscroll = function () { myFunction() };
 
     // Get the header
-    var header = document.getElementById("qodef-page-header");
+    var header = document.getElementById("qodef_page_header_for_sticky");
 
     // Get the offset position of the navbar
     var sticky = header.offsetTop;
