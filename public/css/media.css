@@ -111,6 +111,12 @@
 }
 
 @media (max-width: 1024px) {
+    #qodef_page_header_for_sticky{
+        display: none;
+    }
+    #qodef_page_header_for_sticky>#qodef-page-header-inner_for_sticky> *{
+      display: none;
+    }    
     .elementor-heading-title {
         font-size: 32px;
         font-weight: bold;
@@ -303,6 +309,12 @@
 }
 
 @media (max-width: 850px) {
+    #qodef_page_header_for_sticky{
+        display: none;
+    }
+    #qodef_page_header_for_sticky>#qodef-page-header-inner_for_sticky> *{
+      display: none;
+    }    
     .elementor-heading-title {
         font-size: 22px;
         font-weight: bold;
@@ -402,6 +414,12 @@
 }
 
 @media (max-width: 700px) {
+    #qodef_page_header_for_sticky{
+        display: none;
+    }
+    #qodef_page_header_for_sticky>#qodef-page-header-inner_for_sticky> *{
+      display: none;
+    }    
     .elementor-heading-title {
         font-size: 20px;
         font-weight: bold;
@@ -495,6 +513,12 @@
 }
 
 @media (max-width: 600px) {
+    #qodef_page_header_for_sticky{
+        display: none;
+    }
+    #qodef_page_header_for_sticky>#qodef-page-header-inner_for_sticky> *{
+      display: none;
+    }    
     .eael-creative-button-wrapper{
         padding: 7px;
     }
@@ -577,6 +601,12 @@
 }
 
 @media (max-width: 550px) {
+    #qodef_page_header_for_sticky{
+        display: none;
+    }
+    #qodef_page_header_for_sticky>#qodef-page-header-inner_for_sticky> *{
+      display: none;
+    }    
     .eael-creative-button-wrapper{
         padding: 3px;
     }
@@ -720,6 +750,12 @@
 }
 
 @media (max-width: 450px) {
+    #qodef_page_header_for_sticky{
+        display: none;
+    }
+    #qodef_page_header_for_sticky>#qodef-page-header-inner_for_sticky> *{
+      display: none;
+    }    
     .eael-creative-button-wrapper{
         padding: 1px;
     }
@@ -863,6 +899,12 @@
 }
 
 @media (max-width: 370px) {
+    #qodef_page_header_for_sticky{
+        display: none;
+    }
+    #qodef_page_header_for_sticky>#qodef-page-header-inner_for_sticky> *{
+      display: none;
+    }    
     .eael-creative-button-wrapper{
         padding: 1px;
     }

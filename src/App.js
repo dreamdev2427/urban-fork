@@ -179,7 +179,9 @@ const StaticMenus = () =>
       <div className="header" id="qodef_page_header_for_sticky">
         <div id="qodef-page-header-inner_for_sticky" className=" qodef-skin--light">
           <span className="qodef-header-logo-link " >
-            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main"  />
+            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" 
+              onClick={homeSection.onClick} selected={homeSection.selected}
+            />
           </span>
           <nav className="qodef-header-navigation" >
             <ul id="menu-primary-menu-1_for_sticky" className="menu">
