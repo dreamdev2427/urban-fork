@@ -74,7 +74,7 @@ const useStyles = makeStyles({
 const StaticMenus = () => 
 {
   const homeSection = useScrollSection('home');
-  const timelineSection = useScrollSection('timeline');
+  const RoadmapSection = useScrollSection('Roadmap');
   const stakeSection = useScrollSection('stake');
   const mintSection = useScrollSection('mint');
   const faqsSection = useScrollSection('faqs');
@@ -114,14 +114,14 @@ const StaticMenus = () =>
                 <span className="qodef-menu-item-text">Home</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
-                onClick={timelineSection.onClick} selected={timelineSection.selected}
+                onClick={RoadmapSection.onClick} selected={RoadmapSection.selected}
               >
-                <span className="qodef-menu-item-text">Timeline</span>
+                <span className="qodef-menu-item-text">Roadmap</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={stakeSection.onClick} selected={stakeSection.selected}
               >
-                <span className="qodef-menu-item-text">Stake</span>
+                <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={mintSection.onClick} selected={mintSection.selected}
@@ -131,7 +131,7 @@ const StaticMenus = () =>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
-                <span className="qodef-menu-item-text">Our Team</span>
+                <span className="qodef-menu-item-text">Team</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
@@ -140,8 +140,15 @@ const StaticMenus = () =>
               </li>
             </ul>
           </nav>
-          <div className="qodef-widget-holder qodef--one">
-            <div className="widget widget_block" data-area="social-icons-sidebar">
+          <nav className="qodef-header-navigation" >
+            <ul id="menu-primary-menu-2" className="menu">
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "                
+              >
+                <span>Connect Wallet</span>
+              </li>
+              </ul>
+              </nav>              
+            {/* <div className="widget widget_block" data-area="social-icons-sidebar">
               <p>
                 <a href="#">
                   <img src="./Logomark-Transparent-White.png" alt="" width="22px" 
@@ -168,11 +175,7 @@ const StaticMenus = () =>
                     onMouseLeave={() => onMLeaveIcon("twitterIcon")}
                   ></span>
                 </a>
-            </div>
-            <div className="widget widget_block" data-area="social-icons-sidebar">
-              <ul className="wp-container-6247692e5b96d wp-block-social-links"></ul>
-            </div>
-          </div>
+            </div> */}
         </div>
       </div>
       <div className="header" id="qodef_page_header_for_sticky">
@@ -190,14 +193,14 @@ const StaticMenus = () =>
                 <span className="qodef-menu-item-text">Home</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
-                onClick={timelineSection.onClick} selected={timelineSection.selected}
+                onClick={RoadmapSection.onClick} selected={RoadmapSection.selected}
               >
-                <span className="qodef-menu-item-text">Timeline</span>
+                <span className="qodef-menu-item-text">Roadmap</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={stakeSection.onClick} selected={stakeSection.selected}
               >
-                <span className="qodef-menu-item-text">Stake</span>
+                <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={mintSection.onClick} selected={mintSection.selected}
@@ -207,7 +210,7 @@ const StaticMenus = () =>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
-                <span className="qodef-menu-item-text">Our Team</span>
+                <span className="qodef-menu-item-text">Team</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
@@ -248,14 +251,14 @@ const StaticMenus = () =>
                 <span className="qodef-menu-item-text">Home</span>
               </li>
               <li className="menu-item menu-item-type-custom "
-                onClick={timelineSection.onClick} selected={timelineSection.selected}
+                onClick={RoadmapSection.onClick} selected={RoadmapSection.selected}
               >
-                <span className="qodef-menu-item-text">Timeline</span>
+                <span className="qodef-menu-item-text">Roadmap</span>
               </li>
               <li className="menu-item menu-item-type-custom "
                 onClick={stakeSection.onClick} selected={stakeSection.selected}
               >
-                <span className="qodef-menu-item-text">Stake</span>
+                <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
               <li className="menu-item menu-item-type-custom "
                 onClick={mintSection.onClick} selected={mintSection.selected}
@@ -265,7 +268,7 @@ const StaticMenus = () =>
               <li className="menu-item menu-item-type-custom "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
-                <span className="qodef-menu-item-text">Our Team</span>
+                <span className="qodef-menu-item-text">Team</span>
               </li>
               <li className="menu-item menu-item-type-custom "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
@@ -449,26 +452,13 @@ function App() {
 
             <div className="elementor-element elementor-widget-heading" >
 
-              <h3 className="elementor-heading-title ">Urban Futurists NFT</h3>
-            </div>
-            <div className="elementor-element elementor-widget-text-editor" >
-
-              <div className="elementor-text-editor elementor-clearfix">
-                <p style={{ textAlign: "center" }} >
-                  <strong>
-                    <span style={{ fontFamily: "Oxanium" }} >Where Art Meets The Future.</span>
-                  </strong>
-                </p>
-                <p style={{ textAlign: "center" }} >
-                  <strong>A Collection Of 5555 Hand Drawn Avatars.</strong>
-                </p>
-              </div>
+              <h3 className="elementor-heading-title ">A Collection Of 10,000 Phoenix Knights</h3>
             </div>
             <div className="elementor-element elementor-widget-eael-creative-button" >
               <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")}>
                 <div className="creative-button-inner">
                   <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
-                  <span className="cretive-button-text">Join Our Discord</span>
+                  <span className="cretive-button-text">Get Whitelisted</span>
                 </div>
               </div>
             </div>
@@ -480,16 +470,13 @@ function App() {
 
           <div className='gradient_buttons'  >
             <div className='gradient_button' id="aa" onMouseOver={() => onMOverButton("aa")} onMouseLeave={() => onMLeaveButton("aa")} >
-              <Button className={classes.aa}  >WL MINT 5 AVAX</Button>
+              <Button className={classes.aa}  >WL MINT 3 AVAX</Button>
             </div>
             <div className='gradient_button' id="bb" onMouseOver={() => onMOverButton("bb")} onMouseLeave={() => onMLeaveButton("bb")} >
-              <Button className={classes.bb}  >PUBLIC MINT 7 AVAX</Button>
-            </div>
-            <div className='gradient_button' id="cc" onMouseOver={() => onMOverButton("cc")} onMouseLeave={() => onMLeaveButton("cc")} >
-              <Button className={classes.cc}  >TOTAL SUPPLY 5555 (PHASE 1)</Button>
+              <Button className={classes.bb}  >PUBLIC MINT 5 AVAX</Button>
             </div>
             <div className='gradient_button' id="dd" onMouseOver={() => onMOverButton("dd")} onMouseLeave={() => onMLeaveButton("dd")} >
-              <Button className={classes.dd}  >MINT DATE TBD</Button>
+              <Button className={classes.dd}  >MINT DATE TBA</Button>
             </div>
           </div>
 
@@ -499,27 +486,23 @@ function App() {
           </div>
 
           <div className="join_discord_explain"   >
-            <span style={{ color: "#ffffff" }} >Hi There NFT Collector,</span>
-            <br></br><br></br>
-            <span style={{ color: "#ffffff" }} >We want you to be apart of our FUTURIST community!</span>
-            <br></br><br></br>
-            <span style={{ color: "#ffffff" }} >Firstly, you get a cool Personal Profile Pic to use on the mint (this will be verified shortly by social media platforms). You’ll get access to real art giveaways, VR giveaways, we’re creating unique merch (our designs are on our avatars) and a community that discusses all things art/future/nfts.</span>
-            <br></br><br></br>
-            <span style={{ color: "#ffffff" }} >We’re on the ground floor. Let’s rise up together.</span>
+            <span style={{ color: "#ffffff" }} >
+            Backed by the Phoenix community capital, the Phoenix knights is a collection of 10,000 unique immortal explorers. Our community-driven NFT project is aimed at further developing a brand that aims to represent the values of our community with unique artworks. Phoenix knights will come in a joyful range of colors, attributes and sizes. 
+            </span>
           </div>
 
           <div className='join_discord_button_wrapper' >
             <div className='join_discord_button' id="ii" onMouseOver={() => onMOverButton("ii")} onMouseLeave={() => onMLeaveButton("ii")} style={{ paddingTop: "0px", marginBottom: "60px" }} >
               <Button className={classes.ff}>
                 <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
-                <span className="cretive-button-text">Join Our Discord</span>
+                <span className="cretive-button-text">Join Discord</span>
               </Button>
             </div>
           </div>
         </Section>
 
-        <Section id="timeline">
-          <div className='timeline_title' >OUR TIMELINE</div>
+        <Section id="Roadmap">
+          <div className='timeline_title' >OUR ROADMAP</div>
 
           <div className="twae-vertical twae-wrapper twae-one-sided-wrapper">
             <div className="twae-timeline-centered twae-timeline-sm twae-line twae-one-sided-timeline">

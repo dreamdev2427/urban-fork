@@ -5569,7 +5569,7 @@ body{
   user-select: none;
 }
 
-#qodef-page-header-inner.qodef-skin--light nav>ul>li>span, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>span {
+nav>ul>li>span {
     font-family: "Oxanium" !important;
     height: 30%;
     padding: 15px 10px 10px 10px;
@@ -5582,20 +5582,7 @@ body{
     color: #fff;
 }
 
-#qodef-page-header-inner_for_sticky.qodef-skin--light nav>ul>li>span, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>span {
-  font-family: "Oxanium" !important;
-  height: 30%;
-  padding: 15px 10px 10px 10px;
-  background: rgba(0,255,255,0.1);
-  border-radius: 5px;
-  text-decoration: none !important;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: #fff;
-}
-
-#qodef-page-header-inner.qodef-skin--light nav>ul>li>span:hover, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>span:hover {
+nav>ul>li>span:hover {
     font-family: "Oxanium" !important;
     height: 30%;
     padding: 15px 10px 10px 10px;
@@ -5606,16 +5593,6 @@ body{
     color: #fff;
 }
 
-#qodef-page-header-inner_for_sticky.qodef-skin--light nav>ul>li>span:hover, .qodef-custom-header-layout.qodef-skin--light nav>ul>li>span:hover {
-  font-family: "Oxanium" !important;
-  height: 30%;
-  padding: 15px 10px 10px 10px;
-  background: rgba(0,255,255,0.3);
-  border-radius: 5px;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: #fff;
-}
 
 #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-ancestor>a, #qodef-page-header-inner.qodef-skin--light nav>ul>li.current-menu-item>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-ancestor>a, .qodef-custom-header-layout.qodef-skin--light nav>ul>li.current-menu-item>a {
     color: #fff!important;
@@ -5890,8 +5867,8 @@ body{
 }
 
 .eael-creative-button-wrapper {
-    padding: 15px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 50%;
     background-color: transparent;
     background-image: linear-gradient(180deg, #7C00FF 0%, #F229F0 100%);
 }
@@ -5974,14 +5951,14 @@ body{
     margin-top: 60px;
 }
 .gradient_buttons>.gradient_button{
-    width: 20%;
+    width: 28%;
     display: flex;
     justify-content: center;
 }
 .gradient_buttons>.gradient_button> button {
     width: 100% !important;
     color: white;
-    border-radius: 20px;
+    border-radius: 50%;
     font-family: "Oxanium", "Sans-serif";
     font-weight: 600;
     font-size: 17px;
@@ -6047,7 +6024,7 @@ body{
     width: 15%;
 }
 .join_discord_button>button{
-    border-radius: 20px;
+    border-radius: 50%;
     font-size: 16px;
     font-family: "Oxanium";
 }
