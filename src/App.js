@@ -16,6 +16,7 @@ import {
   useScrollSection,
   Section,
 } from 'react-scroll-section';
+import Snowing from "./components/Snowing";
 
 const useStyles = makeStyles({
   aa: {
@@ -336,6 +337,7 @@ function App() {
   const mintingStartTime = (new Date("2022/04/26 00:00:00")).getTime();
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
+  const [heightOfSnowing, setHeightOfSnowing] = useState(300);
 
   const getLeftDuration = () => {
 
@@ -380,6 +382,7 @@ function App() {
     }, 1000);
 
     window.onscroll = function () { myFunction() };
+    window.onresize = function () { resizeSnowing() }
 
     // Get the header
     var header = document.getElementById("qodef_page_header_for_sticky");
@@ -400,7 +403,12 @@ function App() {
         setShow2TopButton(false);
       }
     }
-
+    function resizeSnowing() {
+      var heightOfVideo = document.getElementById("video_element").clientHeight;
+      setHeightOfSnowing(heightOfVideo);
+    }    
+    var heightOfVideo = document.getElementById("video_element").clientHeight;
+    setHeightOfSnowing(heightOfVideo);
   }, [])
 
   const onMOverButton = (buttonId, initialClass) => {
@@ -419,7 +427,6 @@ function App() {
 
   const onMLeaveMintButton = (buttonId) => {
     document.getElementById(buttonId).className = "mint_button";
-
   }
 
   return (
@@ -430,8 +437,12 @@ function App() {
 
         <Section id="home" style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", flexDirection: "column" }}>
           <div className="elementor-background-video-container elementor-hidden-phone" >
-            <video className="elementor-background-video-hosted elementor-html5-video" autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} ></video>
+            <video className="elementor-background-video-hosted elementor-html5-video" 
+              id="video_element"
+              autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} 
+            ></video>
           </div>
+          <Snowing  height={heightOfSnowing} />
           <div className="elementor-column-gap-default">
 
             <div className="elementor-element elementor-widget-heading" >
@@ -461,7 +472,7 @@ function App() {
             </div>
           </div>
 
-          <div style={{ padding: "20px", background: "#7002da" }} >
+          <div style={{ padding: "20px", background: "#7002da", zIndex:"20" }} >
             <Gallery />
           </div>
 

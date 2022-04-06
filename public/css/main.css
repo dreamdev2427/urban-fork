@@ -5772,6 +5772,16 @@ body{
     pointer-events: none;
 }
 
+#tsparticles {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
 .elementor .elementor-background, .elementor .elementor-background-holder, .elementor .elementor-background-video-container {
     height: 100%;
     width: 100%;
