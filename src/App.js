@@ -399,9 +399,13 @@ function App() {
         setShow2TopButton(true);
       } else {
         setShow2TopButton(false);
-        var heightOfVideo = document.getElementById("video_element").clientHeight;
-        if(heightOfVideo>0) setHeightOfSnowing(heightOfVideo);
       }
+      var heightOfVideo = document.getElementById("video_element").clientHeight;
+      var heightOfParticle = document.getElementById("tsparticles").clientHeight;
+      console.log("heightOfVideo = ", heightOfVideo, 
+        "heightOfParticle = ", heightOfParticle,
+        "heightOfSnowing = ", heightOfSnowing
+      );
     }
     function resizeSnowing() {
       var heightOfVideo = document.getElementById("video_element").clientHeight;
@@ -440,7 +444,7 @@ function App() {
               autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} 
             ></video>
           </div>
-          <Snowing  height={heightOfSnowing} />
+          <Snowing height={heightOfSnowing} />
           <div className="elementor-column-gap-default">
 
             <div className="elementor-element elementor-widget-heading" >
