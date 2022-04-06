@@ -4,21 +4,25 @@ pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
+    Counters.Counter private _numberOfTokens;
+    using SafeMath for uint256;
 
     string base_uri;
     uint8 private saleMode;
     uint256 private preSalePrice;
     uint256 private publicSalePrice;
-    address private feeWallet1;
-    address private feeWallet2;
+    address payable private feeWallet1;
+    address payable private feeWallet2;
     uint8 private percentOfWallet1;
     uint8 private percentOfWallet2;
+    uint256 private TOKEN_LIMIT;
     bool _status;
+    uint256[] private indices;
     event Received(address addr, uint amount);
     event Fallback(address addr, uint amount);
 
@@ -27,11 +31,15 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         saleMode = 1;   // 1: preSale, 2:publicSale
         preSalePrice = 0.005 ether;
         publicSalePrice = 0.02 ether;
-        feeWallet1 = address(0xe28f60670529EE8d14277730CDA405e24Ac7251A);
-        feeWallet2 = address(0x73875DeDa18dE0105987c880aFbbC21F3F6b955c);
-        percentOfWallet1 = 25;
-        percentOfWallet2  = 75;
+        feeWallet1 = payable( address(0xe28f60670529EE8d14277730CDA405e24Ac7251A) );
+        feeWallet2 = payable( address(0x73875DeDa18dE0105987c880aFbbC21F3F6b955c) );
+        percentOfWallet1 = 30;
+        percentOfWallet2  = 70;
         _status = false;
+        TOKEN_LIMIT = 10000;
+        uint256 j;
+        indices = new uint256[](TOKEN_LIMIT);
+        for(j=0; j<TOKEN_LIMIT; j++) indices[j] = 0;
     }
 
     receive() external payable {
@@ -49,7 +57,19 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         _status = false;
     }
 
+    function setTokenLimit(uint256 _limit) external onlyOwner{   
+        TOKEN_LIMIT = _limit;     
+        uint256 j;
+        indices = new uint256[](TOKEN_LIMIT);
+        for(j=0; j<TOKEN_LIMIT; j++) indices[j] = 0;
+    }
+
+    function getTokenLimit() public view returns(uint256){
+        return TOKEN_LIMIT;
+    }
+
     function setSaleMode(uint8 _mode) external onlyOwner{
+        require(_mode == 1 || _mode == 2, "Invalid sale mode. Must be 1 or 2." );   
         saleMode = _mode;
     }
     
@@ -58,6 +78,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     }
 
     function setPreSalePrice(uint256 _price) external onlyOwner{
+        require(_price > 0, "Invalid price. Must be a positive number." );    
         preSalePrice = _price;
     }
 
@@ -66,6 +87,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     }
 
     function setPublicSalePrice(uint256 _price) external onlyOwner{
+        require(_price > 0, "Invalid price. Must be a positive number." );          
         publicSalePrice = _price;
     }
 
@@ -73,7 +95,8 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         return publicSalePrice;
     }
 
-    function setFeeWallet1(address _wallet) external onlyOwner{
+    function setFeeWallet1(address payable _wallet) external onlyOwner{
+        require(_wallet != address(0), "Invalid wallet address." );          
         feeWallet1 = _wallet;
     }
 
@@ -81,7 +104,8 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         return feeWallet1;
     }
 
-    function setFeeWallet2(address _wallet) external onlyOwner{
+    function setFeeWallet2(address payable _wallet) external onlyOwner{
+        require(_wallet != address(0), "Invalid wallet address." );          
         feeWallet2 = _wallet;
     }
 
@@ -90,6 +114,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     }
 
     function setPercentOfWallet1(uint8 _percent) external onlyOwner{
+        require(_percent>=0 && _percent<=100, "Invalid percent. Must be in 0~100." );          
         percentOfWallet1 = _percent;
     }
 
@@ -98,6 +123,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     }
 
     function setPercentOfWallet2(uint8 _percent) external onlyOwner{
+        require(_percent>=0 && _percent<=100, "Invalid percent. Must be in 0~100." );      
         percentOfWallet2 = _percent;
     }
 
@@ -106,7 +132,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     }
 
     function getCountOfMintedNfts() public view returns(uint256) {
-        return _tokenIds.current();
+        return _numberOfTokens.current();
     }
 
     function getBaseuri() public view returns(string memory){
@@ -141,37 +167,72 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         }
         return "0";
     }
+    
+    function randomIndex() internal returns (uint) {
+        uint totalSize = TOKEN_LIMIT - _numberOfTokens.current();
+        uint index = uint(keccak256(abi.encodePacked(msg.sender, block.timestamp))) % totalSize;
+        uint value = 0;
+        if (indices[index] != 0) {
+            value = indices[index];
+        } else {
+            value = index;
+        }
 
+        if (indices[totalSize - 1] == 0) {
+      
+            indices[index] = totalSize - 1;
+        } else {
+            indices[index] = indices[totalSize - 1];
+        }
+        return value.add(1);
+    }
+
+    function getIndicies() public view returns(uint256[] memory) {
+        uint256[] memory _indices = new uint256[](indices.length);
+        uint256 j;
+        for(j=0; j<indices.length; j++) _indices[j] = indices[j];
+        return _indices;
+    }
+    
     function mint(address recipient)  external  payable nonReentrant {   
-        if(saleMode == 1) require(msg.value >= preSalePrice, "Invalid price, price is less than pre sale price."); 
-        if(saleMode == 2) require(msg.value >= publicSalePrice, "Invalid price, price is less than public sale price."); 
-        require(recipient != address(0), "Invalid recipient address." );           
+        require(TOKEN_LIMIT - _numberOfTokens.current() > 0, "Cannot mint. The collection has no remains."); 
+        uint256 _price;
+        if(saleMode == 1) _price = preSalePrice;
+        if(saleMode == 2) _price = publicSalePrice;
+        require(msg.value >= _price, "Invalid price, price is less than sale price."); 
+        require(recipient != address(0), "Invalid recipient address." );          
                  
-        _tokenIds.increment();
-
-        uint256 nftId = _tokenIds.current(); 
+        uint256 nftId = randomIndex();
+        _numberOfTokens.increment();
         _mint(recipient, nftId);
         string memory fullUri = string.concat(base_uri, itod(nftId));
         setTokenURI(nftId, fullUri);
-
         
+        feeWallet1.transfer(_price * percentOfWallet1 / 100);
+        feeWallet2.transfer(_price * percentOfWallet2 / 100);
     }
 
-    function batchMint(address recipient, uint256 _count)  external   payable nonReentrant  {    
-        if(saleMode == 1) require(msg.value >= preSalePrice, "Invalid price, price is less than pre sale price."); 
-        if(saleMode == 2) require(msg.value >= publicSalePrice, "Invalid price, price is less than public sale price."); 
+    function batchMint(address recipient, uint256 _count)  external   payable nonReentrant  { 
+        require(TOKEN_LIMIT - _numberOfTokens.current() > 0, "Cannot mint. The collection has no remains.");  
+        uint256 _price;
+        if(saleMode == 1) _price = preSalePrice * _count;
+        if(saleMode == 2) _price = publicSalePrice * _count;
+        require(msg.value >= _price, "Invalid price, price is less than sale price."); 
         require(recipient != address(0), "Invalid recipient address." );           
         require(_count > 0, "Invalid count value." );       
         uint256 i; 
         string memory fullUri;
+        uint256 nftId;
         for(i = 0; i < _count; i++)
         {
-            _tokenIds.increment();
-
-            uint256 nftId = _tokenIds.current(); 
+            nftId = randomIndex();
+            _numberOfTokens.increment();
             _mint(recipient, nftId);
             fullUri = string.concat(base_uri, itod(nftId));
             setTokenURI(nftId, fullUri);
         }
+        
+        feeWallet1.transfer(_price* percentOfWallet1 / 100);
+        feeWallet2.transfer(_price * percentOfWallet2 / 100);
     }
 }
