@@ -127,9 +127,16 @@
     .gradient_buttons{
         flex-direction: column;
     }
-    .gradient_buttons>button {
+    .gradient_buttons>.gradient_button{
+        width: 100%;
+        display: flex;
+    }
+    .gradient_buttons>.gradient_button>button {
         width: 100% !important;
         margin: 10px;
+    }
+    .join_discord_button {
+        width:30%;
     }
     .sneek_content {
         flex-direction: column;
@@ -347,13 +354,6 @@
         width: 100%;
         padding-left: 54px;
     }
-    .gradient_buttons{
-        flex-direction: column;
-    }
-    .gradient_buttons>button {
-        width: 100% !important;
-        margin: 10px;
-    }
     .sneek_content {
         flex-direction: column;
     }
@@ -426,13 +426,6 @@
     }
     .elementor-text-editor{
         font-size: 16px;        
-    }
-    .gradient_buttons{
-        flex-direction: column;
-    }
-    .gradient_buttons>button {
-        width: 100% !important;
-        margin: 10px;
     }
     .sneek_content {
         flex-direction: column;
@@ -529,13 +522,6 @@
     .elementor-text-editor{
         font-size: 16px;        
     }
-    .gradient_buttons{
-        flex-direction: column;
-    }
-    .gradient_buttons>button {
-        width: 100% !important;
-        margin: 10px;
-    }
     .sneek_content {
         flex-direction: column;
     }
@@ -616,13 +602,6 @@
     }
     .elementor-text-editor{
         font-size: 16px;        
-    }
-    .gradient_buttons{
-        flex-direction: column;
-    }
-    .gradient_buttons>button {
-        width: 100% !important;
-        margin: 10px;
     }
     .whoWeAre_block{
         width: 100%;
@@ -766,13 +745,6 @@
     .elementor-text-editor{
         font-size: 14px;        
     }
-    .gradient_buttons{
-        flex-direction: column;
-    }
-    .gradient_buttons>button {
-        width: 100% !important;
-        margin: 10px;
-    }
     .sneek_content {
         flex-direction: column;
     }
@@ -914,13 +886,6 @@
     }
     .elementor-text-editor{
         font-size: 14px;        
-    }
-    .gradient_buttons{
-        flex-direction: column;
-    }
-    .gradient_buttons>button {
-        width: 100% !important;
-        margin: 10px;
     }
     .sneek_content {
         flex-direction: column;

@@ -403,10 +403,10 @@ function App() {
     }
     function resizeSnowing() {
       var heightOfVideo = document.getElementById("video_element").clientHeight;
-      setHeightOfSnowing(heightOfVideo);
+      if(heightOfVideo>0) setHeightOfSnowing(heightOfVideo);
     }    
     var heightOfVideo = document.getElementById("video_element").clientHeight;
-    setHeightOfSnowing(heightOfVideo);
+    if(heightOfVideo>0) setHeightOfSnowing(heightOfVideo);
   }, [])
 
   const onMOverButton = (buttonId) => {
@@ -461,7 +461,7 @@ function App() {
             <div className="elementor-element elementor-widget-eael-creative-button" >
               <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")}>
                 <div className="creative-button-inner">
-                  <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
+                  <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
                   <span className="cretive-button-text">Join Our Discord</span>
                 </div>
               </div>
@@ -505,7 +505,7 @@ function App() {
           <div className='join_discord_button_wrapper' >
             <div className='join_discord_button' id="ii" onMouseOver={() => onMOverButton("ii")} onMouseLeave={() => onMLeaveButton("ii")} style={{ paddingTop: "0px", marginBottom: "60px" }} >
               <Button className={classes.ff}>
-                <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
+                <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
                 <span className="cretive-button-text">Join Our Discord</span>
               </Button>
             </div>
