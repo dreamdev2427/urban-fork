@@ -91,14 +91,12 @@ const StaticMenus = () =>
     setShowMobileMenu(!showMobileMenu);
   }
 
-  const onMOverIcon = (buttonId, initialClass) => {
-    if(!initialClass) document.getElementById(buttonId).className = " animated spinner duration1 infinite";
-    else document.getElementById(buttonId).className = initialClass + " animated spinner duration1 infinite";
+  const onMOverIcon = (buttonId) => {
+    document.getElementById(buttonId).classList.add("animated", "spinner", "duration1", "infinite");
   }
 
-  const onMLeaveIcon = (buttonId, initialClass) => {
-    if(!initialClass) document.getElementById(buttonId).className = "";
-    else document.getElementById(buttonId).className = initialClass;
+  const onMLeaveIcon = (buttonId) => {
+    document.getElementById(buttonId).classList.remove("animated", "spinner", "duration1", "infinite");
   }
 
   return (
@@ -156,8 +154,8 @@ const StaticMenus = () =>
                 <a href="https://discord.gg/urbanfuturists" rel="noopener noreferrer" >
                   <span className=" fab fa-discord qodef-icon " style={{ color: "white" }} 
                     id="discordIcon" 
-                    onMouseOver={() => onMOverIcon("discordIcon", " fab fa-discord qodef-icon ")} 
-                    onMouseLeave={() => onMLeaveIcon("discordIcon", " fab fa-discord qodef-icon ")}
+                    onMouseOver={() => onMOverIcon("discordIcon")} 
+                    onMouseLeave={() => onMLeaveIcon("discordIcon")}
                   >                    
                   </span>
                 </a>
@@ -166,8 +164,8 @@ const StaticMenus = () =>
                 <a href="https://twitter.com/FuturistsNft" rel="noopener noreferrer" >
                   <span className=" fab fa-twitter qodef-icon " style={{ color: "white", fontSize: "22px" }}
                     id="twitterIcon" 
-                    onMouseOver={() => onMOverIcon("twitterIcon", " fab fa-twitter qodef-icon ")} 
-                    onMouseLeave={() => onMLeaveIcon("twitterIcon", " fab fa-twitter qodef-icon ")}
+                    onMouseOver={() => onMOverIcon("twitterIcon")} 
+                    onMouseLeave={() => onMLeaveIcon("twitterIcon")}
                   ></span>
                 </a>
             </div>
@@ -411,22 +409,20 @@ function App() {
     setHeightOfSnowing(heightOfVideo);
   }, [])
 
-  const onMOverButton = (buttonId, initialClass) => {
-    if (!initialClass) document.getElementById(buttonId).className = "gradient_button animated pulse duration2 infinite";
-    else document.getElementById(buttonId).className = initialClass + " gradient_button animated pulse duration2 infinite";
+  const onMOverButton = (buttonId) => {
+    document.getElementById(buttonId).classList.add("animated", "pulse", "duration2", "infinite");
   }
 
-  const onMLeaveButton = (buttonId, initialClass) => {
-    if (!initialClass) document.getElementById(buttonId).className = "gradient_button";
-    else document.getElementById(buttonId).className = initialClass;
+  const onMLeaveButton = (buttonId) => {
+    document.getElementById(buttonId).classList.remove("animated", "pulse", "duration2", "infinite");
   }
 
   const onMOverMintButton = (buttonId) => {
-    document.getElementById(buttonId).className = "mint_button animated buzzOut duration1 infinite";
+    document.getElementById(buttonId).classList.add( "animated", "buzzOut", "duration1", "infinite");
   }
 
   const onMLeaveMintButton = (buttonId) => {
-    document.getElementById(buttonId).className = "mint_button";
+    document.getElementById(buttonId).classList.remove( "animated", "buzzOut", "duration1", "infinite");
   }
 
   return (
@@ -463,7 +459,7 @@ function App() {
               </div>
             </div>
             <div className="elementor-element elementor-widget-eael-creative-button" >
-              <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh", "eael-creative-button-wrapper")} onMouseLeave={() => onMLeaveButton("hh", "eael-creative-button-wrapper")}>
+              <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")}>
                 <div className="creative-button-inner">
                   <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
                   <span className="cretive-button-text">Join Our Discord</span>
@@ -507,7 +503,7 @@ function App() {
           </div>
 
           <div className='join_discord_button_wrapper' >
-            <div className='join_discord_button' id="ii" onMouseOver={() => onMOverButton("ii", "join_discord_button")} onMouseLeave={() => onMLeaveButton("ii", "join_discord_button")} style={{ paddingTop: "0px", paddingBottom: "60px" }} >
+            <div className='join_discord_button' id="ii" onMouseOver={() => onMOverButton("ii")} onMouseLeave={() => onMLeaveButton("ii")} style={{ paddingTop: "0px", marginBottom: "60px" }} >
               <Button className={classes.ff}>
                 <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i></span>
                 <span className="cretive-button-text">Join Our Discord</span>
