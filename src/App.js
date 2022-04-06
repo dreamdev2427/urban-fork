@@ -399,6 +399,8 @@ function App() {
         setShow2TopButton(true);
       } else {
         setShow2TopButton(false);
+        var heightOfVideo = document.getElementById("video_element").clientHeight;
+        if(heightOfVideo>0) setHeightOfSnowing(heightOfVideo);
       }
     }
     function resizeSnowing() {
