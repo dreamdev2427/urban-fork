@@ -5760,11 +5760,6 @@ body{
     color: #000 !important;
 }
 
-.elementor-7794 .elementor-element.elementor-element-1529de6:not(.elementor-motion-effects-element-type-background), .elementor-7794 .elementor-element.elementor-element-1529de6 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
-    background: url(https://urbanfuturists.com/wp-content/uploads/2022/02/webheadbanners.jpg) 50% 50%;
-    background-size: cover;
-}
-
 .elementor .elementor-background-video-container {
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
@@ -6153,7 +6148,7 @@ body{
 
 body, #qodef-page-wrapper {
     background-color: #0a0a0a;
-    background-image: url(https://urbanfuturists.com/wp-content/uploads/2022/02/background-2.png);
+    background-image: url(../background-2.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
