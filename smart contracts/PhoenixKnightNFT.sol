@@ -22,11 +22,15 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     uint8 private percentOfWallet2;
     uint256 private TOKEN_LIMIT;
     bool _status;
-    uint256[] private indices;
+    bool[] private indices;
+    uint256[] private numberOfNFTsOfSpans;
+    uint256 private totalNumberOfSpans;
+    uint256 consideringSpanIndex;
     event Received(address addr, uint amount);
     event Fallback(address addr, uint amount);
 
-    constructor() ERC721("PhoenixKnightNFT", "PHKNFT") {
+    constructor() ERC721("PhoenixKnightNFT", "PHKNFT") 
+    {
         base_uri = "https://ipfs.infura.io/ipfs/QmU7S7urCReuuzfhcrFT9uko2ntUTQziQMbLZUbQULYjqq/";
         saleMode = 1;   // 1: preSale, 2:publicSale
         preSalePrice = 0.005 ether;
@@ -37,9 +41,19 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         percentOfWallet2  = 70;
         _status = false;
         TOKEN_LIMIT = 10;
+        consideringSpanIndex = 0;
         uint256 j;
-        indices = new uint256[](TOKEN_LIMIT);
-        for(j=0; j<TOKEN_LIMIT; j++) indices[j] = 0;
+        indices = new bool[](1000);
+        for(j=0; j<1000; j++) indices[j] = false;
+        totalNumberOfSpans = (TOKEN_LIMIT / 1000);
+        uint256 remainder = TOKEN_LIMIT % 1000;
+        if(remainder > 0) totalNumberOfSpans ++;
+        if(remainder > 0){
+            for(j=0; j<totalNumberOfSpans-1; j++) numberOfNFTsOfSpans[j] = 1000;
+            numberOfNFTsOfSpans[totalNumberOfSpans - 1] = remainder;
+        }else{
+            for(j=0; j<totalNumberOfSpans; j++) numberOfNFTsOfSpans[j] = 1000;
+        }
     }
 
     receive() external payable {
@@ -59,9 +73,19 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
 
     function setTokenLimit(uint256 _limit) external onlyOwner{   
         TOKEN_LIMIT = _limit;     
+        consideringSpanIndex = 0;
         uint256 j;
-        indices = new uint256[](TOKEN_LIMIT);
-        for(j=0; j<TOKEN_LIMIT; j++) indices[j] = 0;
+        indices = new bool[](1000);
+        for(j=0; j<1000; j++) indices[j] = false;
+        totalNumberOfSpans = (TOKEN_LIMIT / 1000);
+        uint256 remainder = TOKEN_LIMIT % 1000;
+        if(remainder > 0) totalNumberOfSpans ++;
+        if(remainder > 0){
+            for(j=0; j<totalNumberOfSpans-1; j++) numberOfNFTsOfSpans[j] = 1000;
+            numberOfNFTsOfSpans[totalNumberOfSpans - 1] = remainder;
+        }else{
+            for(j=0; j<totalNumberOfSpans; j++) numberOfNFTsOfSpans[j] = 1000;
+        }
     }
 
     function getTokenLimit() public view returns(uint256){
@@ -168,27 +192,39 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         return "0";
     }
     
-    function randomIndex() internal returns (uint) {
-        uint totalSize = TOKEN_LIMIT - _numberOfTokens.current();
-        uint index = uint(keccak256(abi.encodePacked(msg.sender, block.timestamp))) % totalSize;
-        uint value = 0;
-        if (indices[index] != 0) {
-            value = indices[index];
-        } else {
-            value = index;
-        }
-
-        if (indices[totalSize - 1] == 0) {
-      
-            indices[index] = totalSize - 1;
-        } else {
-            indices[index] = indices[totalSize - 1];
-        }
-        return value.add(1);
+    function randomIndex() internal returns (uint) 
+    {
+        uint index = 0;
+        while(consideringSpanIndex < totalNumberOfSpans)
+        {
+            index = uint(keccak256(abi.encodePacked(msg.sender, block.timestamp))) % numberOfNFTsOfSpans[consideringSpanIndex];
+            if(isExists(index) == false) {
+                indices[index] = true;
+                return index.add(1) + consideringSpanIndex*1000;
+            }
+        }       
+        return 0; 
     }
 
-    function getIndicies() public view returns(uint256[] memory) {
-        uint256[] memory _indices = new uint256[](indices.length);
+    function isExists(uint256 index) internal returns(bool)
+    {
+        uint256 j;
+        if(indices[index] == true) 
+        {
+            bool isAllIndicesFilled = true;
+            for(j = 0; j < numberOfNFTsOfSpans[consideringSpanIndex]; j++) if(indices[j] == false) isAllIndicesFilled = false;
+            if(isAllIndicesFilled == true) 
+            {
+                consideringSpanIndex++;                
+                for(j=0; j<1000; j++) indices[j] = false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    function getIndicies() public view returns(bool[] memory) {
+        bool[] memory _indices = new bool[](indices.length);
         uint256 j;
         for(j=0; j<indices.length; j++) _indices[j] = indices[j];
         return _indices;

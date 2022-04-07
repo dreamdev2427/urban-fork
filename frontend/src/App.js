@@ -125,11 +125,6 @@ const StaticMenus = () =>
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
-                onClick={mintSection.onClick} selected={mintSection.selected}
-              >
-                <span className="qodef-menu-item-text">Mint</span>
-              </li>
-              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
                 <span className="qodef-menu-item-text">Team</span>
@@ -174,11 +169,6 @@ const StaticMenus = () =>
                 onClick={stakeSection.onClick} selected={stakeSection.selected}
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
-              </li>
-              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
-                onClick={mintSection.onClick} selected={mintSection.selected}
-              >
-                <span className="qodef-menu-item-text">Mint</span>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
@@ -232,11 +222,6 @@ const StaticMenus = () =>
                 onClick={stakeSection.onClick} selected={stakeSection.selected}
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
-              </li>
-              <li className="menu-item menu-item-type-custom "
-                onClick={mintSection.onClick} selected={mintSection.selected}
-              >
-                <span className="qodef-menu-item-text">Mint</span>
               </li>
               <li className="menu-item menu-item-type-custom "
                 onClick={teamSection.onClick} selected={teamSection.selected}
@@ -377,9 +362,7 @@ function App() {
         setShow2TopButton(false);
       }
       var heightOfVideo = document.getElementById("video_element").clientHeight;
-      var heightOfParticle = document.getElementById("tsparticles").clientHeight;
       console.log("heightOfVideo = ", heightOfVideo, 
-        "heightOfParticle = ", heightOfParticle,
         "heightOfSnowing = ", heightOfSnowing
       );
     }
