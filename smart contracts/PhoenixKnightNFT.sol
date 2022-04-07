@@ -48,6 +48,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         totalNumberOfSpans = (TOKEN_LIMIT / 1000);
         uint256 remainder = TOKEN_LIMIT % 1000;
         if(remainder > 0) totalNumberOfSpans ++;
+        numberOfNFTsOfSpans = new uint256[](totalNumberOfSpans);
         if(remainder > 0){
             for(j=0; j<totalNumberOfSpans-1; j++) numberOfNFTsOfSpans[j] = 1000;
             numberOfNFTsOfSpans[totalNumberOfSpans - 1] = remainder;
@@ -80,6 +81,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         totalNumberOfSpans = (TOKEN_LIMIT / 1000);
         uint256 remainder = TOKEN_LIMIT % 1000;
         if(remainder > 0) totalNumberOfSpans ++;
+        numberOfNFTsOfSpans = new uint256[](totalNumberOfSpans);
         if(remainder > 0){
             for(j=0; j<totalNumberOfSpans-1; j++) numberOfNFTsOfSpans[j] = 1000;
             numberOfNFTsOfSpans[totalNumberOfSpans - 1] = remainder;
@@ -224,9 +226,9 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     }
 
     function getIndicies() public view returns(bool[] memory) {
-        bool[] memory _indices = new bool[](indices.length);
+        bool[] memory _indices = new bool[](1000);
         uint256 j;
-        for(j=0; j<indices.length; j++) _indices[j] = indices[j];
+        for(j=0; j<1000; j++) _indices[j] = indices[j];
         return _indices;
     }
     
@@ -239,6 +241,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         require(recipient != address(0), "Invalid recipient address." );          
                  
         uint256 nftId = randomIndex();
+        require(nftId > 0, "Invalid random id"); 
         _numberOfTokens.increment();
         _mint(recipient, nftId);
         string memory fullUri = string.concat(base_uri, itod(nftId));
@@ -262,6 +265,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         for(i = 0; i < _count; i++)
         {
             nftId = randomIndex();
+            require(nftId > 0, "Invalid random id"); 
             _numberOfTokens.increment();
             _mint(recipient, nftId);
             fullUri = string.concat(base_uri, itod(nftId));
