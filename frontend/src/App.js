@@ -615,69 +615,6 @@ function App() {
           </div>
         </Section>
 
-        <Section id="mint" >
-          <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }} >MINT STARTING IN</div>
-
-          <div className='pink_div_for_time' >
-            <div className='golden_time_number' > {getLeftDuration().days()}</div>
-            <div className='white_time_number' >Days</div>
-          </div>
-          <div className='pink_div_for_time' >
-            <div className='golden_time_number' > {getLeftDuration().hours()} </div>
-            <div className='white_time_number' >Hours</div>
-          </div>
-          <div className='pink_div_for_time' >
-            <div className='golden_time_number' > {getLeftDuration().minutes()} </div>
-            <div className='white_time_number' >Minutes</div>
-          </div>
-          <div className='pink_div_for_time' >
-            <div className='golden_time_number' > {getLeftDuration().seconds()} </div>
-            <div className='white_time_number' >Seconds</div>
-          </div>
-
-          <div className='mint_button_wrapper' style={{ width: "100%" }} >
-            <div className='mint_button' id="jj" onMouseOver={() => onMOverMintButton("jj")} onMouseLeave={() => onMLeaveMintButton("jj")} >
-              <Button className={classes.ee}>Mint</Button>
-            </div>
-          </div>
-
-          <div className='mintingStarttime_title' style={{ marginTop: "100px", marginBottom: "30px" }}>
-            INSIDE INFO
-          </div>
-
-          <div className="insideInfo_text">
-            <p style={{ textAlign: "center" }} ><span style={{ color: "#ffffff" }} >Urban Futurists is the conceptualization from Speed Painter and Entertainer, Brad Blaze. He thought of a world combining the type of art he is known to produce on stage (he uses traditional mediums of paints / brushes) and what could happen in the future.</span>
-              <br></br><br></br>
-              <span style={{ color: "#ffffff" }} >The missing piece of the puzzle came together with the arrival of realistic Virtual Reality and the metaverse. Brad is already honing his skills to release a specific virtual reality show which will tie in with the successful launch of this NFT series. </span>
-              <br></br><br></br>
-              <span style={{ color: "#ffffff" }} >He wondered when art would meet the future. The time is NOW.</span></p>
-
-          </div>
-          <div className="elementor-social-icons-wrapper elementor-grid">
-            <span className="elementor-grid-item">
-              <a className="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-6269d4a" href="https://www.facebook.com/bradblazeartist" target="_blank">
-                <i className="fab fa-facebook"></i>
-              </a>
-            </span>
-            <span className="elementor-grid-item">
-              <a className="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-23a71bb" href="https://twitter.com/bradblaze" target="_blank">
-                <i className="fab fa-twitter"></i>
-              </a>
-            </span>
-            <span className="elementor-grid-item">
-              <a className="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-4f79941" href="https://www.instagram.com/wittypainter/" target="_blank">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </span>
-          </div>
-
-          <div className="elementor-divider" >
-            <span className="elementor-divider-separator">
-            </span>
-          </div>
-
-        </Section>
-
         <Section id="team" style={{ marginTop: "100px", marginBottom: "-30px" }}>
           <div className='mintingStarttime_title'>OUR TEAM</div>
 
@@ -805,18 +742,18 @@ function App() {
         <div className="footer-innner ">
           <div className="footer-grid-item">
             <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">
-              <img className="wp-image-7723" style={{ marginTop: "0px" }} src="https://urbanfuturists.com/wp-content/uploads/2022/02/logo-1.png" alt="" width="200px" />
+              <img className="wp-image-7723" style={{ marginTop: "0px" }} src="./logo.png" alt="" width="200px" />
             </div>
           </div>
           <div className="footer-grid-item">
             <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
-              <p>Support : team (@ ) urbanfuturists.com</p>
+              <p>Support : team (@ ) phoenixknight.com</p>
             </div>
             <div id="block-16" className="widget widget_block" data-area="qodef-footer-top-area-column-2"><a href="https://raritysniper.com/nft-drops-calendar" style={{ textDecoration: "none" }}>NFT Drops</a></div>
           </div>
           <div className="footer-grid-item">
             <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">
-              <p >© 2022 Urban Futurists.</p>
+              <p >© 2022 Phoenix Knight.</p>
             </div>
           </div>
           <div className="footer-grid-item">
