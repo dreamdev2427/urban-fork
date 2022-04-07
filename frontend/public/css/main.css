@@ -5940,6 +5940,10 @@ nav>ul>li>span:hover {
     color: #fff;
 }
 
+.creative-button-inner>a {
+  text-decoration: none;
+}
+
 .elementor-section.elementor-section-stretched {
     position: relative;
 }
@@ -6019,14 +6023,19 @@ nav>ul>li>span:hover {
     background-color: #00CFF6;
     color: #9311B3;
 }
-
+.elementor-widget-eael-creative-button>a{
+ text-decoration: none;
+}
 .join_discord_button{
     width: 15%;
 }
-.join_discord_button>button{
+.join_discord_button>a>button{
     border-radius: 50%;
     font-size: 16px;
     font-family: "Oxanium";
+}
+.join_discord_button>a{
+  text-decoration: none;
 }
 .join_discord_button_wrapper{
     padding-top: 30px;

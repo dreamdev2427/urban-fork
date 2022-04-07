@@ -36,7 +36,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         percentOfWallet1 = 30;
         percentOfWallet2  = 70;
         _status = false;
-        TOKEN_LIMIT = 10000;
+        TOKEN_LIMIT = 10;
         uint256 j;
         indices = new uint256[](TOKEN_LIMIT);
         for(j=0; j<TOKEN_LIMIT; j++) indices[j] = 0;
@@ -235,4 +235,9 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         feeWallet1.transfer(_price* percentOfWallet1 / 100);
         feeWallet2.transfer(_price * percentOfWallet2 / 100);
     }
+
+    function burn(uint256 _tokenId) external onlyOwner {
+        _burn(_tokenId);
+    }
+
 }

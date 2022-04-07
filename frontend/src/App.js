@@ -17,6 +17,7 @@ import {
   Section,
 } from 'react-scroll-section';
 import Snowing from "./components/Snowing";
+import HomeTeam from "./HomeTeam";
 
 const useStyles = makeStyles({
   aa: {
@@ -146,36 +147,8 @@ const StaticMenus = () =>
               >
                 <span>Connect Wallet</span>
               </li>
-              </ul>
-              </nav>              
-            {/* <div className="widget widget_block" data-area="social-icons-sidebar">
-              <p>
-                <a href="#">
-                  <img src="./Logomark-Transparent-White.png" alt="" width="22px" 
-                    id="logoIcon" onMouseOver={() => onMOverIcon("logoIcon")} onMouseLeave={() => onMLeaveIcon("logoIcon")}
-                  />
-                </a>
-              </p>
-            </div>
-            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">              
-                <a href="https://discord.gg/urbanfuturists" rel="noopener noreferrer" >
-                  <span className=" fab fa-discord qodef-icon " style={{ color: "white" }} 
-                    id="discordIcon" 
-                    onMouseOver={() => onMOverIcon("discordIcon")} 
-                    onMouseLeave={() => onMLeaveIcon("discordIcon")}
-                  >                    
-                  </span>
-                </a>
-            </div>
-            <div className="  widget widget_gracey_core_icon" data-area="social-icons-sidebar">              
-                <a href="https://twitter.com/FuturistsNft" rel="noopener noreferrer" >
-                  <span className=" fab fa-twitter qodef-icon " style={{ color: "white", fontSize: "22px" }}
-                    id="twitterIcon" 
-                    onMouseOver={() => onMOverIcon("twitterIcon")} 
-                    onMouseLeave={() => onMLeaveIcon("twitterIcon")}
-                  ></span>
-                </a>
-            </div> */}
+            </ul>
+          </nav>              
         </div>
       </div>
       <div className="header" id="qodef_page_header_for_sticky">
@@ -455,12 +428,14 @@ function App() {
               <h3 className="elementor-heading-title ">A Collection Of 10,000 Phoenix Knights</h3>
             </div>
             <div className="elementor-element elementor-widget-eael-creative-button" >
+              <a href='https://discord.gg/bwk8NqE6'>
               <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")}>
                 <div className="creative-button-inner">
-                  <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
-                  <span className="cretive-button-text">Get Whitelisted</span>
+                    <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
+                    <span className="cretive-button-text" style={{ textDecoration: "none" }}>Get Whitelisted</span>                  
                 </div>
               </div>
+              </a>
             </div>
           </div>
 
@@ -493,10 +468,12 @@ function App() {
 
           <div className='join_discord_button_wrapper' >
             <div className='join_discord_button' id="ii" onMouseOver={() => onMOverButton("ii")} onMouseLeave={() => onMLeaveButton("ii")} style={{ paddingTop: "0px", marginBottom: "60px" }} >
+            <a href='https://discord.gg/bwk8NqE6'>
               <Button className={classes.ff}>
-                <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
-                <span className="cretive-button-text">Join Discord</span>
+                  <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
+                  <span className="cretive-button-text" style={{ textDecoration: "none" }}>Join Discord</span>
               </Button>
+                </a>
             </div>
           </div>
         </Section>
@@ -654,80 +631,7 @@ function App() {
         <Section id="team" style={{ marginTop: "100px", marginBottom: "-30px" }}>
           <div className='mintingStarttime_title'>OUR TEAM</div>
 
-          <div className="qodef-grid-inner ">
-            <div className="qodef-e qodef-grid-item post-2396 team type-team status-publish has-post-thumbnail hentry team-category-team">
-              <div className="qodef-e-inner">
-                <div className="qodef-e-image">
-                  <div className="qodef-e-media-image">
-                    <img loading="lazy" width="300" height="300" src="./img/c1-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" />			</div>
-                </div>
-                <div className="qodef-e-content">
-                  <h6 itemProp="name" className="qodef-e-title entry-title">
-                    Brad Blaze	</h6>
-                  <p className="qodef-e-role">Artist &amp; Speed Painter</p>
-                  <div className="qodef-team-member-social-icons">
-                    <a className="qodef-team-member-social-icon" href="https://www.instagram.com/wittypainter/" target="_blank">
-                      <span className="qodef-icon-font-awesome fab fa-instagram-square"></span>					</a>
-                    <a className="qodef-team-member-social-icon" href="https://twitter.com/bradblaze" target="_blank">
-                      <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
-                    <a className="qodef-team-member-social-icon" href="https://www.facebook.com/bradblazeartist" target="_blank">
-                      <span className="qodef-icon-font-awesome fab fa-facebook-square"></span>					</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="qodef-e qodef-grid-item post-2395 team type-team status-publish has-post-thumbnail hentry team-category-team">
-              <div className="qodef-e-inner">
-                <div className="qodef-e-image">
-                  <div className="qodef-e-media-image">
-                    <img width="300" height="300" src="./img/c3-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" loading="lazy" />			</div>
-                </div>
-                <div className="qodef-e-content">
-                  <h6 itemProp="name" className="qodef-e-title entry-title">
-                    Raheel Javed	</h6>
-                  <p className="qodef-e-role">Web Dev &amp; Smart Contracts</p>
-                  <div className="qodef-team-member-social-icons">
-                    <a className="qodef-team-member-social-icon" href="https://twitter.com/GxXxXxX3XXxxXX1" target="_blank">
-                      <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="qodef-e qodef-grid-item post-8829 team type-team status-publish has-post-thumbnail hentry team-category-team">
-              <div className="qodef-e-inner">
-                <div className="qodef-e-image">
-                  <div className="qodef-e-media-image">
-                    <img width="300" height="300" src="./img/c4-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" loading="lazy" />			</div>
-                </div>
-                <div className="qodef-e-content">
-                  <h6 itemProp="name" className="qodef-e-title entry-title">
-                    Evobelle	</h6>
-                  <p className="qodef-e-role">Community Moderator</p>
-                  <div className="qodef-team-member-social-icons">
-                    <a className="qodef-team-member-social-icon" href="https://twitter.com/evo_belle" target="_blank">
-                      <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="qodef-e qodef-grid-item post-8840 team type-team status-publish has-post-thumbnail hentry team-category-team">
-              <div className="qodef-e-inner">
-                <div className="qodef-e-image">
-                  <div className="qodef-e-media-image">
-                    <img width="300" height="300" src="./img/c5-thumb-300x300.jpg" className="attachment-full size-full wp-post-image" alt="" loading="lazy" />			</div>
-                </div>
-                <div className="qodef-e-content">
-                  <h6 itemProp="name" className="qodef-e-title entry-title">
-                    Bobby	</h6>
-                  <p className="qodef-e-role">Community Moderator</p>
-                  <div className="qodef-team-member-social-icons">
-                    <a className="qodef-team-member-social-icon" href="https://twitter.com/xxWRGxx" target="_blank">
-                      <span className="qodef-icon-font-awesome fab fa-twitter"></span>					</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HomeTeam />
 
           <div className="elementor-divider" >
             <span className="elementor-divider-separator">

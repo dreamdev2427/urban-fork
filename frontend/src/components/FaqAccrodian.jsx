@@ -58,20 +58,6 @@ const FAQList = () => {
 
                 <div className="accordion-wrapper">
                     <div className={selId === 4 ? "accordion active" : "accordion"} onClick={() => {
-                        clickItem(4)
-                    }}>
-                    <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">How Do I Know If This Project Is In Good Hands?</span>
-                    </div>
-                    <div className="panel">
-                        <p data-nsfw-filter-status="swf">
-                        Great question. Unlike many NFT’s that are made by the anonymous, this project is driven by Brad Blaze, already a successful artist and entertainer who has turned over millions of dollars from his art ventures.</p><p style={{ textAlign: "justify" }} >Already in high demand and believing in this project so much, he is altering his performances with Virtual Reality performances at live events. There will be a particular emphasis on NFT growth and this project in his new keynote. 
-                        </p>
-                    </div>
-                </div>
-
-                <div className="accordion-wrapper">
-                    <div className={selId === 5 ? "accordion active" : "accordion"} onClick={() => {
                         clickItem(5)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
@@ -85,7 +71,7 @@ const FAQList = () => {
                 </div>
 
                 <div className="accordion-wrapper">
-                    <div className={selId === 6 ? "accordion active" : "accordion"} onClick={() => {
+                    <div className={selId === 5 ? "accordion active" : "accordion"} onClick={() => {
                         clickItem(6)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
