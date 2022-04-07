@@ -143,6 +143,9 @@
     }
     .sneek_content> * {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
     }
     .whoWeAre_block{
         width: 100%;
@@ -513,7 +516,7 @@
       display: none;
     }    
     .eael-creative-button-wrapper{
-        padding: 7px;
+        padding: 18px;
     }
     .elementor-heading-title {
         font-size: 18px;
@@ -594,7 +597,7 @@
       display: none;
     }    
     .eael-creative-button-wrapper{
-        padding: 3px;
+        padding: 18px;
     }
     .elementor-heading-title {
         font-size: 18px;
@@ -615,7 +618,9 @@
     #qodef-page-mobile-header {
         display: block;
     }
-
+    #qodef-page-mobile-header .qodef-mobile-header-logo-link img {
+        width: 80%;
+    }
     .header{
         margin-bottom: 50px;
     }
@@ -736,7 +741,7 @@
       display: none;
     }    
     .eael-creative-button-wrapper{
-        padding: 1px;
+        padding: 16px;
     }
     .elementor-heading-title {
         font-size: 16px;
@@ -878,7 +883,7 @@
       display: none;
     }    
     .eael-creative-button-wrapper{
-        padding: 1px;
+        padding: 10px;
     }
     .elementor-heading-title {
         font-size: 16px;

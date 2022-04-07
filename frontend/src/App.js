@@ -510,13 +510,18 @@ function App() {
                 <div className="twae-timeline-entry-inner">
                   <div className="twae-label-extra-label">
                     <span className="twae-label">Phase 1</span>
-                    <span className="twae-extra-label">February/March, 2022</span>
+                    <span className="twae-extra-label"></span>
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="fas fa-brain"></i></div>
                   <div className="twae-data-container ">
                     <span className="twae-title">NFT Art Design</span>
 
-                    <div className="twae-description"><p>Art Generation and Branding with emphasis on Art x Future.<br></br>Launch Website, Twitter, Discord, Community Development.</p></div>
+                    <div className="twae-description">
+                      <p>Art Generation and Branding with emphasis on Art.
+                        <br></br>
+                        Launch Website, Twitter, Discord, Community Development.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -524,13 +529,16 @@ function App() {
                 <div className="twae-timeline-entry-inner">
                   <div className="twae-label-extra-label">
                     <span className="twae-label">Phase 2 </span>
-                    <span className="twae-extra-label">April 2022</span>
+                    <span className="twae-extra-label"></span>
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="far fa-object-group"></i></div>
                   <div className="twae-data-container ">
                     <span className="twae-title">Mint Launch</span>
 
-                    <div className="twae-description"><p>Successful First Mint ( 5555 @ 0.05 AVAX For Whitelisted &amp;&nbsp; 0.07 AVAX Public Sale).<br></br>Secondary Market Listing – Opensea, Rarity Sniper.</p></div>
+                    <div className="twae-description">
+                      <p>Successful First Mint ( @ 3 AVAX For Whitelisted &amp;&nbsp; 5 AVAX Public Sale).
+                        <br></br>Secondary Market Listing – Spectrum, Rarity Sniper.
+                      </p></div>
                   </div>
                 </div>
               </article>
@@ -538,13 +546,22 @@ function App() {
                 <div className="twae-timeline-entry-inner">
                   <div className="twae-label-extra-label">
                     <span className="twae-label">Perks &amp; Benefits</span>
-                    <span className="twae-extra-label">May, 2022</span>
+                    <span className="twae-extra-label"></span>
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="fa fa-rocket"></i></div>
                   <div className="twae-data-container ">
                     <span className="twae-title">After Successful Mint</span>
 
-                    <div className="twae-description"><p>We welcome holders of the NFT to the Urban Futurists community. We encourage you to use the NFT as your personal profile picture. Our sole aim is to increase the worth of the NFT. For early ‘flippers’ we’ll allocate a % to maintain the floor price of the NFT on secondary sales (if required).</p><p>To our loyal followers, we’re hosting give aways of Oculus Quest 2 VR’s and giveaways of art and weekly merchandise from our store to retain our membership. We’ll start commencing plans for the purchase of land on the metaverse and an online gallery.<br></br><br></br>Any profits from our merchandise shop will go straight into the DAO which the community owns.</p><p>We believe in karma – do good and good things will come to you. We’ll make a charity donation to an arts based charity of 5%. We’ll discuss this with our membership but we already have 2 children’s charities in mind that assist children recover from trauma with drawing and painting programs and are in hospitals.</p><p>As our floor grows we aim to release Phase 2. Only those who are holders of the NFT will be able to access at a discount an NFT for Phase 2.</p></div>
+                    <div className="twae-description">
+                      <p>
+                      Launch Staking feature<br></br>
+                      Launch Native token and Airdrop to NFT stakers<br></br>
+                      Verified NFT Stakers will get access to the Following Benefits:<br></br>
+                      Get auto whitelisted on all upcoming Project<br></br>
+                      Exclusive Contests and Giveaways to our community.<br></br>
+                      Whitelist access to further growth opportunities.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -552,13 +569,19 @@ function App() {
                 <div className="twae-timeline-entry-inner">
                   <div className="twae-label-extra-label">
                     <span className="twae-label">Phase 3</span>
-                    <span className="twae-extra-label">June, 2022</span>
+                    <span className="twae-extra-label"></span>
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="fa fa-brush"></i></div>
                   <div className="twae-data-container ">
-                    <span className="twae-title">The Second Mint</span>
+                    <span className="twae-title">Whitelist Presale and Public sale for Native token </span>
 
-                    <div className="twae-description"><p>( More than 0.1 AVAX). Price To Be Determined.</p><p>We will purchase land in the metaverse and establish an online store where Art meets Future fashion. We’ll sell Art, Clothing, Custom Wearables, Accessories with 80% of royalties going into DAO. Many of our designs will be featured on the avatars in Mint Phase 2.<br></br>We’ll explore collaborations with major brands that are in our existing network and past clients.</p></div>
+                    <div className="twae-description">
+                      <p>
+                      Native Token Whitelist Presale<br></br>
+                      Native token Public Presale <br></br>
+                      List Native token List in CMC, CG, swapsicle.io &amp; CEX, and DEX
+                      </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -566,13 +589,35 @@ function App() {
                 <div className="twae-timeline-entry-inner">
                   <div className="twae-label-extra-label">
                     <span className="twae-label">Phase 4</span>
-                    <span className="twae-extra-label">August, 2022</span>
+                    <span className="twae-extra-label"></span>
+                  </div>
+                  <div className="twae-icon"><i aria-hidden="true" className="fa fa-cube"></i></div>
+                  <div className="twae-data-container ">
+                    <span className="twae-title">NFT community determines future projects</span>
+
+                    <div className="twae-description">
+                      <p>
+                      native tokens or any other ideas that benefit the community in long term.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article className="twae-timeline-entry twae-right-aligned">
+                <div className="twae-timeline-entry-inner">
+                  <div className="twae-label-extra-label">
+                    <span className="twae-label">What's next?</span>
+                    <span className="twae-extra-label"></span>
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="fa fa-infinity"></i></div>
                   <div className="twae-data-container ">
-                    <span className="twae-title">More Mints</span>
+                    <span className="twae-title">We have something amazing coming up Soon. Timeline 2.0 Will be here</span>
 
-                    <div className="twae-description"><p>Just like successful other mints before us: BAYC, Azuki, WOW – other opportunities present themselves through partnerships. We’ll discuss with our community any ideas that will help raise the value of the NFT.</p></div>
+                    <div className="twae-description">
+                      <p>
+                      Everything will be done with voting from the community. We are here and we are here for the long-term with our ever growing community.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -593,16 +638,7 @@ function App() {
             <div className='colMD7' >
               <div className='sneek_subtitle'>
                 <h4>COMING SOON</h4>
-              </div>
-              <div className='sneek_content' >
-                Urban Futurists is a community with an exciting roadmap. Being a member provides you with one of our hand drawn Urban Futurists NFT but also the community benefits, giveaways and preferred status for our metaverse plans into Phase 2. Join us today and get in on this ground floor opportunity.
-              </div>
-              <div className='sneek_subtitle'>
-                <h4>MINT GIVEAWAY</h4>
-              </div>
-              <div className='sneek_content' >
-                If you mint 5, we’ll send you a shirt, cap, or mask from our merchandise shop welcoming you into our community.
-              </div>
+              </div>             
             </div>
             <div className='colMD5' >
               <SingleGallery />
@@ -693,33 +729,6 @@ function App() {
             </div>
           </div>
 
-          <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>
-            WHO WE ARE
-          </div>
-
-          <div className='whoWeAre_blocks' >
-            <div className='whoWeAre_block'>
-              <h4 style={{ textAlign: "justify" }} >
-                <span style={{ color: "#00cff6" }} >
-                  <strong><span style={{ fontFamily: "Oxanium" }} >Brad Blaze</span></strong>
-                </span>
-              </h4>
-              <p style={{ textAlign: "justify" }} >
-                <span style={{ color: "#ffffff", fontSize: "12pt" }} >World renowned artist and entertainer is in high demand performing at Corporate and Special Events in over 20 countries. </span></p><p style={{ textAlign: "justify" }}><span style={{ color: "#ffffff", fontSize: "12pt" }} >Has painted four world leaders live onstage at events and celebrities such as Chris Hemsworth and Tiger Woods. He has raised over $3 million dollars for charities.</span></p><p style={{ textAlign: "justify" }} ><span style={{ color: "#ffffff", fontSize: "12pt" }} >Has a passion for art and technology, with NFT’s providing the perfect platform to merge the two.</span>
-              </p>
-            </div>
-            <div className='whoWeAre_block'>
-              <h4>
-                <span style={{ fontFamily: "Oxanium", color: "#00cff6" }} >
-                  <strong>Raheel Javed</strong>
-                </span>
-              </h4>
-              <p style={{ textAlign: "justify" }} ><span style={{ fontSize: "12pt" }} ><span style={{ color: "#ffffff" }} >Full time freelance Designer &amp; Developer. Working with tech since Web 2.0. Thousands of websites and design projects done.</span></span></p>
-              <p style={{ textAlign: "justify" }} ><span style={{ fontSize: "12pt" }} ><span style={{ color: "#ffffff" }} >Working experience of Java, Python, Php, React. Moving &amp; Learning Web3 technologies, dapps &amp; Smart Contracts.</span></span></p>
-              <p style={{ textAlign: "justify" }} ><span style={{ color: "#ffffff", fontSize: "12pt" }} >Always excited for new projects and new technologies to further improve the User Experience online.</span></p>
-            </div>
-          </div>
-
           <div className="elementor-divider" >
             <span className="elementor-divider-separator">
             </span>
@@ -742,7 +751,7 @@ function App() {
         <div className="footer-innner ">
           <div className="footer-grid-item">
             <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">
-              <img className="wp-image-7723" style={{ marginTop: "0px" }} src="./logo.png" alt="" width="200px" />
+              <img className="wp-image-7723" style={{ marginTop: "10px" }} src="./logo.png" alt="" width="200px" />
             </div>
           </div>
           <div className="footer-grid-item">

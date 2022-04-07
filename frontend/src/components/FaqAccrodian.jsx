@@ -20,11 +20,11 @@ const FAQList = () => {
                         clickItem(1)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">When Will Urban Futurists Officially Launch?</span>
+                        <span className="accordion__title">When will Phoenix knights officially launch?</span>
                     </div>
                     <div className="panel">
                         <p>
-                        Urban Futurists will officially launch on the TBD with a price of 0.5 ETH (Whitelisted) &amp; 0.07 ETH (Public Sale). Please make sure you don’t miss the launch by joining our Discord and Twitter. We will notify you when the project officially goes live.
+                        Phoenix knights will officially launch on the TBA with the Price of 3 AVAX for (Whitelisted) & 5 AVAX (public Sale) Please make sure to get whitelist access and don’t miss the launch by joining our discord and Twitter, we will notify you when the project officially goes LIVE.
                         </p>
                     </div>
                 </div>
@@ -33,11 +33,11 @@ const FAQList = () => {
                         clickItem(2)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">Where Will The Funding From NFT’s Be Put To Use?</span>
+                        <span className="accordion__title">Can I earn money from my Phoenix knights NFT?</span>
                     </div>
                     <div className="panel">
                         <p>
-                        The funds raised from the launch of Urban Futurists are detailed in our roadmap with the Virtual Symposium being planned immediately, the charitable component being distributed and funding for art and tech ventures being decided by the community. Further developments include an online shop with profits going into the DAO. This will only make your NFT worth more and ensure more people the desire to own one of the exclusive Urban Futurists.
+                        YES Absolutely you will earn native tokens by staking your Phoenix knights NFT also we will airdrop out native tokens for all Phoenix knights NFT holders, you will also earn more as token and NFT values goes up.
                         </p>
                     </div>
                 </div>
@@ -47,11 +47,11 @@ const FAQList = () => {
                         clickItem(3)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">Can I Earn Money With My Urban Futurist NFT?</span>
+                        <span className="accordion__title">How do I know if this project is in good hands?</span>
                     </div>
                     <div className="panel">
                         <p>
-                        Yes. We are absolutely committed to ensuring your NFT gains as much value as possible by strongly investing in the community and following our roadmap.
+                        Great Question, Unlike many NFT projects, which are made by anonymous, Phoenix knights is Backed by Phoenix community capital, Visit (https://thephoenix.finance) Phoenix Community Capital, Inc is a very successful Project.
                         </p>
                     </div>
                 </div>
@@ -75,11 +75,11 @@ const FAQList = () => {
                         clickItem(5)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">On Which Blockchain Will Urban Futurists Be Hosted?</span>
+                        <span className="accordion__title">How do I get on the Whitelist?</span>
                     </div>
                     <div className="panel">
                         <p>
-                        Urban Futurists is hosted on the Ethereum Blockchain. We chose this blockchain because of its security and decentralization. Ethereum gives an easy way to verify who owns the NFT.
+                        Please Check out the Whitelist info in Discord we will update it regularly.
                         </p>
                     </div>
                 </div>
@@ -89,36 +89,15 @@ const FAQList = () => {
                         clickItem(6)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">How many pieces will be sold ?</span>
+                        <span className="accordion__title">Is there a Limit to Mint?</span>
                     </div>
                     <div className="panel">
-                    <p>Total Supply – 5555 NFTs</p><p>Presale WL –&nbsp; 0.05 ETH&nbsp;<br></br>Public Sale –&nbsp; 0.07 ETH&nbsp;</p><p>Whitelist Spot – 2000<br></br>Giveaways – 200 pieces</p><p>Whales, Partners, Influencers – 100 pieces</p>
+                        <p>
+                        NO No limit to mint during Presale, you can mint as many as you wish to     
+                        </p>
                     </div>
                 </div>
 
-                <div className="accordion-wrapper">
-                    <div className={selId === 7 ? "accordion active" : "accordion"} onClick={() => {
-                        clickItem(7)
-                    }}>                        
-                        <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>      
-                        <span  className="accordion__title">How do I get on the Whitelist?</span>
-                    </div>
-                    <div className="panel">
-                    <p>Please check the whitelist info on our Discord. It will be regularly updated.</p>
-                    </div>
-                </div>
-                
-                <div className="accordion-wrapper">
-                    <div className={selId === 8 ? "accordion active" : "accordion"} onClick={() => {
-                        clickItem(8)
-                    }}>                        
-                        <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>      
-                        <span  className="accordion__title">Is there a limit to mint?</span>
-                    </div>
-                    <div className="panel">
-                    <p>Yes there will be a limit of 2 ‘Urban Futurists NFT’ per wallet during WL mint and a limit of 5 per wallet during the public sale.</p>
-                    </div>
-                </div>
             </div>
     );
 }
