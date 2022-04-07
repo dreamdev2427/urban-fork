@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
+contract PhoenixKnightNFT is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _numberOfTokens;
     using SafeMath for uint256;
@@ -33,6 +33,7 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     constructor() ERC721("PhoenixKnightNFT", "PHKNFT") 
     {
         base_uri = "https://ipfs.infura.io/ipfs/QmU7S7urCReuuzfhcrFT9uko2ntUTQziQMbLZUbQULYjqq/";
+
         saleMode = 1;   // 1: preSale, 2:publicSale
         preSalePrice = 0.005 ether;
         publicSalePrice = 0.02 ether;
@@ -126,9 +127,8 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         return base_uri;
     }
 
-    function setBaseUri(string memory _newUri) external onlyOwner returns(string memory){
+    function setBaseUri(string memory _newUri) external onlyOwner {
         base_uri = _newUri;
-        return base_uri;
     }
 
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
