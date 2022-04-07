@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
@@ -20,12 +21,12 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
     address payable private feeWallet2;
     uint8 private percentOfWallet1;
     uint8 private percentOfWallet2;
-    uint256 private TOKEN_LIMIT;
-    bool _status;
-    bool[] private indices;
-    uint256[] private numberOfNFTsOfSpans;
-    uint256 private totalNumberOfSpans;
-    uint256 consideringSpanIndex;
+    uint256 private _totalSupply = 10000;
+    bool private _status;
+    bool[10000] private indices;
+    uint256 private spanSize = 100;
+    uint256 private consideringSpanIndex = 0;
+    uint256 nounce = 0;
     event Received(address addr, uint amount);
     event Fallback(address addr, uint amount);
 
@@ -40,21 +41,6 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         percentOfWallet1 = 30;
         percentOfWallet2  = 70;
         _status = false;
-        TOKEN_LIMIT = 10;
-        consideringSpanIndex = 0;
-        uint256 j;
-        indices = new bool[](1000);
-        for(j=0; j<1000; j++) indices[j] = false;
-        totalNumberOfSpans = (TOKEN_LIMIT / 1000);
-        uint256 remainder = TOKEN_LIMIT % 1000;
-        if(remainder > 0) totalNumberOfSpans ++;
-        numberOfNFTsOfSpans = new uint256[](totalNumberOfSpans);
-        if(remainder > 0){
-            for(j=0; j<totalNumberOfSpans-1; j++) numberOfNFTsOfSpans[j] = 1000;
-            numberOfNFTsOfSpans[totalNumberOfSpans - 1] = remainder;
-        }else{
-            for(j=0; j<totalNumberOfSpans; j++) numberOfNFTsOfSpans[j] = 1000;
-        }
     }
 
     receive() external payable {
@@ -65,33 +51,8 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         emit Fallback(msg.sender, msg.value);
     }
 
-    modifier nonReentrant() {
-        require(_status != true, "ReentrancyGuard: reentrant call");
-        _status = true;
-        _;
-        _status = false;
-    }
-
-    function setTokenLimit(uint256 _limit) external onlyOwner{   
-        TOKEN_LIMIT = _limit;     
-        consideringSpanIndex = 0;
-        uint256 j;
-        indices = new bool[](1000);
-        for(j=0; j<1000; j++) indices[j] = false;
-        totalNumberOfSpans = (TOKEN_LIMIT / 1000);
-        uint256 remainder = TOKEN_LIMIT % 1000;
-        if(remainder > 0) totalNumberOfSpans ++;
-        numberOfNFTsOfSpans = new uint256[](totalNumberOfSpans);
-        if(remainder > 0){
-            for(j=0; j<totalNumberOfSpans-1; j++) numberOfNFTsOfSpans[j] = 1000;
-            numberOfNFTsOfSpans[totalNumberOfSpans - 1] = remainder;
-        }else{
-            for(j=0; j<totalNumberOfSpans; j++) numberOfNFTsOfSpans[j] = 1000;
-        }
-    }
-
-    function getTokenLimit() public view returns(uint256){
-        return TOKEN_LIMIT;
+    function totalSupply() public view returns(uint256){
+        return _totalSupply;
     }
 
     function setSaleMode(uint8 _mode) external onlyOwner{
@@ -170,114 +131,75 @@ contract PhoenixKnightNFT is ERC721URIStorage, Ownable {
         return base_uri;
     }
 
-    function tranferNFT(address _from, address _to, uint256 _tokenId) external payable {
-        transferFrom(_from, _to, _tokenId);
-    }
-
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
-        return super.tokenURI(_tokenId);
+        return string(abi.encodePacked(base_uri, Strings.toString(_tokenId)));
     }
 
-    function setTokenURI(uint256 tokenId, string memory _tokenURI) internal {
-        super._setTokenURI(tokenId, _tokenURI);
+    function setNounce(uint256 _nounce) public {
+        nounce = _nounce;
     }
-    
-    function itod(uint256 x) private pure returns (string memory) {
-        if (x > 0) {
-            string memory str;
-            while (x > 0) {
-                str = string(abi.encodePacked(uint8(x % 10 + 48), str));
-                x /= 10;
-            }
-            return str;
-        }
-        return "0";
-    }
-    
-    function randomIndex() internal returns (uint) 
+
+    function randomIndex() internal  returns (uint) 
     {
-        uint index = 0;
-        while(consideringSpanIndex < totalNumberOfSpans)
-        {
-            index = uint(keccak256(abi.encodePacked(msg.sender, block.timestamp))) % numberOfNFTsOfSpans[consideringSpanIndex];
-            if(isExists(index) == false) {
-                indices[index] = true;
-                return index.add(1) + consideringSpanIndex*1000;
-            }
-        }       
-        return 0; 
-    }
+        uint index;
 
-    function isExists(uint256 index) internal returns(bool)
-    {
-        uint256 j;
-        if(indices[index] == true) 
-        {
-            bool isAllIndicesFilled = true;
-            for(j = 0; j < numberOfNFTsOfSpans[consideringSpanIndex]; j++) if(indices[j] == false) isAllIndicesFilled = false;
-            if(isAllIndicesFilled == true) 
-            {
-                consideringSpanIndex++;                
-                for(j=0; j<1000; j++) indices[j] = false;
-            }
-            return true;
-        }
-        return false;
-    }
+        index = uint256(keccak256(abi.encodePacked(
+            block.timestamp , block.difficulty , msg.sender, nounce++ , spanSize
+        ))) % spanSize;
 
-    function getIndicies() public view returns(bool[] memory) {
-        bool[] memory _indices = new bool[](1000);
-        uint256 j;
-        for(j=0; j<1000; j++) _indices[j] = indices[j];
-        return _indices;
-    }
-    
-    function mint(address recipient)  external  payable nonReentrant {   
-        require(TOKEN_LIMIT - _numberOfTokens.current() > 0, "Cannot mint. The collection has no remains."); 
-        uint256 _price;
-        if(saleMode == 1) _price = preSalePrice;
-        if(saleMode == 2) _price = publicSalePrice;
-        require(msg.value >= _price, "Invalid price, price is less than sale price."); 
-        require(recipient != address(0), "Invalid recipient address." );          
-                 
-        uint256 nftId = randomIndex();
-        require(nftId > 0, "Invalid random id"); 
-        _numberOfTokens.increment();
-        _mint(recipient, nftId);
-        string memory fullUri = string.concat(base_uri, itod(nftId));
-        setTokenURI(nftId, fullUri);
+        index += consideringSpanIndex * spanSize;
+
+        index = isExists(index);
         
-        feeWallet1.transfer(_price * percentOfWallet1 / 100);
-        feeWallet2.transfer(_price * percentOfWallet2 / 100);
+        return index; 
     }
 
-    function batchMint(address recipient, uint256 _count)  external   payable nonReentrant  { 
-        require(TOKEN_LIMIT - _numberOfTokens.current() > 0, "Cannot mint. The collection has no remains.");  
+    function isExists(uint256 index) internal returns(uint256)
+    {
+        uint256 idx=1;
+        uint256 newIndex = index;
+        if(indices[newIndex] == true) 
+        {
+            for(idx = 0; idx < spanSize; idx++)
+            {
+                if(indices[consideringSpanIndex * spanSize + idx] == false)
+                {
+                    newIndex = consideringSpanIndex * spanSize + idx;
+                    break;
+                }
+            }
+        }
+        indices[newIndex] = true;
+        return newIndex;
+    }
+
+    function mint(uint256 _count)  external  payable  {   
+        require(_totalSupply - _numberOfTokens.current() - _count > 0, "Cannot mint. The collection has no remains."); 
         uint256 _price;
         if(saleMode == 1) _price = preSalePrice * _count;
         if(saleMode == 2) _price = publicSalePrice * _count;
-        require(msg.value >= _price, "Invalid price, price is less than sale price."); 
-        require(recipient != address(0), "Invalid recipient address." );           
-        require(_count > 0, "Invalid count value." );       
-        uint256 i; 
-        string memory fullUri;
-        uint256 nftId;
-        for(i = 0; i < _count; i++)
-        {
-            nftId = randomIndex();
-            require(nftId > 0, "Invalid random id"); 
+        // require(msg.value >= _price, "Invalid price, price is less than sale price."); 
+
+        require(msg.sender != address(0), "Invalid recipient address." );        
+
+        uint256 idx;
+
+        for(idx = 0; idx < _count; idx++){
+
+            uint256 nftId = randomIndex();
             _numberOfTokens.increment();
-            _mint(recipient, nftId);
-            fullUri = string.concat(base_uri, itod(nftId));
-            setTokenURI(nftId, fullUri);
-        }
+            _mint(msg.sender, nftId);
+
+            if( _numberOfTokens.current() % spanSize == 0 )
+                consideringSpanIndex++;
+
+        }                   
         
-        feeWallet1.transfer(_price* percentOfWallet1 / 100);
-        feeWallet2.transfer(_price * percentOfWallet2 / 100);
+        // feeWallet1.transfer(_price * percentOfWallet1 / 100);
+        // feeWallet2.transfer(_price * percentOfWallet2 / 100);
     }
 
     function burn(uint256 _tokenId) external onlyOwner {
         _burn(_tokenId);
     }
-
 }
