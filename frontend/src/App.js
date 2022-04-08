@@ -637,11 +637,6 @@ function App() {
       <div id="qodef-page-footer-top-area">
         <div className="footer-innner ">
           <div className="footer-grid-item">
-            <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1">
-              <img className="wp-image-7723" style={{ marginTop: "10px" }} src="./logo.png" alt="" width="200px" />
-            </div>
-          </div>
-          <div className="footer-grid-item">
             <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
               <p>Support : team (@ ) phoenixknight.com</p>
             </div>
@@ -655,6 +650,17 @@ function App() {
           <div className="footer-grid-item">
             <div id="block-15" className="widget widget_block widget_text" data-area="qodef-footer-top-area-column-4">
               <p>All Rights Reserved.</p>
+            </div>
+          </div>
+          <div className="footer-grid-item">
+            <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1" style={{marginTop : "15px"}}>
+              <a href='https://discord.gg/bwk8NqE6' style={{ color:"white", textDecoration:"none" }}>
+                <i className="fab fa-discord"  ></i>
+              </a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href='https://discord.gg/bwk8NqE6' style={{ color:"white", textDecoration:"none" }}>
+                <i className="fab fa-twitter" style={{ color:"white" }} ></i>
+              </a>
             </div>
           </div>
         </div>
