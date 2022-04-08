@@ -657,7 +657,7 @@ function App() {
               <a href='https://discord.gg/bwk8NqE6' style={{ color:"white", textDecoration:"none" }}>
                 <i className="fab fa-discord"  ></i>
               </a>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href='https://discord.gg/bwk8NqE6' style={{ color:"white", textDecoration:"none" }}>
                 <i className="fab fa-twitter" style={{ color:"white" }} ></i>
               </a>

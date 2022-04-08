@@ -58,7 +58,7 @@ const FAQList = () => {
 
                 <div className="accordion-wrapper">
                     <div className={selId === 4 ? "accordion active" : "accordion"} onClick={() => {
-                        clickItem(5)
+                        clickItem(4)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
                         <span className="accordion__title">How do I get on the Whitelist?</span>
@@ -72,7 +72,7 @@ const FAQList = () => {
 
                 <div className="accordion-wrapper">
                     <div className={selId === 5 ? "accordion active" : "accordion"} onClick={() => {
-                        clickItem(6)
+                        clickItem(5)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
                         <span className="accordion__title">Is there a Limit to Mint?</span>
