@@ -411,7 +411,7 @@ function App() {
               <h3 className="elementor-heading-title ">A Collection Of 10,000 Phoenix Knights</h3>
             </div>
             <div className="elementor-element elementor-widget-eael-creative-button" >
-              <a href='https://discord.gg/bwk8NqE6'>
+              <a href='https://discord.gg/bwk8NqE6'  target="_blank" >
               <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")}>
                 <div className="creative-button-inner">
                     <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
@@ -451,7 +451,7 @@ function App() {
 
           <div className='join_discord_button_wrapper' >
             <div className='join_discord_button' id="ii" onMouseOver={() => onMOverButton("ii")} onMouseLeave={() => onMLeaveButton("ii")} style={{ paddingTop: "0px", marginBottom: "60px" }} >
-            <a href='https://discord.gg/bwk8NqE6'>
+            <a href='https://discord.gg/bwk8NqE6'  target="_blank" >
               <Button className={classes.ff}>
                   <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
                   <span className="cretive-button-text" style={{ textDecoration: "none" }}>Join Discord</span>
@@ -654,11 +654,11 @@ function App() {
           </div>
           <div className="footer-grid-item">
             <div id="text-3" className="  widget widget_text" data-area="qodef-footer-top-area-column-1" style={{marginTop : "15px"}}>
-              <a href='https://discord.gg/bwk8NqE6' style={{ color:"white", textDecoration:"none" }}>
+              <a href='https://discord.gg/bwk8NqE6'  target="_blank" style={{ color:"white", textDecoration:"none" }}>
                 <i className="fab fa-discord"  ></i>
               </a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href='https://discord.gg/bwk8NqE6' style={{ color:"white", textDecoration:"none" }}>
+              <a href='https://twitter.com/NFT_Knights' target="_blank" style={{ color:"white", textDecoration:"none" }}>
                 <i className="fab fa-twitter" style={{ color:"white" }} ></i>
               </a>
             </div>
