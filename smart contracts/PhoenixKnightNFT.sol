@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract PhoenixKnightNFT is ERC721, Ownable {
@@ -35,6 +36,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     bool enableMint = false;
     event Received(address addr, uint amount);
     event Fallback(address addr, uint amount);
+    event WithdrawAll(address addr, uint256 token, uint256 native);
 
     constructor() ERC721("PhoenixKnightNFT", "PHKNFT") 
     {
@@ -258,4 +260,27 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     function burn(uint256 _tokenId) external onlyOwner {
         _burn(_tokenId);
     }
+    
+    function withdrawAll(address _tokenAddr) external onlyOwner{
+        if(_tokenAddr != address(0))
+        {
+            uint256 balance = IERC20(_tokenAddr).balanceOf(address(this));
+            if(balance > 0) {
+                IERC20(_tokenAddr).transfer(msg.sender, balance);
+            }
+            emit WithdrawAll(msg.sender, balance, 0);
+        }
+        else{        
+            address payable mine = payable(msg.sender);
+            uint256 _amount = address(this).balance;
+            if(_amount > 0) {
+                mine.transfer(_amount);
+            }
+            emit WithdrawAll(msg.sender, 0, _amount);
+        }
+    }
 }
+
+
+
+
