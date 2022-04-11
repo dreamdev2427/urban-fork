@@ -27,6 +27,12 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     uint256 private spanSize = 100;
     uint256 private consideringSpanIndex = 0;
     uint256 nounce = 0;
+    mapping(address => bool) WhiteListForInvestors;
+    mapping(address => bool) WhiteListForUsers;
+    uint256 _totalWhitelistedInvestors;
+    uint256 _totalWhitelistedUsers;
+    uint256 maxOfWhiteListedUsers = 30;
+    bool enableMint = false;
     event Received(address addr, uint amount);
     event Fallback(address addr, uint amount);
 
@@ -35,13 +41,15 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         base_uri = "https://ipfs.infura.io/ipfs/QmU7S7urCReuuzfhcrFT9uko2ntUTQziQMbLZUbQULYjqq/";
 
         saleMode = 1;   // 1: preSale, 2:publicSale
-        preSalePrice = 0.005 ether;
-        publicSalePrice = 0.02 ether;
+        preSalePrice = 3 ether;
+        publicSalePrice = 5 ether;
         feeWallet1 = payable( address(0xe28f60670529EE8d14277730CDA405e24Ac7251A) );
         feeWallet2 = payable( address(0x73875DeDa18dE0105987c880aFbbC21F3F6b955c) );
         percentOfWallet1 = 30;
         percentOfWallet2  = 70;
         _status = false;
+        _totalWhitelistedInvestors = 0;
+        _totalWhitelistedUsers = 0;
     }
 
     receive() external payable {
@@ -139,6 +147,14 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         nounce = _nounce;
     }
 
+    function setEnableMint(bool _enable) public onlyOwner{
+        enableMint = _enable;
+    }
+
+    function getEnableMint() public view returns(bool){
+        return enableMint;
+    }
+
     function randomIndex() internal  returns (uint) 
     {
         uint index;
@@ -173,11 +189,52 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         return newIndex;
     }
 
+    function addInvestors2WhiteList(address[] memory _wallets) public onlyOwner{
+        uint256 _len = _wallets.length;
+        uint256 j;
+        for(j = 0; j < _len; j++) 
+        {
+            WhiteListForInvestors[_wallets[j]] = true;
+            _totalWhitelistedInvestors ++;
+        }
+    } 
+
+    function isWhitelistedForInvestors(address _addr) public view returns(bool){
+        return WhiteListForInvestors[_addr];
+    }
+
+    function setNumberOfWLUsers(uint256 _max) public onlyOwner{
+        maxOfWhiteListedUsers = _max;
+    }
+
+    function setNumberOfWLUsers() public view returns(uint256){
+        return maxOfWhiteListedUsers;
+    }
+
+    function addUser2WhiteList(address _addr) public payable {
+        if(_totalWhitelistedUsers > maxOfWhiteListedUsers) require(msg.value >= 0.2 ether, "You should pay 0.2 AVAX to be whitelisted.");
+        WhiteListForUsers[_addr] = true;
+        _totalWhitelistedUsers ++;
+    }
+
+    function isWhitelistedForUsers(address _addr) public view returns(bool){
+        return WhiteListForUsers[_addr];
+    }
+
+    function isWhiteListed(address _addr) public view returns(bool){
+        return WhiteListForInvestors[_addr] || WhiteListForUsers[_addr];
+    }
+
     function mint(uint256 _count)  external  payable  {   
+        require(enableMint == true, "Minting is disabled");
+        require(_count == 1, "You can only mint one NFT at once.");
         require(_totalSupply - _numberOfTokens.current() - _count > 0, "Cannot mint. The collection has no remains."); 
         uint256 _price;
-        if(saleMode == 1) _price = preSalePrice * _count;
-        if(saleMode == 2) _price = publicSalePrice * _count;
+        if(isWhiteListed(msg.sender) == true) _price = preSalePrice * _count;
+        else _price = publicSalePrice * _count;
+        // if(saleMode == 1) _price = preSalePrice * _count;
+        // if(saleMode == 2) _price = publicSalePrice * _count;
+
         // require(msg.value >= _price, "Invalid price, price is less than sale price."); 
 
         require(msg.sender != address(0), "Invalid recipient address." );        
