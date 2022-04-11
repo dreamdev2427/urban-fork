@@ -34,9 +34,11 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     uint256 _totalWhitelistedUsers;
     uint256 maxOfWhiteListedUsers = 30;
     bool enableMint = false;
+    uint256 pauseContract = 0;
     event Received(address addr, uint amount);
     event Fallback(address addr, uint amount);
     event WithdrawAll(address addr, uint256 token, uint256 native);
+    event SetContractStatus(address addr, uint256 pauseValue);
 
     constructor() ERC721("PhoenixKnightNFT", "PHKNFT") 
     {
@@ -61,12 +63,22 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     fallback() external payable { 
         emit Fallback(msg.sender, msg.value);
     }
+    
+    function getContractStatus() external view returns (uint256) {
+        return pauseContract;
+    }
+
+    function setContractStatus(uint256 _newPauseContract) external onlyOwner {
+        pauseContract = _newPauseContract;
+        emit SetContractStatus(msg.sender, _newPauseContract);
+    }
 
     function totalSupply() public view returns(uint256){
         return _totalSupply;
     }
 
     function setSaleMode(uint8 _mode) external onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         require(_mode == 1 || _mode == 2, "Invalid sale mode. Must be 1 or 2." );   
         saleMode = _mode;
     }
@@ -76,6 +88,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setPreSalePrice(uint256 _price) external onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         require(_price > 0, "Invalid price. Must be a positive number." );    
         preSalePrice = _price;
     }
@@ -85,6 +98,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setPublicSalePrice(uint256 _price) external onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         require(_price > 0, "Invalid price. Must be a positive number." );          
         publicSalePrice = _price;
     }
@@ -94,6 +108,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setFeeWallet1(address payable _wallet) external onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         require(_wallet != address(0), "Invalid wallet address." );          
         feeWallet1 = _wallet;
     }
@@ -103,6 +118,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setFeeWallet2(address payable _wallet) external onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         require(_wallet != address(0), "Invalid wallet address." );          
         feeWallet2 = _wallet;
     }
@@ -112,6 +128,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setPercentOfWallet1(uint8 _percent) external onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         require(_percent>=0 && _percent<=100, "Invalid percent. Must be in 0~100." );          
         percentOfWallet1 = _percent;
     }
@@ -121,6 +138,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setPercentOfWallet2(uint8 _percent) external onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         require(_percent>=0 && _percent<=100, "Invalid percent. Must be in 0~100." );      
         percentOfWallet2 = _percent;
     }
@@ -138,6 +156,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setBaseUri(string memory _newUri) external onlyOwner {
+        require(pauseContract == 0, "Contract Paused");
         base_uri = _newUri;
     }
 
@@ -146,10 +165,12 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setNounce(uint256 _nounce) public {
+        require(pauseContract == 0, "Contract Paused");
         nounce = _nounce;
     }
 
     function setEnableMint(bool _enable) public onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         enableMint = _enable;
     }
 
@@ -159,6 +180,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
 
     function randomIndex() internal  returns (uint) 
     {
+        require(pauseContract == 0, "Contract Paused");
         uint index;
 
         index = uint256(keccak256(abi.encodePacked(
@@ -174,6 +196,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
 
     function isExists(uint256 index) internal returns(uint256)
     {
+        require(pauseContract == 0, "Contract Paused");
         uint256 idx=1;
         uint256 newIndex = index;
         if(indices[newIndex] == true) 
@@ -192,6 +215,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function addInvestors2WhiteList(address[] memory _wallets) public onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         uint256 _len = _wallets.length;
         uint256 j;
         for(j = 0; j < _len; j++) 
@@ -206,14 +230,17 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function setNumberOfWLUsers(uint256 _max) public onlyOwner{
+        require(pauseContract == 0, "Contract Paused");
         maxOfWhiteListedUsers = _max;
     }
 
     function setNumberOfWLUsers() public view returns(uint256){
+        require(pauseContract == 0, "Contract Paused");
         return maxOfWhiteListedUsers;
     }
 
     function addUser2WhiteList(address _addr) public payable {
+        require(pauseContract == 0, "Contract Paused");
         if(_totalWhitelistedUsers > maxOfWhiteListedUsers) require(msg.value >= 0.2 ether, "You should pay 0.2 AVAX to be whitelisted.");
         WhiteListForUsers[_addr] = true;
         _totalWhitelistedUsers ++;
@@ -228,6 +255,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function mint(uint256 _count)  external  payable  {   
+        require(pauseContract == 0, "Contract Paused");
         require(enableMint == true, "Minting is disabled");
         require(_count == 1, "You can only mint one NFT at once.");
         require(_totalSupply - _numberOfTokens.current() - _count > 0, "Cannot mint. The collection has no remains."); 
@@ -258,6 +286,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function burn(uint256 _tokenId) external onlyOwner {
+        require(pauseContract == 0, "Contract Paused");
         _burn(_tokenId);
     }
     
@@ -279,6 +308,9 @@ contract PhoenixKnightNFT is ERC721, Ownable {
             emit WithdrawAll(msg.sender, 0, _amount);
         }
     }
+
+    
+
 }
 
 
