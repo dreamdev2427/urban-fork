@@ -403,7 +403,7 @@ function App() {
               autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} 
             ></video>
           </div>
-          <Snowing height={heightOfSnowing} />
+          {/* <Snowing height={heightOfSnowing} /> */}
           {/* <div className="elementor-column-gap-default">
 
             <div className="elementor-element elementor-widget-heading" >

@@ -184,15 +184,14 @@ contract PhoenixKnightNFT is ERC721, Ownable {
 
         uint256 idx;
 
-        for(idx = 0; idx < _count; idx++){
-
+        for(idx = 0; idx < _count; idx++)
+        {
             uint256 nftId = randomIndex();
             _numberOfTokens.increment();
             _mint(msg.sender, nftId);
 
             if( _numberOfTokens.current() % spanSize == 0 )
                 consideringSpanIndex++;
-
         }                   
         
         // feeWallet1.transfer(_price * percentOfWallet1 / 100);
