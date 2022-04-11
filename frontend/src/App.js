@@ -404,7 +404,7 @@ function App() {
             ></video>
           </div>
           <Snowing height={heightOfSnowing} />
-          <div className="elementor-column-gap-default">
+          {/* <div className="elementor-column-gap-default">
 
             <div className="elementor-element elementor-widget-heading" >
 
@@ -420,7 +420,7 @@ function App() {
               </div>
               </a>
             </div>
-          </div>
+          </div> */}
 
           <div style={{ padding: "20px", background: "#7002da", zIndex:"20" }} >
             <Gallery />
