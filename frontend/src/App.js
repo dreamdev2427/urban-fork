@@ -39,13 +39,16 @@ const useStyles = makeStyles({
   },
   cc: {
     width: "100% !important",
-    height: "100px",
+    height: "5vw",
     backgroundImage: 'url("./getWLbutton.png")', 
+    backgroundColor: "#ffff00 !important", 
     backgroundSize:"contain",
+    borderRadius: "45px !important",
     backgroundRepeat: "no-repeat",
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundSize: "100% 100%"
   },
   dd: {
     width: "20% !important",
@@ -427,7 +430,9 @@ function App() {
               <a href='https://discord.gg/bwk8NqE6'  target="_blank" >
               <div className="eael-creative-button-wrapper" >
                 <div className="creative-button-inner" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
-                  <Button className={classes.cc}  ></Button>                   
+                  <Button className={classes.cc}  >
+                    {/* GET ON THE WHITELIST */}
+                  </Button>                   
                 </div>
               </div>
               </a>
