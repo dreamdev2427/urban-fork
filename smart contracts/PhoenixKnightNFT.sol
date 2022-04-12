@@ -308,9 +308,6 @@ contract PhoenixKnightNFT is ERC721, Ownable {
             emit WithdrawAll(msg.sender, 0, _amount);
         }
     }
-
-    
-
 }
 
 

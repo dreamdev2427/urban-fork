@@ -18,6 +18,7 @@ import {
 } from 'react-scroll-section';
 import Snowing from "./components/Snowing";
 import HomeTeam from "./HomeTeam";
+import { CardContent } from '@mui/material';
 
 const useStyles = makeStyles({
   aa: {
@@ -37,12 +38,14 @@ const useStyles = makeStyles({
     color: 'white',
   },
   cc: {
-    width: "20% !important",
-    border: "#000 solid",
-    borderRadius: "20px",
+    width: "100% !important",
     height: "100px",
-    background: 'linear-gradient(180deg, #900EB6 0%, #29D3F2 100%)',
-    color: 'white'
+    backgroundImage: 'url("./getWLbutton.png")', 
+    backgroundSize:"contain",
+    backgroundRepeat: "no-repeat",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   dd: {
     width: "20% !important",
@@ -367,11 +370,19 @@ function App() {
       );
     }
     function resizeSnowing() {
-      var heightOfVideo = document.getElementById("video_element").clientHeight;
-      if(heightOfVideo>0) setHeightOfSnowing(heightOfVideo);
+      var VideoElement = document.getElementById("video_element");
+      var getWLButtonDiv = document.getElementById("getWLButtonDiv");
+      getWLButtonDiv.style.position = "absolute";
+      getWLButtonDiv.style.top = Number(VideoElement.clientHeight*3/5) + "px";
+      console.log("VideoElement.clientTop = ", VideoElement.clientTop, " VideoElement.clientHeight = ", VideoElement.clientHeight,
+      "getWLButtonDiv.clientTop = ", getWLButtonDiv.clientTop);
     }    
-    var heightOfVideo = document.getElementById("video_element").clientHeight;
-    if(heightOfVideo>0) setHeightOfSnowing(heightOfVideo);
+    var VideoElement = document.getElementById("video_element");
+    var getWLButtonDiv = document.getElementById("getWLButtonDiv");
+    getWLButtonDiv.style.position = "absolute";
+    getWLButtonDiv.style.top = Number(VideoElement.clientHeight*3/5) + "px";
+    console.log("VideoElement.clientTop = ", VideoElement.clientTop, " VideoElement.clientHeight = ", VideoElement.clientHeight,
+    "getWLButtonDiv.clientTop = ", getWLButtonDiv.clientTop);
   }, [])
 
   const onMOverButton = (buttonId) => {
@@ -404,23 +415,24 @@ function App() {
             ></video>
           </div>
           {/* <Snowing height={heightOfSnowing} /> */}
-          {/* <div className="elementor-column-gap-default">
+          <div className="elementor-column-gap-default">
 
-            <div className="elementor-element elementor-widget-heading" >
+            {/* <div className="elementor-element elementor-widget-heading" >
 
-              <h3 className="elementor-heading-title ">A Collection Of 10,000 Phoenix Knights</h3>
-            </div>
-            <div className="elementor-element elementor-widget-eael-creative-button" >
+              <h3 className="elementor-heading-title ">
+                A Collection Of 10,000 Phoenix Knights
+              </h3>
+            </div> */}
+            <div className="elementor-element elementor-widget-eael-creative-button" id="getWLButtonDiv" >
               <a href='https://discord.gg/bwk8NqE6'  target="_blank" >
-              <div className="eael-creative-button-wrapper" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")}>
-                <div className="creative-button-inner">
-                    <span className="eael-creative-button-icon-left"><i className="fab fa-discord"></i>&nbsp;&nbsp;</span>
-                    <span className="cretive-button-text" style={{ textDecoration: "none" }}>Get Whitelisted</span>                  
+              <div className="eael-creative-button-wrapper" >
+                <div className="creative-button-inner" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
+                  <Button className={classes.cc}  ></Button>                   
                 </div>
               </div>
               </a>
             </div>
-          </div> */}
+          </div>
 
           <div style={{ padding: "20px", background: "#7002da", zIndex:"20" }} >
             <Gallery />
