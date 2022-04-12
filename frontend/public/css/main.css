@@ -6020,7 +6020,7 @@ nav>ul>li>span:hover {
     background-color: #00CFF6;
     color: #9311B3;
 }
-.elementor-widget-eael-creative-button>a{
+.elementor-widget-eael-creative-button>div{
   text-decoration: none;
   display: flex;
   width: 100%;
