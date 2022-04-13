@@ -49,8 +49,8 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         publicSalePrice = 5 ether;
         ManagerWallet = payable( address(0xe28f60670529EE8d14277730CDA405e24Ac7251A) );
         DevWallet = payable( address(0x73875DeDa18dE0105987c880aFbbC21F3F6b955c) );
-        percentOfManagerWallet = 15; //1.5%
-        percentOfDevWallet  = 985; //98.5%
+        percentOfManagerWallet = 985; //98.5%
+        percentOfDevWallet  = 15; //1.5%
         _status = false;
         _numberOfInvestors = 0;
         _totalWhitelistedUsers = 0;
@@ -127,23 +127,23 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         return DevWallet;
     }
 
-    function setPercentOfWallet1(uint8 _percent) external onlyOwner{
+    function setPercentOfManagerWallet(uint8 _percent) external onlyOwner{
         require(pauseContract == 0, "Contract Paused");
-        require(_percent>=0 && _percent<=1000, "Invalid percent. Must be in 0~100." );          
+        require(_percent>=0 && _percent<=1000, "Invalid percent. Must be in 0~1000." );          
         percentOfManagerWallet = _percent;
     }
 
-    function getPercentOfWallet1() public view returns(uint16) {
+    function getPercentOfManagerWallet() public view returns(uint16) {
         return percentOfManagerWallet;
     }
 
-    function setPercentOfWallet2(uint8 _percent) external onlyOwner{
+    function setPercentOfDevWallet(uint8 _percent) external onlyOwner{
         require(pauseContract == 0, "Contract Paused");
-        require(_percent>=0 && _percent<=1000, "Invalid percent. Must be in 0~100." );      
+        require(_percent>=0 && _percent<=1000, "Invalid percent. Must be in 0~1000." );      
         percentOfDevWallet = _percent;
     }
 
-    function getPercentOfWallet2() public view returns(uint16) {
+    function getPercentOfDevWallet() public view returns(uint16) {
         return percentOfDevWallet;
     }
 
@@ -240,7 +240,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
 
     function addUser2WhiteList(address _addr) public payable {
         require(pauseContract == 0, "Contract Paused");
-        if(_totalWhitelistedUsers > maxOfWhiteListedUsers && ListOfInvestors[_addr] == false){
+        if(_totalWhitelistedUsers >= maxOfWhiteListedUsers && ListOfInvestors[_addr] == false){
             require(msg.value >= 0.2 ether, "You should pay 0.2 AVAX to be whitelisted.");            
             ManagerWallet.transfer(msg.value.mul(percentOfManagerWallet).div(1000));
             DevWallet.transfer(msg.value.mul(percentOfDevWallet).div(1000));
