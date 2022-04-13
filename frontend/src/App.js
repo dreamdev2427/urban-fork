@@ -429,11 +429,11 @@ function App() {
             <div className="elementor-element elementor-widget-eael-creative-button" id="getWLButtonDiv" >
               <div >
               <div className="eael-creative-button-wrapper" >
-                <a className="creative-button-inner" id="hh" href='https://discord.gg/bwk8NqE6'  target="_blank" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
+                <div className="creative-button-inner" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
                   <Button className={classes.cc}  >
                     {/* GET ON THE WHITELIST */}
                   </Button>                   
-                </a>
+                </div>
               </div>
               </div>
             </div>
