@@ -42,7 +42,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
 
     constructor() ERC721("PhoenixKnightNFT", "PHKNFT") 
     {
-        base_uri = "https://ipfs.infura.io/ipfs/QmU7S7urCReuuzfhcrFT9uko2ntUTQziQMbLZUbQULYjqq/";
+        base_uri = "https://ipfs.infura.io/ipfs/QmR8Fs5zseYYVhvVFjNS7EJQrNHwcs3UpswpC1QonWXZMn/";
 
         saleMode = 1;   // 1: preSale, 2:publicSale
         preSalePrice = 3 ether;

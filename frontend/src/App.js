@@ -16,9 +16,23 @@ import {
   useScrollSection,
   Section,
 } from 'react-scroll-section';
+import { Router, Location, Redirect } from '@reach/router';
+
 // import Snowing from "./components/Snowing";
 import HomeTeam from "./HomeTeam";
+import { useSelector, useDispatch } from "react-redux";
 // import { CardContent } from '@mui/material';
+import isEmpty from "./utilities/isEmpty";
+
+import { loadWeb3 } from './interactWithSmartContract';
+
+import { connectWallet, getMintedNFTCount } from './interactWithSmartContract';
+import { setConnectedWalletAddress } from './store/actions/auth.actions';
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from 'react-notifications';
+
+loadWeb3();
 
 const useStyles = makeStyles({
   aa: {
@@ -88,6 +102,23 @@ const StaticMenus = () =>
   const teamSection = useScrollSection('team');
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const [compressedAddress, setCompressedAddress] = useState("");
+
+  const account = useSelector(state => state.auth.currentWallet);
+  const walletStatus = useSelector(state => state.auth.walletStatus);
+  const dispatch = useDispatch();
+  
+  useEffect(() => 
+  {
+    if(isEmpty(account)) return;
+    let compAddress = "";
+    compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
+    setCompressedAddress(compAddress);  
+    
+    getMintedNFTCount();
+    
+  }, [account, dispatch])
+  
   const onClickShowMobileMenu = () => {
     if (showMobileMenu) {
       document.getElementById("qodef-mobile-header-navigation").style.display = "block";
@@ -98,13 +129,31 @@ const StaticMenus = () =>
     setShowMobileMenu(!showMobileMenu);
   }
 
-  const onMOverIcon = (buttonId) => {
-    document.getElementById(buttonId).classList.add("animated", "spinner", "duration1", "infinite");
+  // const onMOverIcon = (buttonId) => {
+  //   document.getElementById(buttonId).classList.add("animated", "spinner", "duration1", "infinite");
+  // }
+
+  // const onMLeaveIcon = (buttonId) => {
+  //   document.getElementById(buttonId).classList.remove("animated", "spinner", "duration1", "infinite");
+  // }
+
+  const onClickConnectWallet = async () => 
+  {
+    let connection = await connectWallet();
+    if(connection.success === true) dispatch(setConnectedWalletAddress(connection.address));
+
   }
 
-  const onMLeaveIcon = (buttonId) => {
-    document.getElementById(buttonId).classList.remove("animated", "spinner", "duration1", "infinite");
-  }
+  useEffect(() => 
+  {
+    if(isEmpty(account)) return;
+    let compAddress = "";
+    compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
+    setCompressedAddress(compAddress);  
+    // getUsersEvoNFTs(account);
+    getMintedNFTCount();
+    
+  }, [account, dispatch])
 
   return (
     <>
@@ -143,11 +192,22 @@ const StaticMenus = () =>
             </ul>
           </nav>
           <nav className="qodef-header-navigation" >
-            <ul id="menu-primary-menu-2" className="menu">
-              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "                
-              >
-                <span>Connect Wallet</span>
-              </li>
+            <ul id="menu-primary-menu-2" className="menu">              
+              {
+                walletStatus === false &&              
+                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "      
+                onClick={() => onClickConnectWallet()}          
+                >
+                  <span>Connect Wallet</span>
+                </li>
+              }         
+              {
+                walletStatus === true &&              
+                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "     
+                >
+                  <span>{compressedAddress}</span>
+                </li>
+              }            
             </ul>
           </nav>              
         </div>
@@ -687,7 +747,7 @@ function App() {
           </div>
         </div>
       </div>
-
+      <NotificationContainer/>
     </>
 
   );
