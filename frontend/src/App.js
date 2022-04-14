@@ -16,8 +16,6 @@ import {
   useScrollSection,
   Section,
 } from 'react-scroll-section';
-import { Router, Location, Redirect } from '@reach/router';
-
 // import Snowing from "./components/Snowing";
 import HomeTeam from "./HomeTeam";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,6 +29,8 @@ import { setConnectedWalletAddress } from './store/actions/auth.actions';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import { NotificationManager } from 'react-notifications';
+import { emptyNFTTradingResult } from './store/actions/nft.actions';
+import config from './config';
 
 loadWeb3();
 
@@ -106,6 +106,8 @@ const StaticMenus = () =>
 
   const account = useSelector(state => state.auth.currentWallet);
   const walletStatus = useSelector(state => state.auth.walletStatus);
+  const nftOperationResult = useSelector( state => state.nft.tradingResult );
+  const mintedNFTCount = useSelector(state => state.auth.mintedNFTCount);
   const dispatch = useDispatch();
   
   useEffect(() => 
@@ -117,7 +119,25 @@ const StaticMenus = () =>
     
     getMintedNFTCount();
     
-  }, [account, dispatch])
+    if(!isEmpty(nftOperationResult))
+    {
+      switch(nftOperationResult.function)
+      {
+        default:
+          break;
+        case "mintMultipleNFT":
+          if(nftOperationResult.success === true) 
+          {            
+            NotificationManager.success(nftOperationResult.message, "Success", 2000);
+          }
+          if(nftOperationResult.success === false) NotificationManager.error(nftOperationResult.message, "Error", 2000);
+          dispatch(emptyNFTTradingResult());
+          getMintedNFTCount();          
+          break;
+      }
+    }
+
+  }, [account, nftOperationResult, dispatch])
   
   const onClickShowMobileMenu = () => {
     if (showMobileMenu) {
@@ -363,6 +383,20 @@ function App() {
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
   const [heightOfSnowing, setHeightOfSnowing] = useState(300);
+  const mintedNFTCount = useSelector(state => state.auth.mintedNFTCount);
+  const [mintedCount, setMitedCount] = useState(0);
+  const account = useSelector( state => state.auth.currentWallet );
+  const walletStatus = useSelector(state => state.auth.walletStatus);
+
+  useEffect(() =>
+  {    
+    getMintedNFTCount();
+  }, [])
+  
+  useEffect(() =>
+  {
+    setMitedCount(mintedNFTCount)
+  }, [mintedNFTCount]);
 
   const getLeftDuration = () => {
 
@@ -462,6 +496,24 @@ function App() {
 
   const onMLeaveMintButton = (buttonId) => {
     document.getElementById(buttonId).classList.remove( "animated", "buzzOut", "duration1", "infinite");
+  }
+
+  const onClickMint = () => {    
+    getMintedNFTCount();
+    setTimeout(async () => {
+      if( !isEmpty(account) && walletStatus === true) 
+      {
+        if(mintedNFTCount >= config.NFT_MAX_MINT)
+        {
+          NotificationManager.warning("You've failed. All ever bullz were minted.", "Information",  2000)
+          return;
+        }
+        //get minting fee first
+        //and call mint function next
+        //await mint(account, 1, config.MINTING_FEE_PER_NFT * 1);
+      }
+      else NotificationManager.warning("Please connect your wallet.", "Warning",  2000)
+    }, 1000);
   }
 
   return (
