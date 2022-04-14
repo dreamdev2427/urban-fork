@@ -1,5 +1,8 @@
 
 @media (max-width: 1980px) {
+    #opennig_soon{
+        font-size: 32px;
+    }
     .elementor-heading-title {
         padding-top: 6%;
         font-size: 56px;
@@ -39,6 +42,9 @@
 
 
 @media (max-width: 1600px) {
+    #opennig_soon{
+        font-size: 28px;
+    }
     .elementor-heading-title {
         padding-top: 3%;
         font-size: 52px;
@@ -74,6 +80,9 @@
 }
 
 @media (max-width: 1200px) {
+    #opennig_soon{
+        font-size: 22px;
+    }
     .elementor-heading-title {
         font-size: 34px;
         font-weight: bold;
@@ -111,6 +120,9 @@
 }
 
 @media (max-width: 1024px) {
+    #opennig_soon{
+        font-size: 20px;
+    }
     #qodef_page_header_for_sticky{
         display: none;
     }
@@ -319,6 +331,9 @@
 }
 
 @media (max-width: 850px) {
+    #opennig_soon{
+        font-size: 18px;
+    }
     #qodef_page_header_for_sticky{
         display: none;
     }
@@ -417,6 +432,9 @@
 }
 
 @media (max-width: 700px) {
+    #opennig_soon{
+        font-size: 16px;
+    }
     #qodef_page_header_for_sticky{
         display: none;
     }
@@ -509,6 +527,9 @@
 }
 
 @media (max-width: 600px) {
+    #opennig_soon{
+        font-size: 16px;
+    }
     #qodef_page_header_for_sticky{
         display: none;
     }
@@ -590,6 +611,9 @@
 }
 
 @media (max-width: 550px) {
+    #opennig_soon{
+        font-size: 16px;
+    }
     #qodef_page_header_for_sticky{
         display: none;
     }
@@ -734,6 +758,9 @@
 }
 
 @media (max-width: 450px) {
+    #opennig_soon{
+        font-size: 14px;
+    }
     #qodef_page_header_for_sticky{
         display: none;
     }
@@ -876,6 +903,9 @@
 }
 
 @media (max-width: 370px) {
+    #opennig_soon{
+        font-size: 14px;
+    }
     #qodef_page_header_for_sticky{
         display: none;
     }

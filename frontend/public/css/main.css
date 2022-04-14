@@ -5901,6 +5901,12 @@ nav>ul>li>span:hover {
     justify-content: center;
     align-items: center;
     width: 100%;
+    flex-direction: column;
+}
+
+#opennig_soon{
+  font-style: italic;
+  font-weight: bold;
 }
 
 .eael-creative-button {  

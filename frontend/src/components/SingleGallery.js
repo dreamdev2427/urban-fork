@@ -22,54 +22,54 @@ export default function SingleGallery() {
             >
                 <SwiperSlide>
                     <div style={{color: 'white' }}>
-                        <img width="100%" src='./img/c1-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7750.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c3-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7751.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c4-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7753.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c5-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7756.png' />
                     </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c6-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7757.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white' }}>
-                        <img width="100%" src='./img/c1-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7758.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c3-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7759.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c4-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7760.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c5-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7761.png' />
                     </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='./img/c6-thumb-300x300.jpg' />
+                        <img width="100%" src='./img/7763.png' />
                     </div>
                 </SwiperSlide>
             </Swiper>

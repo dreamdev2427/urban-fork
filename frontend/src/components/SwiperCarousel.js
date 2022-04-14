@@ -22,54 +22,54 @@ export default function Gallery() {
             >
                 <SwiperSlide>
                     <div style={{color: 'white' }}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7750.png' />
+                        <img width="100%" src='./img/7750.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7751.png' />
+                        <img width="100%" src='./img/7751.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7753.png' />
+                        <img width="100%" src='./img/7753.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7756.png' />
+                        <img width="100%" src='./img/7756.png' />
                     </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7757.png' />
+                        <img width="100%" src='./img/7757.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white' }}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7758.png' />
+                        <img width="100%" src='./img/7758.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7759.png' />
+                        <img width="100%" src='./img/7759.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7760.png' />
+                        <img width="100%" src='./img/7760.png' />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7761.png' />
+                        <img width="100%" src='./img/7761.png' />
                     </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <div style={{color: 'white'}}>
-                        <img width="100%" src='https://ipfs.infura.io/ipfs/QmZDvKAHXSCZgJ27Pzm5QL4fNxoXosAtCr6Z75o9HS79on/7763.png' />
+                        <img width="100%" src='./img/7763.png' />
                     </div>
                 </SwiperSlide>
             </Swiper>
