@@ -412,14 +412,14 @@ function App() {
 
         <Section id="home" style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", flexDirection: "column" }}>
           <div className="elementor-background-video-container elementor-hidden-phone" >
-            {/* <video className="elementor-background-video-hosted elementor-html5-video" 
+            <video className="elementor-background-video-hosted elementor-html5-video" 
               id="video_element"
               autoPlay={true} muted playsInline="" loop={true} src="./response.mp4" style={{ width: "100%" }} 
-            ></video> */}
-            <img className="elementor-background-video-hosted elementor-html5-video" 
+            ></video>
+            {/* <img className="elementor-background-video-hosted elementor-html5-video" 
               id="video_element"
               src="./Design (2).jpg" style={{ width: "100%" }} 
-            ></img>
+            ></img> */}
           </div>
           {/* <Snowing height={heightOfSnowing} /> */}
           <div className="elementor-column-gap-default">
