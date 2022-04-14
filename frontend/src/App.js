@@ -16,9 +16,9 @@ import {
   useScrollSection,
   Section,
 } from 'react-scroll-section';
-import Snowing from "./components/Snowing";
+// import Snowing from "./components/Snowing";
 import HomeTeam from "./HomeTeam";
-import { CardContent } from '@mui/material';
+// import { CardContent } from '@mui/material';
 
 const useStyles = makeStyles({
   aa: {
