@@ -417,7 +417,7 @@ function App() {
     if( !isEmpty(account) && walletStatus === true) 
     {
       isWhiteListed(account);
-      getUsersNFTs(account);
+      // getUsersNFTs(account);
     }
   }, [account])
 
