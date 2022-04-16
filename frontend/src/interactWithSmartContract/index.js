@@ -314,10 +314,11 @@ const parseErrorMsg = (errMsg) =>
   export const getUsersNFTs = async (account) =>
   {    
     try{
-      const res = await axios.get("https://deep-index.moralis.io/api/v2/" + account + "/nft/" + config.PhoenixKnightNFT_address + "?chain=bsc%20testnet&format=decimal", {
+      const res = await axios.get("https://deep-index.moralis.io/api/v2/" + account + "/nft/" + config.PhoenixKnightNFT_address + "?chain=0x"+ config.chainId +"&format=hex", {
         headers: { "X-API-Key": config.MoralisAPIKey },
       });
       console.log(res.data.result);
+
       const nftlist = res.data.result;
       if(nftlist && nftlist.length>0)
       {
@@ -473,6 +474,7 @@ export const addUser2WhiteList = async (currentAddr, fee) =>
     await mint.send({ from: currentAddr, value: getting_wl_fee });
 
     store.dispatch(setNFTTradingResult("getWL", true, "Succeed in getting WL."));
+    store.dispatch(updateIsWhitelisted(true));
 
     updateUserBalanceAfterTrading(currentAddr);
 

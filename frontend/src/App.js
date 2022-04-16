@@ -23,7 +23,7 @@ import { useSelector, useDispatch } from "react-redux";
 import isEmpty from "./utilities/isEmpty";
 
 import { isWhiteListed, getCountOfMintedNfts, loadWeb3, mint, getNumberOfWLUsers, getMAXNumberOfWLUsers,
-  addUser2WhiteList } from './interactWithSmartContract';
+  addUser2WhiteList, getUsersNFTs } from './interactWithSmartContract';
 
 import { connectWallet,  } from './interactWithSmartContract';
 import { setConnectedWalletAddress } from './store/actions/auth.actions';
@@ -417,6 +417,7 @@ function App() {
     if( !isEmpty(account) && walletStatus === true) 
     {
       isWhiteListed(account);
+      getUsersNFTs(account);
     }
   }, [account])
 

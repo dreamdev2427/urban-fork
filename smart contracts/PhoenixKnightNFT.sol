@@ -162,7 +162,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
-        return string(abi.encodePacked(base_uri, Strings.toString(_tokenId)));
+        return string(abi.encodePacked(base_uri, Strings.toString(_tokenId), ".json"));
     }
 
     function setNounce(uint256 _nounce) public {
