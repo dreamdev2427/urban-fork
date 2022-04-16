@@ -229,13 +229,17 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         return ListOfInvestors[_addr];
     }
 
-    function setNumberOfWLUsers(uint256 _max) public onlyOwner{
+    function setMAXNumberOfWLUsers(uint256 _max) public onlyOwner{
         require(pauseContract == 0, "Contract Paused");
         maxOfWhiteListedUsers = _max;
     }
 
-    function getNumberOfWLUsers() public view returns(uint256){
+    function getMAXNumberOfWLUsers() public view returns(uint256){
         return maxOfWhiteListedUsers;
+    }
+
+    function getNumberOfWLUsers() public view returns(uint256){
+        return _totalWhitelistedUsers;
     }
 
     function addUser2WhiteList(address _addr) public payable {

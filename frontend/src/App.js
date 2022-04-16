@@ -22,9 +22,10 @@ import { useSelector, useDispatch } from "react-redux";
 // import { CardContent } from '@mui/material';
 import isEmpty from "./utilities/isEmpty";
 
-import { loadWeb3 } from './interactWithSmartContract';
+import { isWhiteListed, getCountOfMintedNfts, loadWeb3, mint, getNumberOfWLUsers, getMAXNumberOfWLUsers,
+  addUser2WhiteList } from './interactWithSmartContract';
 
-import { connectWallet, getMintedNFTCount } from './interactWithSmartContract';
+import { connectWallet,  } from './interactWithSmartContract';
 import { setConnectedWalletAddress } from './store/actions/auth.actions';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
@@ -106,8 +107,6 @@ const StaticMenus = () =>
 
   const account = useSelector(state => state.auth.currentWallet);
   const walletStatus = useSelector(state => state.auth.walletStatus);
-  const nftOperationResult = useSelector( state => state.nft.tradingResult );
-  const mintedNFTCount = useSelector(state => state.auth.mintedNFTCount);
   const dispatch = useDispatch();
   
   useEffect(() => 
@@ -116,28 +115,8 @@ const StaticMenus = () =>
     let compAddress = "";
     compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
     setCompressedAddress(compAddress);  
-    
-    getMintedNFTCount();
-    
-    if(!isEmpty(nftOperationResult))
-    {
-      switch(nftOperationResult.function)
-      {
-        default:
-          break;
-        case "mintMultipleNFT":
-          if(nftOperationResult.success === true) 
-          {            
-            NotificationManager.success(nftOperationResult.message, "Success", 2000);
-          }
-          if(nftOperationResult.success === false) NotificationManager.error(nftOperationResult.message, "Error", 2000);
-          dispatch(emptyNFTTradingResult());
-          getMintedNFTCount();          
-          break;
-      }
-    }
-
-  }, [account, nftOperationResult, dispatch])
+        
+  }, [account, dispatch])
   
   const onClickShowMobileMenu = () => {
     if (showMobileMenu) {
@@ -171,7 +150,7 @@ const StaticMenus = () =>
     compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
     setCompressedAddress(compAddress);  
     // getUsersEvoNFTs(account);
-    getMintedNFTCount();
+    getCountOfMintedNfts();
     
   }, [account, dispatch])
 
@@ -383,62 +362,73 @@ function App() {
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
   const [heightOfSnowing, setHeightOfSnowing] = useState(300);
-  const mintedNFTCount = useSelector(state => state.auth.mintedNFTCount);
-  const [mintedCount, setMitedCount] = useState(0);
+  const mintedNFTCount = useSelector(state => state.nft.mintedNFTCount);
+  // const [mintedCount, setMitedCount] = useState(0);
   const account = useSelector( state => state.auth.currentWallet );
   const walletStatus = useSelector(state => state.auth.walletStatus);
-
-  useEffect(() =>
-  {    
-    getMintedNFTCount();
-  }, [])
+  const gotWL = useSelector(state => state.nft.gotWL);
+  const maxOfWL  = useSelector(state => state.nft.maxLenOfWL);
+  const curLenOfWL = useSelector(state => state.nft.lengthOfWL);
+  const nftOperationResult = useSelector(state => state.nft.tradingResult);
+  const dispatch = useDispatch();
   
-  useEffect(() =>
-  {
-    setMitedCount(mintedNFTCount)
-  }, [mintedNFTCount]);
+  // useEffect(() =>
+  // {
+  //   setMitedCount(mintedNFTCount)
+  // }, [mintedNFTCount]);
 
-  const getLeftDuration = () => {
+  // const getLeftDuration = () => {
 
-    // var currentTime = Date.now();
-    var diff = mintingStartTime - currentTime;
-    diff = diff / 1000;
+  //   // var currentTime = Date.now();
+  //   var diff = mintingStartTime - currentTime;
+  //   diff = diff / 1000;
 
-    var day = 0;
-    var hr = 0;
-    var min = 0;
-    var sec = 0;
+  //   var day = 0;
+  //   var hr = 0;
+  //   var min = 0;
+  //   var sec = 0;
 
-    if (diff > 0) {
-      day = Math.floor(diff / 3600 / 24);
-      hr = Math.floor((diff / 3600) - day * 24);
-      min = Math.floor((diff / 60) - day * 24 * 60 - hr * 60);
-      sec = Math.floor(diff - 24 * 3600 * day - 3600 * hr - 60 * min);
-    } else if (!isNaN(diff) && diff <= 0) {
-      // update banner list when this item's auction time is ended
-      // getNftBannerList(5)(dispatch);
-    }
+  //   if (diff > 0) {
+  //     day = Math.floor(diff / 3600 / 24);
+  //     hr = Math.floor((diff / 3600) - day * 24);
+  //     min = Math.floor((diff / 60) - day * 24 * 60 - hr * 60);
+  //     sec = Math.floor(diff - 24 * 3600 * day - 3600 * hr - 60 * min);
+  //   } else if (!isNaN(diff) && diff <= 0) {
+  //     // update banner list when this item's auction time is ended
+  //     // getNftBannerList(5)(dispatch);
+  //   }
 
-    const days = () => {
-      return day;
+  //   const days = () => {
+  //     return day;
+  //   }
+  //   const hours = () => {
+  //     return hr;
+  //   }
+  //   const minutes = () => {
+  //     return min;
+  //   }
+  //   const seconds = () => {
+  //     return sec;
+  //   }
+  //   return { hours, minutes, seconds, days }
+  // }
+
+  useEffect(() => {
+    if( !isEmpty(account) && walletStatus === true) 
+    {
+      isWhiteListed(account);
     }
-    const hours = () => {
-      return hr;
-    }
-    const minutes = () => {
-      return min;
-    }
-    const seconds = () => {
-      return sec;
-    }
-    return { hours, minutes, seconds, days }
-  }
+  }, [account])
 
   useEffect(() => {
 
-    setInterval(() => {
-      setCurrentTime(Date.now());
-    }, 1000);
+    getCountOfMintedNfts();
+    getMAXNumberOfWLUsers();
+    getNumberOfWLUsers();
+    
+    // setInterval(() => {
+    //   //setCurrentTime(Date.now());    
+    // }, 3000);
 
     window.onscroll = function () { myFunction() };
     window.onresize = function () { resizeSnowing() }
@@ -461,26 +451,48 @@ function App() {
       } else {
         setShow2TopButton(false);
       }
-      var heightOfVideo = document.getElementById("video_element").clientHeight;
-      console.log("heightOfVideo = ", heightOfVideo, 
-        "heightOfSnowing = ", heightOfSnowing
-      );
     }
     function resizeSnowing() {
       var VideoElement = document.getElementById("video_element");
       var getWLButtonDiv = document.getElementById("getWLButtonDiv");
       getWLButtonDiv.style.position = "absolute";
       getWLButtonDiv.style.top = Number(VideoElement.clientHeight*3/5) + "px";
-      console.log("VideoElement.clientTop = ", VideoElement.clientTop, " VideoElement.clientHeight = ", VideoElement.clientHeight,
-      "getWLButtonDiv.clientTop = ", getWLButtonDiv.clientTop);
     }    
     var VideoElement = document.getElementById("video_element");
     var getWLButtonDiv = document.getElementById("getWLButtonDiv");
     getWLButtonDiv.style.position = "absolute";
-    getWLButtonDiv.style.top = Number(VideoElement.clientHeight*3/5) + "px";
-    console.log("VideoElement.clientTop = ", VideoElement.clientTop, " VideoElement.clientHeight = ", VideoElement.clientHeight,
-    "getWLButtonDiv.clientTop = ", getWLButtonDiv.clientTop);
+    getWLButtonDiv.style.top = Number(VideoElement.clientHeight*3/5) + "px";    
   }, [])
+
+  useEffect(() => {
+
+    if(!isEmpty(nftOperationResult))
+    {
+      switch(nftOperationResult.function)
+      {
+        default:
+          break;
+        case "mint":
+          if(nftOperationResult.success === true) 
+          {            
+            NotificationManager.success(nftOperationResult.message, "Success", 2000);
+          }
+          if(nftOperationResult.success === false) NotificationManager.error(nftOperationResult.message, "Error", 2000);
+          dispatch(emptyNFTTradingResult());
+          getCountOfMintedNfts();          
+          break;
+        case "getWL":
+          if(nftOperationResult.success === true) 
+          {            
+            NotificationManager.success(nftOperationResult.message, "Success", 2000);
+          }
+          if(nftOperationResult.success === false) NotificationManager.error(nftOperationResult.message, "Error", 2000);
+          dispatch(emptyNFTTradingResult());
+          getNumberOfWLUsers();
+          break;
+      }
+    }
+  }, [nftOperationResult, dispatch]);
 
   const onMOverButton = (buttonId) => {
     document.getElementById(buttonId).classList.add("animated", "pulse", "duration2", "infinite");
@@ -490,16 +502,16 @@ function App() {
     document.getElementById(buttonId).classList.remove("animated", "pulse", "duration2", "infinite");
   }
 
-  const onMOverMintButton = (buttonId) => {
-    document.getElementById(buttonId).classList.add( "animated", "buzzOut", "duration1", "infinite");
-  }
+  // const onMOverMintButton = (buttonId) => {
+  //   document.getElementById(buttonId).classList.add( "animated", "buzzOut", "duration1", "infinite");
+  // }
 
-  const onMLeaveMintButton = (buttonId) => {
-    document.getElementById(buttonId).classList.remove( "animated", "buzzOut", "duration1", "infinite");
-  }
+  // const onMLeaveMintButton = (buttonId) => {
+  //   document.getElementById(buttonId).classList.remove( "animated", "buzzOut", "duration1", "infinite");
+  // }
 
   const onClickMint = () => {    
-    getMintedNFTCount();
+    getCountOfMintedNfts();
     setTimeout(async () => {
       if( !isEmpty(account) && walletStatus === true) 
       {
@@ -508,9 +520,30 @@ function App() {
           NotificationManager.warning("You've failed. All ever bullz were minted.", "Information",  2000)
           return;
         }
-        //get minting fee first
-        //and call mint function next
-        //await mint(account, 1, config.MINTING_FEE_PER_NFT * 1);
+        if(gotWL === true) await mint(account, config.MINTING_FEE_PER_NFT_WITH_WL);
+        else await mint(account, config.MINTING_FEE_PER_NFT_WITHOUT_WL);
+      }
+      else NotificationManager.warning("Please connect your wallet.", "Warning",  2000)
+    }, 1000);
+  }
+
+  const onClickGetWL = () => {
+    if(gotWL === true)
+    {
+      NotificationManager.success("You are in whitelist.", "Information",  2000)
+      return;
+    }
+    getNumberOfWLUsers();
+    setTimeout(async () => {
+      if( !isEmpty(account) && walletStatus === true) 
+      {
+        if(mintedNFTCount >= config.NFT_MAX_MINT)
+        {
+          NotificationManager.warning("You've failed. All ever bullz were minted.", "Information",  2000)
+          return;
+        }
+        if(curLenOfWL >= maxOfWL && gotWL == false) await addUser2WhiteList(account, config.GETTING_WL_FEE);
+        else await addUser2WhiteList(account, 0);
       }
       else NotificationManager.warning("Please connect your wallet.", "Warning",  2000)
     }, 1000);
@@ -547,7 +580,7 @@ function App() {
               <div className="eael-creative-button-wrapper" >
                 <div id="opennig_soon" >Opening soon</div>
                 <div className="creative-button-inner" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
-                  <Button className={classes.cc}  >
+                  <Button className={classes.cc} onClick={() => onClickGetWL()}>
                     {/* GET ON THE WHITELIST */}
                   </Button>                   
                 </div>
@@ -562,10 +595,10 @@ function App() {
 
           <div className='gradient_buttons'  >
             <div className='gradient_button' id="aa" onMouseOver={() => onMOverButton("aa")} onMouseLeave={() => onMLeaveButton("aa")} >
-              <Button className={classes.aa}  >WL MINT 3 AVAX</Button>
+              <Button className={classes.aa} onClick={() => onClickMint()} >WL MINT 3 AVAX</Button>
             </div>
             <div className='gradient_button' id="bb" onMouseOver={() => onMOverButton("bb")} onMouseLeave={() => onMLeaveButton("bb")} >
-              <Button className={classes.bb}  >PUBLIC MINT 5 AVAX</Button>
+              <Button className={classes.bb} onClick={() => onClickMint()} >PUBLIC MINT 5 AVAX</Button>
             </div>
             <div className='gradient_button' id="dd" onMouseOver={() => onMOverButton("dd")} onMouseLeave={() => onMLeaveButton("dd")} >
               <Button className={classes.dd}  >MINT DATE TBA</Button>
