@@ -39,6 +39,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     event Fallback(address addr, uint amount);
     event WithdrawAll(address addr, uint256 token, uint256 native);
     event SetContractStatus(address addr, uint256 pauseValue);
+    address exchangeingTokenAddr = address(0);
 
     constructor() ERC721("PhoenixKnightNFT", "PHKNFT") 
     {
@@ -296,24 +297,27 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         _burn(_tokenId);
     }
     
-    function withdrawAll(address _tokenAddr) external onlyOwner{
-        if(_tokenAddr != address(0))
-        {
-            uint256 balance = IERC20(_tokenAddr).balanceOf(address(this));
-            if(balance > 0) {
-                IERC20(_tokenAddr).transfer(msg.sender, balance);
-            }
-            emit WithdrawAll(msg.sender, balance, 0);
-        }
-        else{        
-            address payable mine = payable(msg.sender);
-            uint256 _amount = address(this).balance;
-            if(_amount > 0) {
-                mine.transfer(_amount);
-            }
-            emit WithdrawAll(msg.sender, 0, _amount);
-        }
+    function setExchangingTokenAddr(address _addr) external onlyOwner{
+        exchangeingTokenAddr = _addr;
     }
+
+    function getExchangingTokenAddr() public view returns(address){
+        return exchangeingTokenAddr;
+    }
+
+    function withdrawAll() external onlyOwner{
+        // uint256 balance = IERC20(exchangeingTokenAddr).balanceOf(address(this));
+        // if(balance > 0) {
+        //     IERC20(exchangeingTokenAddr).transfer(msg.sender, balance);
+        // }
+        address payable mine = payable(msg.sender);
+        if(address(this).balance > 0) {
+            mine.transfer(address(this).balance);
+        }
+        // emit WithdrawAll(msg.sender, balance, address(this).balance);
+        emit WithdrawAll(msg.sender, 0, address(this).balance);
+    }
+    
 }
 
 

@@ -7,7 +7,7 @@ var config = {
     ipfsUrl: 'https://ipfs.infura.io/ipfs/',
     mainNetUrl: 'https://evm-cronos.crypto.org/',
     testNetUrl:  "https://data-seed-prebsc-1-s2.binance.org:8545/", 
-    PhoenixKnightNFT_address : "0x73Ed40611A2cC313aA554934aBaCc13ff2dD9B5B", 
+    PhoenixKnightNFT_address : "0xd9083Bb23EC45aBB9F5D111d8A3ae5Df63e1a8Ba", 
     MoralisAPIKey: "YEEwMh0B4VRg6Hu5gFQcKxqinJ7UizRza1JpbkyMgNTfj4jUkSaZVajOxLNabvnt",
     PhoenixKnightNFT_abi : PhoenixKnightNFT_abi,
     // EvoTokenContractAbi : evoToken_abi,
