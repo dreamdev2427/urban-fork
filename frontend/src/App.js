@@ -457,12 +457,12 @@ function App() {
       var VideoElement = document.getElementById("video_element");
       var getWLButtonDiv = document.getElementById("getWLButtonDiv");
       getWLButtonDiv.style.position = "absolute";
-      getWLButtonDiv.style.top = Number(VideoElement.clientHeight*3/5) + "px";
+      getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
     }    
     var VideoElement = document.getElementById("video_element");
     var getWLButtonDiv = document.getElementById("getWLButtonDiv");
     getWLButtonDiv.style.position = "absolute";
-    getWLButtonDiv.style.top = Number(VideoElement.clientHeight*3/5) + "px";    
+    getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";    
   }, [])
 
   useEffect(() => {
