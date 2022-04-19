@@ -573,7 +573,7 @@ function App() {
             {/* <div className="elementor-element elementor-widget-heading" >
 
               <h3 className="elementor-heading-title ">
-                A Collection Of 10,000 Phoenix Knights
+                A Collection Of 10,000 Birds of Paradise
               </h3>
             </div> */}
             <div className="elementor-element elementor-widget-eael-creative-button" id="getWLButtonDiv" >
@@ -613,7 +613,7 @@ function App() {
 
           <div className="join_discord_explain"   >
             <span style={{ color: "#ffffff" }} >
-            Backed by the Phoenix community capital, the Phoenix knights is a collection of 10,000 unique immortal explorers. Our community-driven NFT project is aimed at further developing a brand that aims to represent the values of our community with unique artworks. Phoenix knights will come in a joyful range of colors, attributes and sizes. 
+            Backed by the Phoenix community capital, the Birds of Paradise is a collection of 10,000 unique immortal explorers. Our community-driven NFT project is aimed at further developing a brand that aims to represent the values of our community with unique artworks. Birds of Paradise will come in a joyful range of colors, attributes and sizes. 
             </span>
           </div>
 
@@ -806,13 +806,13 @@ function App() {
         <div className="footer-innner ">
           <div className="footer-grid-item">
             <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
-              <p>Support : team (@ ) phoenixknight.com</p>
+              <p>Support : team (@ ) birdsofparadise.com</p>
             </div>
             <div id="block-16" className="widget widget_block" data-area="qodef-footer-top-area-column-2"><a href="https://raritysniper.com/nft-drops-calendar" style={{ textDecoration: "none" }}>NFT Drops</a></div>
           </div>
           <div className="footer-grid-item">
             <div id="text-4" className="  widget widget_text" data-area="qodef-footer-top-area-column-3">
-              <p >© 2022 Phoenix Knight.</p>
+              <p >© 2022 Birds of Paradise.</p>
             </div>
           </div>
           <div className="footer-grid-item">

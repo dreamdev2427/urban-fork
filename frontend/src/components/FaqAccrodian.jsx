@@ -20,11 +20,11 @@ const FAQList = () => {
                         clickItem(1)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">When will Phoenix knights officially launch?</span>
+                        <span className="accordion__title">When will Birds of Paradise officially launch?</span>
                     </div>
                     <div className="panel">
                         <p>
-                        Phoenix knights will officially launch on the TBA with the Price of 3 AVAX for (Whitelisted) & 5 AVAX (public Sale) Please make sure to get whitelist access and don’t miss the launch by joining our discord and Twitter, we will notify you when the project officially goes LIVE.
+                        Birds of Paradise will officially launch on the TBA with the Price of 3 AVAX for (Whitelisted) & 5 AVAX (public Sale) Please make sure to get whitelist access and don’t miss the launch by joining our discord and Twitter, we will notify you when the project officially goes LIVE.
                         </p>
                     </div>
                 </div>
@@ -33,11 +33,11 @@ const FAQList = () => {
                         clickItem(2)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">Can I earn money from my Phoenix knights NFT?</span>
+                        <span className="accordion__title">Can I earn money from my Birds of Paradise NFT?</span>
                     </div>
                     <div className="panel">
                         <p>
-                        YES Absolutely you will earn native tokens by staking your Phoenix knights NFT also we will airdrop out native tokens for all Phoenix knights NFT holders, you will also earn more as token and NFT values goes up.
+                        YES Absolutely you will earn native tokens by staking your Birds of Paradise NFT also we will airdrop out native tokens for all Birds of Paradise NFT holders, you will also earn more as token and NFT values goes up.
                         </p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ const FAQList = () => {
                     </div>
                     <div className="panel">
                         <p>
-                        Great Question, Unlike many NFT projects, which are made by anonymous, Phoenix knights is Backed by Phoenix community capital, Visit (https://thephoenix.finance) Phoenix Community Capital, Inc is a very successful Project.
+                        Great Question, Unlike many NFT projects, which are made by anonymous, Birds of Paradise is Backed by Phoenix community capital, Visit (https://thephoenix.finance) Phoenix Community Capital, Inc is a very successful Project.
                         </p>
                     </div>
                 </div>
