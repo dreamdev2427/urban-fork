@@ -463,10 +463,12 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('load', (event) => {
+      setTimeout(() => {
       var VideoElement = document.getElementById("video_element");
       var getWLButtonDiv = document.getElementById("getWLButtonDiv");
       getWLButtonDiv.style.position = "absolute";
       getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
+      }, 500);
     })
   }, [])
 
