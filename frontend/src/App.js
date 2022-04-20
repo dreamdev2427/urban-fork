@@ -459,10 +459,15 @@ function App() {
       getWLButtonDiv.style.position = "absolute";
       getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
     }    
-    var VideoElement = document.getElementById("video_element");
-    var getWLButtonDiv = document.getElementById("getWLButtonDiv");
-    getWLButtonDiv.style.position = "absolute";
-    getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";    
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('load', (event) => {
+      var VideoElement = document.getElementById("video_element");
+      var getWLButtonDiv = document.getElementById("getWLButtonDiv");
+      getWLButtonDiv.style.position = "absolute";
+      getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
+    })
   }, [])
 
   useEffect(() => {
