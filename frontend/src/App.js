@@ -468,7 +468,7 @@ function App() {
       var getWLButtonDiv = document.getElementById("getWLButtonDiv");
       getWLButtonDiv.style.position = "absolute";
       getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
-      }, 500);
+      }, 100);
     })
   }, [])
 
