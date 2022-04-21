@@ -158,9 +158,9 @@ const StaticMenus = () =>
     <>
        <div className="header" id="qodef-page-header">
         <div id="qodef-page-header-inner" className=" qodef-skin--light">
-          <span className="qodef-header-logo-link " >
-            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main"  />
-          </span>
+          <a className="qodef-header-logo-link " href="https://github.com/ChainSafe/web3.js/blob" target="_blank" >
+              <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main"  />
+          </a>
           <nav className="qodef-header-navigation" >
             <ul id="menu-primary-menu-1" className="menu">
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
@@ -213,11 +213,9 @@ const StaticMenus = () =>
       </div>
       <div className="header" id="qodef_page_header_for_sticky">
         <div id="qodef-page-header-inner_for_sticky" className=" qodef-skin--light">
-          <span className="qodef-header-logo-link " >
-            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" 
-              onClick={homeSection.onClick} selected={homeSection.selected}
-            />
-          </span>
+          <a className="qodef-header-logo-link " href="https://github.com/ChainSafe/web3.js/blob" target="_blank" >    
+              <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" />
+          </a>
           <nav className="qodef-header-navigation" >
             <ul id="menu-primary-menu-1_for_sticky" className="menu">
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
@@ -252,7 +250,7 @@ const StaticMenus = () =>
 
       <div className='header' id="qodef-page-mobile-header">
         <div id="qodef-page-mobile-header-inner" className="">
-          <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="#" rel="home">
+          <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="https://github.com/ChainSafe/web3.js/blob" target="_blank" >
             <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
           </a>
           <a href="javascript:void(0)" onClick={() => onClickShowMobileMenu()} className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
