@@ -356,10 +356,10 @@ const StaticBackToTop = () =>
 function App() {
 
   const classes = useStyles();
-  const mintingStartTime = (new Date("2022/04/26 00:00:00")).getTime();
-  const [currentTime, setCurrentTime] = useState(Date.now());
+  // const mintingStartTime = (new Date("2022/04/26 00:00:00")).getTime();
+  // const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
-  const [heightOfSnowing, setHeightOfSnowing] = useState(300);
+  // const [heightOfSnowing, setHeightOfSnowing] = useState(300);
   const mintedNFTCount = useSelector(state => state.nft.mintedNFTCount);
   // const [mintedCount, setMitedCount] = useState(0);
   const account = useSelector( state => state.auth.currentWallet );
@@ -508,14 +508,6 @@ function App() {
     document.getElementById(buttonId).classList.remove("animated", "pulse", "duration2", "infinite");
   }
 
-  // const onMOverMintButton = (buttonId) => {
-  //   document.getElementById(buttonId).classList.add( "animated", "buzzOut", "duration1", "infinite");
-  // }
-
-  // const onMLeaveMintButton = (buttonId) => {
-  //   document.getElementById(buttonId).classList.remove( "animated", "buzzOut", "duration1", "infinite");
-  // }
-
   const onClickMint = () => {    
     getCountOfMintedNfts();
     setTimeout(async () => {
@@ -567,20 +559,9 @@ function App() {
               id="video_element"
               autoPlay={true} muted playsInline="" loop={true} src="./01_Birds of paradise.mp4" style={{ width: "100%" }} 
             ></video>
-            {/* <img className="elementor-background-video-hosted elementor-html5-video" 
-              id="video_element"
-              src="./Design (2).jpg" style={{ width: "100%" }} 
-            ></img> */}
           </div>
-          {/* <Snowing height={heightOfSnowing} /> */}
           <div className="elementor-column-gap-default">
 
-            {/* <div className="elementor-element elementor-widget-heading" >
-
-              <h3 className="elementor-heading-title ">
-                A Collection Of 10,000 Birds of Paradise
-              </h3>
-            </div> */}
             <div className="elementor-element elementor-widget-eael-creative-button" id="getWLButtonDiv" >
               <div >
               <div className="eael-creative-button-wrapper" >
@@ -730,7 +711,7 @@ function App() {
 
                     <div className="twae-description">
                       <p>
-                      native tokens or any other ideas that benefit the community in long term.
+                      Native tokens or any other ideas that benefit the community in long term.
                       </p>
                     </div>
                   </div>
