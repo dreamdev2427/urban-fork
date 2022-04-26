@@ -6,7 +6,7 @@ const auth = {
     currentChainId: "",
     otherUser: {},
     balance: 0,
-    walletStatus: false
+    walletStatus: false,
 }
 
 export function Auth(state = auth, action) 

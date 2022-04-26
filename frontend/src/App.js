@@ -23,7 +23,7 @@ import { useSelector, useDispatch } from "react-redux";
 import isEmpty from "./utilities/isEmpty";
 
 import { isWhiteListed, getCountOfMintedNfts, loadWeb3, mint, getNumberOfWLUsers, getMAXNumberOfWLUsers,
-  addUser2WhiteList, getUsersNFTs } from './interactWithSmartContract';
+  addUser2WhiteList, getUsersNFTs, checkNetwork } from './interactWithSmartContract';
 
 import { connectWallet,  } from './interactWithSmartContract';
 import { setConnectedWalletAddress } from './store/actions/auth.actions';
@@ -107,8 +107,29 @@ const StaticMenus = () =>
 
   const account = useSelector(state => state.auth.currentWallet);
   const walletStatus = useSelector(state => state.auth.walletStatus);
+  const currentChainId = useSelector(state => state.auth.currentChainId);
   const dispatch = useDispatch();
   
+  useEffect(() => {
+    if(currentChainId === config.chainId)
+    {      
+        NotificationManager.warning("Please connect to Avalanche network.");
+    }
+  }, [currentChainId]);
+
+  useEffect(() => {
+    async function checkChain(){
+      if (window?.web3) {
+        const isNetworkValid = await checkNetwork();
+        if (isNetworkValid === false) 
+        {
+          NotificationManager.warning("Please connect to Avalanche network.");
+        }
+      }
+    }
+    checkChain();
+  }, [window?.web3]);
+
   useEffect(() => 
   {
     if(isEmpty(account)) return;

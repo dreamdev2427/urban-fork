@@ -28,16 +28,13 @@ export const loadWeb3 = async () =>
   }
   if (window.ethereum) {
     window.ethereum.on('chainChanged', function (chainId) {
+
       checkNetworkById(chainId);
 
     });
-    window.web3.eth.getChainId().then((chainId) => {
-      checkNetworkById(chainId);
-
-    })
     window.ethereum.on('disconnect', function(error  /*:ProviderRpcError*/) {
       //alert("disconnected, " + error);      
-      store.dispatch(setConnectedWalletAddress(0))
+      store.dispatch(setConnectedWalletAddress(0));
       store.dispatch(setWalletStatus(false));
     });
     window.ethereum.on('accountsChanged', function(accounts /*: Array<string>*/) {
@@ -60,8 +57,20 @@ export const checkNetwork = async () => {
 }
 
 export const checkNetworkById = async (chainId) => {
+  const cid = await window.web3.eth.getChainId();
+  store.dispatch(setConnectedChainId(cid));
   if (window.web3.utils.toHex(chainId) !== window.web3.utils.toHex(config.chainId)) 
   {
+    store.dispatch(setWalletStatus(false));
+    return false;  
+  }
+  return true;
+}
+
+export const checkNetworkAndChange = async (chainId) => {
+  if (window.web3.utils.toHex(chainId) !== window.web3.utils.toHex(config.chainId)) 
+  {
+    store.dispatch(setWalletStatus(false));
     await changeNetwork();      
   }
   const cid = await window.web3.eth.getChainId();
@@ -119,7 +128,8 @@ export const connectWallet = async () =>
         message: "Metamask successfuly connected.",
         address: addressArray[0],
       };
-      checkNetwork();
+      const chainId = await window.web3.eth.getChainId();
+      checkNetworkAndChange(chainId);
       store.dispatch(setWalletStatus(true));
       return obj;
     } catch (err) {
