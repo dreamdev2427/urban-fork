@@ -5909,6 +5909,28 @@ nav>ul>li>span:hover {
   font-weight: bold;
 }
 
+.social_linking_bar{
+  background: linear-gradient(89deg,#65c0a8,#a05da2);
+  height: 10vh;
+  padding: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.social_linking_bar a{
+  width: 20%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.social_linking_bar a img{
+  width: 100%;
+}
+
 .eael-creative-button {  
     background-color: transparent;
     background-image: linear-gradient(180deg, #7C00FF 0%, #F229F0 100%);

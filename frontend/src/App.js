@@ -579,7 +579,23 @@ function App() {
           <div style={{ padding: "20px", background: "#7002da", zIndex:"20" }} >
             <Gallery />
           </div>
-
+          <div className='social_linking_bar' >
+            <a target="_blank" href="https://finance.yahoo.com/news/phoenix-community-capital-launches-community-115100568.html">
+              <img src="/img/fin5.png"></img>
+            </a>
+            <a target="_blank" href="https://news.yahoo.com/phoenix-community-capital-launches-community-115100568.html">
+              <img src="/img/fin6.png"></img>              
+            </a>
+            <a href="#">
+              <img src="/img/marketwatch.png"></img>
+            </a>
+            <a href="#">
+              <img src="/img/fin7.png"></img>
+            </a>
+            <a href="#">
+              <img src="/img/fin8.png"></img>
+            </a>
+          </div>
           <div className='gradient_buttons'  >
             <div className='gradient_button' id="aa" onMouseOver={() => onMOverButton("aa")} onMouseLeave={() => onMLeaveButton("aa")} >
               <Button className={classes.aa} onClick={() => onClickMint()} >WL MINT 3 AVAX</Button>

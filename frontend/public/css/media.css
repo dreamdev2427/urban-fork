@@ -120,6 +120,13 @@
 }
 
 @media (max-width: 1024px) {
+    .social_linking_bar{
+        flex-direction: column;
+        height: max-content;
+    }
+    .social_linking_bar a{
+        width: 30%;
+    }
     #opennig_soon{
         font-size: 20px;
     }
