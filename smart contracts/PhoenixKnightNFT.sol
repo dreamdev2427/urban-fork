@@ -39,7 +39,6 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     event Fallback(address addr, uint amount);
     event WithdrawAll(address addr, uint256 token, uint256 native);
     event SetContractStatus(address addr, uint256 pauseValue);
-    address exchangeingTokenAddr = address(0);
 
     constructor() ERC721("PhoenixKnightNFT", "PHKNFT") 
     {
@@ -48,8 +47,8 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         saleMode = 1;   // 1: preSale, 2:publicSale
         preSalePrice = 3 ether;
         publicSalePrice = 5 ether;
-        ManagerWallet = payable( address(0xe28f60670529EE8d14277730CDA405e24Ac7251A) );
-        DevWallet = payable( address(0x73875DeDa18dE0105987c880aFbbC21F3F6b955c) );
+        ManagerWallet = payable( address(0xB9c4395648CA40139147F7CAB685f4e3c44101C6) );
+        DevWallet = payable( address(0x974D781a45B1B0BE4b629D95F78f1D7dD63e33cf) );
         percentOfManagerWallet = 985; //98.5%
         percentOfDevWallet  = 15; //1.5%
         _status = false;
