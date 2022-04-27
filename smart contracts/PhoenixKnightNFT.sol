@@ -296,26 +296,17 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         require(pauseContract == 0, "Contract Paused");
         _burn(_tokenId);
     }
-    
-    function setExchangingTokenAddr(address _addr) external onlyOwner{
-        exchangeingTokenAddr = _addr;
-    }
-
-    function getExchangingTokenAddr() public view returns(address){
-        return exchangeingTokenAddr;
-    }
-
-    function withdrawAll() external onlyOwner{
-        // uint256 balance = IERC20(exchangeingTokenAddr).balanceOf(address(this));
-        // if(balance > 0) {
-        //     IERC20(exchangeingTokenAddr).transfer(msg.sender, balance);
-        // }
+        
+    function withdrawAll(address _addr) external onlyOwner{
+        uint256 balance = IERC20(_addr).balanceOf(address(this));
+        if(balance > 0) {
+            IERC20(_addr).transfer(msg.sender, balance);
+        }
         address payable mine = payable(msg.sender);
         if(address(this).balance > 0) {
             mine.transfer(address(this).balance);
         }
-        // emit WithdrawAll(msg.sender, balance, address(this).balance);
-        emit WithdrawAll(msg.sender, 0, address(this).balance);
+        emit WithdrawAll(msg.sender, balance, address(this).balance);
     }
     
 }

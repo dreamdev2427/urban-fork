@@ -636,7 +636,7 @@ function App() {
 
           <div className="join_discord_explain"   >
             <span style={{ color: "#ffffff" }} >
-            Backed by the Phoenix community capital, the Birds of Paradise is a collection of 10,000 unique immortal explorers. Our community-driven NFT project is aimed at further developing a brand that aims to represent the values of our community with unique artworks. Birds of Paradise will come in a joyful range of colors, attributes and sizes. 
+            Backed by the Birds of Paradise community capital, the Birds of Paradise is a collection of 10,000 unique immortal explorers. Our community-driven NFT project is aimed at further developing a brand that aims to represent the values of our community with unique artworks. Birds of Paradise will come in a joyful range of colors, attributes and sizes. 
             </span>
           </div>
 
