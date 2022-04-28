@@ -607,13 +607,13 @@ function App() {
             <a target="_blank" href="https://news.yahoo.com/phoenix-community-capital-launches-community-115100568.html">
               <img src="/img/fin6.png"></img>              
             </a>
-            <a href="#">
+            <a target="_blank" href="https://www.marketwatch.com/press-release/phoenix-community-capital-launches-new-community-driven-nft-collection-2022-04-26">
               <img src="/img/marketwatch.png"></img>
             </a>
             <a href="#">
               <img src="/img/fin7.png"></img>
             </a>
-            <a href="#">
+            <a target="_blank" href="https://www.digitaljournal.com/pr/phoenix-community-capital-launches-new-community-driven-nft-collection">
               <img src="/img/fin8.png"></img>
             </a>
           </div>
