@@ -32,7 +32,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     mapping(address => uint8) CountOfMintsPerUser;
     uint256 _numberOfInvestors;
     uint256 _totalWhitelistedUsers;
-    uint256 maxOfWhiteListedUsers = 30;
+    uint256 maxOfWhiteListedUsers = 300;
     bool enableMint = false;
     uint256 pauseContract = 0;
     uint8 MaxOfMintForWLedUsers = 5;
@@ -272,7 +272,6 @@ contract PhoenixKnightNFT is ERC721, Ownable {
             _price = preSalePrice.mul(_count);
         }
         else {
-            require(_count == 1, "You can mint only one NFT.");
             _price = publicSalePrice.mul(_count);
         }
         require(_totalSupply.sub(_numberOfTokens.current()).sub(_count) > 0, "Cannot mint. The collection has no remains."); 
