@@ -113,9 +113,10 @@ const StaticMenus = () =>
   const dispatch = useDispatch();
   
   useEffect(() => {
-    if(currentChainId === config.chainId)
+    console.log(window.web3.utils.toHex(currentChainId), window.web3.utils.toHex(config.chainId));
+    if (window.web3.utils.toHex(currentChainId) !== window.web3.utils.toHex(config.chainId)); 
     {      
-        NotificationManager.warning("Please connect to Avalanche network.");
+        NotificationManager.warning("Please connect your wallet to Avalanche network.");
     }
   }, [currentChainId]);
 
@@ -136,7 +137,7 @@ const StaticMenus = () =>
   {
     if(isEmpty(account)) return;
     let compAddress = "";
-    compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
+    if(account) compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
     setCompressedAddress(compAddress);  
         
   }, [account, dispatch])

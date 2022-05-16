@@ -1,6 +1,6 @@
 var PhoenixKnightNFT_abi = require("./interactWithSmartContract/PhoenixKnight.json");
 var config = {
-    chainId: 97, //Rinkeby Testnet : 0x4, Cronos testnet : 338, Cronos mainnet : 25,   bsctestnet : 97
+    chainId: 0x61, //Rinkeby Testnet : 0x4, Cronos testnet : 338, Cronos mainnet : 25,   bsctestnet : 0x61
     ipfsUrl: 'https://ipfs.infura.io/ipfs/',
     mainNetUrl: 'https://bsc-dataseed1.binance.org/',   //BSC testnet
     PhoenixKnightNFT_address : "0xFB145220deF0EC413bda629f3c2746817cF43c4D", 

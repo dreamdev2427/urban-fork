@@ -29,12 +29,13 @@ export const loadWeb3 = async () =>
   if (window.ethereum) {
     window.ethereum.on('chainChanged', function (chainId) {
 
+      store.dispatch(setConnectedChainId(chainId));
       checkNetworkById(chainId);
 
     });
     window.ethereum.on('disconnect', function(error  /*:ProviderRpcError*/) {
       //alert("disconnected, " + error);      
-      store.dispatch(setConnectedWalletAddress(0));
+      store.dispatch(setConnectedWalletAddress(null));
       store.dispatch(setWalletStatus(false));
     });
     window.ethereum.on('accountsChanged', function(accounts /*: Array<string>*/) {
@@ -57,8 +58,6 @@ export const checkNetwork = async () => {
 }
 
 export const checkNetworkById = async (chainId) => {
-  const cid = await window.web3.eth.getChainId();
-  store.dispatch(setConnectedChainId(cid));
   if (window.web3.utils.toHex(chainId) !== window.web3.utils.toHex(config.chainId)) 
   {
     store.dispatch(setWalletStatus(false));
