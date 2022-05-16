@@ -201,11 +201,11 @@ const StaticMenus = () =>
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
-              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+              {/* <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
                 <span className="qodef-menu-item-text">Team</span>
-              </li>
+              </li> */}
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >
@@ -256,11 +256,11 @@ const StaticMenus = () =>
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
-              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+              {/* <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
                 <span className="qodef-menu-item-text">Team</span>
-              </li>
+              </li> */}
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >
@@ -309,11 +309,11 @@ const StaticMenus = () =>
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
-              <li className="menu-item menu-item-type-custom "
+              {/* <li className="menu-item menu-item-type-custom "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
                 <span className="qodef-menu-item-text">Team</span>
-              </li>
+              </li> */}
               <li className="menu-item menu-item-type-custom "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >

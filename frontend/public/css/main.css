@@ -5692,26 +5692,21 @@ nav>ul>li>span:hover {
     position: absolute;
     top: 100%;
     left: 0;
+    width: 100%;    
     display: none;
-    width: 100%;
+    flex-direction: column;
+    height: max-content;
     max-height: calc(100vh - 70px);
-    background-color: #fff;
+    background-color: #020530;
     border-bottom: 1px solid #000;
     padding: 0;
     margin: 0;
-    overflow-y: scroll;
     z-index: 150;
-}
-
-.qodef-mobile-header-navigation>ul {
-    margin: 0 auto;
-    padding: 34px 0;
-    list-style: none;
 }
 
 .qodef-mobile-header-navigation ul li {
     position: relative;
-    margin: 6px 0;
+    margin: 25px 0;
     padding: 0;
 }
 
@@ -5722,12 +5717,6 @@ nav>ul>li>span:hover {
     padding-left: 20px;
 }
 
-.qodef-mobile-header-navigation ul li {
-    position: relative;
-    margin: 6px 0;
-    padding: 0;
-    color: #000;
-}
 
 .qodef-mobile-header-navigation ul li {
     color: #000 !important;
