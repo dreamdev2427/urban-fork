@@ -28,13 +28,14 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     uint256 private spanSize = 100;
     uint256 private consideringSpanIndex = 0;
     uint256 nounce = 0;
-    mapping(address => bool) ListOfInvestors;
     mapping(address => bool) WhiteListForUsers;
+    mapping(address => uint8) CountOfMintsPerUser;
     uint256 _numberOfInvestors;
     uint256 _totalWhitelistedUsers;
     uint256 maxOfWhiteListedUsers = 30;
     bool enableMint = false;
     uint256 pauseContract = 0;
+    uint8 MaxOfMintForWLedUsers = 5;
     event Received(address addr, uint amount);
     event Fallback(address addr, uint amount);
     event WithdrawAll(address addr, uint256 token, uint256 native);
@@ -178,6 +179,19 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         return enableMint;
     }
 
+    function setMaxOfMintForWLedUsers(uint8 _max) public {
+        require(_max >= 1, "Must be bigger than 1.");
+        MaxOfMintForWLedUsers = _max;
+    }
+
+    function getMaxOfMintForWLedUsers() public view returns(uint8) {
+        return MaxOfMintForWLedUsers;
+    }
+
+    function getCountOfMintsOfWLedUser(address _user) public view returns(uint8) {
+        return CountOfMintsPerUser[_user];
+    }
+
     function randomIndex() internal  returns (uint) 
     {
         require(pauseContract == 0, "Contract Paused");
@@ -214,21 +228,6 @@ contract PhoenixKnightNFT is ERC721, Ownable {
         return newIndex;
     }
 
-    function addInvestors2List(address[] memory _wallets) public onlyOwner{
-        require(pauseContract == 0, "Contract Paused");
-        uint256 _len = _wallets.length;
-        uint256 idx;
-        for(idx = 0; idx < _len; idx++) 
-        {
-            ListOfInvestors[_wallets[idx]] = true;
-            _numberOfInvestors.add(1);
-        }
-    } 
-
-    function isListedAsAInvestor(address _addr) public view returns(bool){
-        return ListOfInvestors[_addr];
-    }
-
     function setMAXNumberOfWLUsers(uint256 _max) public onlyOwner{
         require(pauseContract == 0, "Contract Paused");
         maxOfWhiteListedUsers = _max;
@@ -244,14 +243,13 @@ contract PhoenixKnightNFT is ERC721, Ownable {
 
     function addUser2WhiteList(address _addr) public payable {
         require(pauseContract == 0, "Contract Paused");
-        if(_totalWhitelistedUsers >= maxOfWhiteListedUsers && ListOfInvestors[_addr] == false){
+        if(_totalWhitelistedUsers >= maxOfWhiteListedUsers){
             require(msg.value >= 0.2 ether, "You should pay 0.2 AVAX to be whitelisted.");            
             ManagerWallet.transfer(msg.value.mul(percentOfManagerWallet).div(1000));
             DevWallet.transfer(msg.value.mul(percentOfDevWallet).div(1000));
         }
         WhiteListForUsers[_addr] = true;
         _totalWhitelistedUsers.add(1);
-
     }
 
     function isWhitelistedForUsers(address _addr) public view returns(bool){
@@ -259,17 +257,25 @@ contract PhoenixKnightNFT is ERC721, Ownable {
     }
 
     function isWhiteListed(address _addr) public view returns(bool){
-        return ListOfInvestors[_addr] || WhiteListForUsers[_addr];
+        return WhiteListForUsers[_addr];
     }
 
-    function mint(uint256 _count)  external  payable  {   
+    function mint(uint8 _count)  external  payable  {   
         require(pauseContract == 0, "Contract Paused");
         require(enableMint == true, "Minting is disabled");
-        require(_count == 1, "You can only mint one NFT at once.");
-        require(_totalSupply.sub(_numberOfTokens.current()).sub(_count) > 0, "Cannot mint. The collection has no remains."); 
+        bool isWLed = isWhiteListed(msg.sender);
         uint256 _price;
-        if(isWhiteListed(msg.sender) == true) _price = preSalePrice.mul(_count);
-        else _price = publicSalePrice.mul(_count);
+        if(isWLed == true) 
+        {
+            require(_count >= 1 && _count <= MaxOfMintForWLedUsers, "You can mint 1 to 5 NFT(s).");
+            require(_count <= MaxOfMintForWLedUsers - CountOfMintsPerUser[msg.sender], "Exceed the number of NFTs you can mint.");
+            _price = preSalePrice.mul(_count);
+        }
+        else {
+            require(_count == 1, "You can mint only one NFT.");
+            _price = publicSalePrice.mul(_count);
+        }
+        require(_totalSupply.sub(_numberOfTokens.current()).sub(_count) > 0, "Cannot mint. The collection has no remains."); 
         // if(saleMode == 1) _price = preSalePrice.mul(_count);
         // if(saleMode == 2) _price = publicSalePrice.mul(_count);
         require(msg.value >= _price, "Invalid price, price is less than sale price."); 
@@ -286,6 +292,7 @@ contract PhoenixKnightNFT is ERC721, Ownable {
             if( _numberOfTokens.current() % spanSize == 0 )
                 consideringSpanIndex++;
         }                   
+        if(isWLed == true) CountOfMintsPerUser[msg.sender] = CountOfMintsPerUser[msg.sender] + _count;
         
         ManagerWallet.transfer(_price.mul(percentOfManagerWallet).div(1000));
         DevWallet.transfer(_price.mul(percentOfDevWallet).div(1000));

@@ -23,7 +23,9 @@ import { useSelector, useDispatch } from "react-redux";
 import isEmpty from "./utilities/isEmpty";
 
 import { isWhiteListed, getCountOfMintedNfts, loadWeb3, mint, getNumberOfWLUsers, getMAXNumberOfWLUsers,
-  addUser2WhiteList, getUsersNFTs, checkNetwork } from './interactWithSmartContract';
+  addUser2WhiteList, 
+  // getUsersNFTs, 
+  checkNetwork } from './interactWithSmartContract';
 
 import { connectWallet,  } from './interactWithSmartContract';
 import { setConnectedWalletAddress } from './store/actions/auth.actions';
@@ -530,15 +532,15 @@ function App() {
   }
 
   const onClickMint = () => {    
-    getCountOfMintedNfts();
+    // getCountOfMintedNfts();
     setTimeout(async () => {
       if( !isEmpty(account) && walletStatus === true) 
       {
-        if(mintedNFTCount >= config.NFT_MAX_MINT)
-        {
-          NotificationManager.warning("You've failed. All ever bullz were minted.", "Information",  2000)
-          return;
-        }
+        // if(mintedNFTCount >= config.NFT_MAX_MINT)
+        // {
+        //   NotificationManager.warning("You've failed. All ever bullz were minted.", "Information",  2000)
+        //   return;
+        // }
         if(gotWL === true) await mint(account, config.MINTING_FEE_PER_NFT_WITH_WL);
         else await mint(account, config.MINTING_FEE_PER_NFT_WITHOUT_WL);
       }

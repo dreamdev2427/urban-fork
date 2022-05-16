@@ -98,7 +98,7 @@ const changeNetwork = async () =>
               {
                 chainId: window.web3.utils.toHex(config.chainId),
                 chainName: 'Cronos',
-                rpcUrls: [config.testNetUrl] /* ... */,
+                rpcUrls: [config.mainNetUrl] /* ... */,
               },
             ],
           });
