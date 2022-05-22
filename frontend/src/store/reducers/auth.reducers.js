@@ -2,8 +2,8 @@ import { AUTH_LOGOUT, AUTH_SUCCESS, GET_USER_DETAIL, SET_WALLET_ADDR,  UPDATE_WA
 
 const auth = {
     user: {},
-    currentWallet: null,
-    currentChainId: null,
+    currentWallet: "",
+    currentChainId: "",
     otherUser: {},
     balance: 0,
     walletStatus: false,
@@ -32,7 +32,7 @@ export function Auth(state = auth, action)
                 ...state, currentWallet: action.payload
             }
         case SET_CHAIN_ID:
-            console.log("[REDUCER] chainId  = ", action.payload);
+            // console.log("[REDUCER] chainId  = ", action.payload);
             return {
                 ...state, currentChainId: action.payload
             }

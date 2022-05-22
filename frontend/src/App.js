@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 // import Slider from '@mui/material/Slider';
 // import { NotificationManager } from 'react-notifications';
@@ -23,9 +22,7 @@ import { useSelector, useDispatch } from "react-redux";
 import isEmpty from "./utilities/isEmpty";
 
 import { isWhiteListed, getCountOfMintedNfts, loadWeb3, mint, getNumberOfWLUsers, getMAXNumberOfWLUsers,
-  addUser2WhiteList, 
-  // getUsersNFTs, 
-  checkNetwork } from './interactWithSmartContract';
+  addUser2WhiteList, getUsersNFTs, checkNetwork } from './interactWithSmartContract';
 
 import { connectWallet,  } from './interactWithSmartContract';
 import { setConnectedWalletAddress } from './store/actions/auth.actions';
@@ -113,10 +110,10 @@ const StaticMenus = () =>
   const dispatch = useDispatch();
   
   useEffect(() => {
-    console.log(window.web3.utils.toHex(currentChainId), window.web3.utils.toHex(config.chainId));
-    if (window.web3.utils.toHex(currentChainId) !== window.web3.utils.toHex(config.chainId)); 
+    console.log(config.chainId, currentChainId);
+    if(window.web3.utils.toHex(currentChainId) !== window.web3.utils.toHex(config.chainId))
     {      
-        NotificationManager.warning("Please connect your wallet to Avalanche network.");
+        NotificationManager.warning("Please connect to Avalanche network.");
     }
   }, [currentChainId]);
 
@@ -135,9 +132,9 @@ const StaticMenus = () =>
 
   useEffect(() => 
   {
-    if(isEmpty(account)) return;
+    if(isEmpty(account) === true) return;
     let compAddress = "";
-    if(account) compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
+    compAddress = account.substring(0, 6)+"..."+account.substring(account.length-4, account.length);
     setCompressedAddress(compAddress);  
         
   }, [account, dispatch])
@@ -221,7 +218,7 @@ const StaticMenus = () =>
                 <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "      
                 onClick={() => onClickConnectWallet()}          
                 >
-                  <span>Connect Wallet</span>
+                  <span className="connectWlt">Connect Wallet</span>
                 </li>
               }         
               {
@@ -284,12 +281,14 @@ const StaticMenus = () =>
               <span className="qodef-m-lines">
                 <span className="qodef-m-line qodef--1"></span>
                 <span className="qodef-m-line qodef--2"></span>
+                <span className="qodef-m-line qodef--3"></span>
               </span>
             </span>
             <span className="qodef-m-icon qodef--close">
               <span className="qodef-m-lines">
                 <span className="qodef-m-line qodef--1"></span>
                 <span className="qodef-m-line qodef--2"></span>
+                <span className="qodef-m-line qodef--3"></span>
               </span>
             </span>
           </a>
@@ -339,32 +338,6 @@ const StaticBackToTop = () =>
     >
           <span className="qodef-back-to-top-icon">
             <span className="qodef-shortcode qodef-m qodef-stamp qodef--appear qodef--init" data-appearing-delay="0">
-              <span className="qodef-m-text rotating" data-count="24">
-                <span className="qodef-m-character" style={{ transform: "rotate(-90deg) translateZ(0px)", transitionDelay: "0ms" }}>B</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(-75deg) translateZ(0px)", transitionDelay: "0ms" }}>a</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(-60deg) translateZ(0px)", transitionDelay: "0ms" }}>c</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(-45deg) translateZ(0px)", transitionDelay: "0ms" }}>k</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(-30deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
-                <span className="qodef-m-character" style={{ transform: "rotate(-15deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(0deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(15deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
-                <span className="qodef-m-character" style={{ transform: "rotate(30deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(45deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(60deg) translateZ(0px)", transitionDelay: "0ms" }}>p</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(75deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
-                <span className="qodef-m-character" style={{ transform: "rotate(90deg) translateZ(0px)", transitionDelay: "0ms" }}>B</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(105deg) translateZ(0px)", transitionDelay: "0ms" }}>a</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(120deg) translateZ(0px)", transitionDelay: "0ms" }}>c</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(135deg) translateZ(0px)", transitionDelay: "0ms" }}>k</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(150deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
-                <span className="qodef-m-character" style={{ transform: "rotate(165deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(180deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(195deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
-                <span className="qodef-m-character" style={{ transform: "rotate(210deg) translateZ(0px)", transitionDelay: "0ms" }}>T</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(225deg) translateZ(0px)", transitionDelay: "0ms" }}>o</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(240deg) translateZ(0px)", transitionDelay: "0ms" }}>p</span>
-                <span className="qodef-m-character" style={{ transform: "rotate(255deg) translateZ(0px)", transitionDelay: "0ms" }}> </span>
-              </span>
               <span className="qodef-m-centred-icon qodef-icon-arrow-up">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="18" viewBox="0 0 28 18" >
                   <path d="M27.6,8.5c-5.5,0-9.5-8.1-9.5-8.2C17.9,0,17.7,0,17.5,0.1c-0.2,0.1-0.3,0.4-0.1,0.7c0.1,0.3,2.7,5.5,6.7,7.7H0.4C0.2,8.5,0,8.7,0,9c0,0.3,0.2,0.5,0.4,0.5h23.7c-4,2.2-6.6,7.4-6.7,7.7c-0.1,0.2,0,0.5,0.1,0.7c0.2,0.1,0.4,0.1,0.6-0.2c0-0.1,4.1-8.2,9.5-8.2C27.8,9.5,28,9.3,28,9C28,8.7,27.8,8.5,27.6,8.5z"></path>
@@ -380,8 +353,8 @@ const StaticBackToTop = () =>
 function App() {
 
   const classes = useStyles();
-  // const mintingStartTime = (new Date("2022/04/26 00:00:00")).getTime();
-  // const [currentTime, setCurrentTime] = useState(Date.now());
+  const mintingStartTime = (new Date("2022/05/24 00:00:00")).getTime();
+  const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
   // const [heightOfSnowing, setHeightOfSnowing] = useState(300);
   const mintedNFTCount = useSelector(state => state.nft.mintedNFTCount);
@@ -399,41 +372,40 @@ function App() {
   //   setMitedCount(mintedNFTCount)
   // }, [mintedNFTCount]);
 
-  // const getLeftDuration = () => {
+  const getLeftDuration = () => {
 
-  //   // var currentTime = Date.now();
-  //   var diff = mintingStartTime - currentTime;
-  //   diff = diff / 1000;
+    var diff = mintingStartTime - currentTime;
+    diff = diff / 1000;
 
-  //   var day = 0;
-  //   var hr = 0;
-  //   var min = 0;
-  //   var sec = 0;
+    var day = 0;
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
 
-  //   if (diff > 0) {
-  //     day = Math.floor(diff / 3600 / 24);
-  //     hr = Math.floor((diff / 3600) - day * 24);
-  //     min = Math.floor((diff / 60) - day * 24 * 60 - hr * 60);
-  //     sec = Math.floor(diff - 24 * 3600 * day - 3600 * hr - 60 * min);
-  //   } else if (!isNaN(diff) && diff <= 0) {
-  //     // update banner list when this item's auction time is ended
-  //     // getNftBannerList(5)(dispatch);
-  //   }
+    if (diff > 0) {
+      day = Math.floor(diff / 3600 / 24);
+      hr = Math.floor((diff / 3600) - day * 24);
+      min = Math.floor((diff / 60) - day * 24 * 60 - hr * 60);
+      sec = Math.floor(diff - 24 * 3600 * day - 3600 * hr - 60 * min);
+    } else if (!isNaN(diff) && diff <= 0) {
+      // update banner list when this item's auction time is ended
+      // getNftBannerList(5)(dispatch);
+    }
 
-  //   const days = () => {
-  //     return day;
-  //   }
-  //   const hours = () => {
-  //     return hr;
-  //   }
-  //   const minutes = () => {
-  //     return min;
-  //   }
-  //   const seconds = () => {
-  //     return sec;
-  //   }
-  //   return { hours, minutes, seconds, days }
-  // }
+    const days = () => {
+      return day;
+    }
+    const hours = () => {
+      return hr;
+    }
+    const minutes = () => {
+      return min;
+    }
+    const seconds = () => {
+      return sec;
+    }
+    return { hours, minutes, seconds, days }
+  }
 
   useEffect(() => {
     if( !isEmpty(account) && walletStatus === true) 
@@ -449,9 +421,9 @@ function App() {
     getMAXNumberOfWLUsers();
     getNumberOfWLUsers();
     
-    // setInterval(() => {
-    //   //setCurrentTime(Date.now());    
-    // }, 3000);
+    setInterval(() => {
+      setCurrentTime(Date.now());    
+    }, 1000);
 
     window.onscroll = function () { myFunction() };
     window.onresize = function () { resizeSnowing() }
@@ -533,15 +505,15 @@ function App() {
   }
 
   const onClickMint = () => {    
-    // getCountOfMintedNfts();
+    getCountOfMintedNfts();
     setTimeout(async () => {
       if( !isEmpty(account) && walletStatus === true) 
       {
-        // if(mintedNFTCount >= config.NFT_MAX_MINT)
-        // {
-        //   NotificationManager.warning("You've failed. All ever bullz were minted.", "Information",  2000)
-        //   return;
-        // }
+        if(mintedNFTCount >= config.NFT_MAX_MINT)
+        {
+          NotificationManager.warning("You've failed. All ever bullz were minted.", "Information",  2000)
+          return;
+        }
         if(gotWL === true) await mint(account, config.MINTING_FEE_PER_NFT_WITH_WL);
         else await mint(account, config.MINTING_FEE_PER_NFT_WITHOUT_WL);
       }
@@ -589,10 +561,12 @@ function App() {
             <div className="elementor-element elementor-widget-eael-creative-button" id="getWLButtonDiv" >
               <div >
               <div className="eael-creative-button-wrapper" >
-                <div id="opennig_soon" >Opening soon</div>
-                <div className="creative-button-inner" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
-                  <Button className={classes.cc} onClick={() => onClickGetWL()}>
-                    {/* GET ON THE WHITELIST */}
+                <div id="opennig_soon" >
+                  {`${getLeftDuration().days()} days ${getLeftDuration().hours()} hours ${getLeftDuration().minutes()} minutes ${getLeftDuration().seconds()} seconds`}
+                </div>
+                <div className="creative-button-inner headBtn" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
+                  <Button className="makeStyles-cc-3" onClick={() => onClickGetWL()}>
+                    GET ON THE WHITELIST
                   </Button>                   
                 </div>
               </div>
@@ -600,46 +574,46 @@ function App() {
             </div>
           </div>
 
-          <div style={{ padding: "20px", background: "#7002da", zIndex:"20" }} >
+          <div className="galleryHome">
             <Gallery />
           </div>
           <div className='social_linking_bar' >
             <a target="_blank" href="https://finance.yahoo.com/news/phoenix-community-capital-launches-community-115100568.html">
               <img src="/img/fin5.png"></img>
             </a>
-            <a target="_blank" href="https://news.yahoo.com/phoenix-community-capital-launches-community-115100568.html">
-              <img src="/img/fin6.png"></img>              
-            </a>
             <a target="_blank" href="https://www.marketwatch.com/press-release/phoenix-community-capital-launches-new-community-driven-nft-collection-2022-04-26">
               <img src="/img/marketwatch.png"></img>
             </a>
-            <a href="#">
+            <a href="https://www.benzinga.com/pressreleases/22/04/ab26826902/phoenix-community-capital-launches-new-community-driven-nft-collection">
               <img src="/img/fin7.png"></img>
             </a>
             <a target="_blank" href="https://www.digitaljournal.com/pr/phoenix-community-capital-launches-new-community-driven-nft-collection">
               <img src="/img/fin8.png"></img>
             </a>
+            <a target="_blank" href="https://news.yahoo.com/phoenix-community-capital-launches-community-115100568.html">
+              <img src="/img/fin6.png"></img>              
+            </a>
           </div>
           <div className='gradient_buttons'  >
-            <div className='gradient_button' id="aa" onMouseOver={() => onMOverButton("aa")} onMouseLeave={() => onMLeaveButton("aa")} >
+            <div className='gradient_button' id="aa" >
               <Button className={classes.aa} onClick={() => onClickMint()} >WL MINT 3 AVAX</Button>
             </div>
-            <div className='gradient_button' id="bb" onMouseOver={() => onMOverButton("bb")} onMouseLeave={() => onMLeaveButton("bb")} >
+            <div className='gradient_button' id="bb" >
               <Button className={classes.bb} onClick={() => onClickMint()} >PUBLIC MINT 5 AVAX</Button>
             </div>
-            <div className='gradient_button' id="dd" onMouseOver={() => onMOverButton("dd")} onMouseLeave={() => onMLeaveButton("dd")} >
+            <div className='gradient_button noCursor' id="dd" >
               <Button className={classes.dd}  >MINT DATE TBA</Button>
             </div>
           </div>
 
-          <div className="elementor-divider" style={{ width: "100%" }} >
+          {/* <div className="elementor-divider" style={{ width: "100%" }} >
             <span className="elementor-divider-separator">
             </span>
-          </div>
+          </div> */}
 
           <div className="join_discord_explain"   >
             <span style={{ color: "#ffffff" }} >
-            Backed by the Birds of Paradise community capital, the Birds of Paradise is a collection of 10,000 unique immortal explorers. Our community-driven NFT project is aimed at further developing a brand that aims to represent the values of our community with unique artworks. Birds of Paradise will come in a joyful range of colors, attributes and sizes. 
+            Backed by Phoenix Community Capital, Birds of Paradise is a collection of 10,000 unique immortal winged explorers. This community driven NFT project aims to reflect the values of our members through unique artworks. Birds of Paradise will come in a joyful range of colors, attributes and sizes.  
             </span>
           </div>
 
@@ -671,9 +645,10 @@ function App() {
                     <span className="twae-title">NFT Art Design</span>
 
                     <div className="twae-description">
-                      <p>Art Generation and Branding with emphasis on Art.
+                      <p>Art generation and branding.
                         <br></br>
-                        Launch Website, Twitter, Discord, Community Development.
+                        Launch of website.  <br></br>
+                        Community development through dedicated Twitter and Discord platforms. 
                       </p>
                     </div>
                   </div>
@@ -690,32 +665,17 @@ function App() {
                     <span className="twae-title">Mint Launch</span>
 
                     <div className="twae-description">
-                      <p>Successful First Mint ( @ 3 AVAX For Whitelisted &amp;&nbsp; 5 AVAX Public Sale).
-                        <br></br>Secondary Market Listing – Spectrum, Rarity Sniper.
+                      <p>First mint (3 AVAX for the whitelist and 5 AVAX for the public sale per&nbsp;artwork).
+                        <br></br>Secondary market listing – Spectrum, Rarity Sniper. 
+                        <br></br><br></br>
+                        <b>After Successful Mint</b> <br></br>
+                        Launch staking feature.<br></br>
+                        Launch native token and airdrop to NFT stakers. <br></br>
+                        Benefits for Verified NFT Stakers. <br></br>
+                        Automatic whitelisting on all upcoming projects. <br></br>
+                        Exclusive contests and giveaways. <br></br>
+                        Whitelist access to further growth opportunities. 
                       </p></div>
-                  </div>
-                </div>
-              </article>
-              <article className="twae-timeline-entry twae-right-aligned">
-                <div className="twae-timeline-entry-inner">
-                  <div className="twae-label-extra-label">
-                    <span className="twae-label">Perks &amp; Benefits</span>
-                    <span className="twae-extra-label"></span>
-                  </div>
-                  <div className="twae-icon"><i aria-hidden="true" className="fa fa-rocket"></i></div>
-                  <div className="twae-data-container ">
-                    <span className="twae-title">After Successful Mint</span>
-
-                    <div className="twae-description">
-                      <p>
-                      Launch Staking feature<br></br>
-                      Launch Native token and Airdrop to NFT stakers<br></br>
-                      Verified NFT Stakers will get access to the Following Benefits:<br></br>
-                      Get auto whitelisted on all upcoming Project<br></br>
-                      Exclusive Contests and Giveaways to our community.<br></br>
-                      Whitelist access to further growth opportunities.
-                      </p>
-                    </div>
                   </div>
                 </div>
               </article>
@@ -727,13 +687,13 @@ function App() {
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="fa fa-brush"></i></div>
                   <div className="twae-data-container ">
-                    <span className="twae-title">Whitelist Presale and Public sale for Native token </span>
+                    <span className="twae-title">Native Token</span>
 
                     <div className="twae-description">
                       <p>
-                      Native Token Whitelist Presale<br></br>
-                      Native token Public Presale <br></br>
-                      List Native token List in CMC, CG, swapsicle.io &amp; CEX, and DEX
+                      Presale of native token for whitelist. <br></br>
+                      Public presale of native token. <br></br>
+                      Native token listed on Swapsicle, CMC and CG CEX and DEX exchanges.
                       </p>
                     </div>
                   </div>
@@ -747,11 +707,11 @@ function App() {
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="fa fa-cube"></i></div>
                   <div className="twae-data-container ">
-                    <span className="twae-title">NFT community determines future projects</span>
+                    <span className="twae-title">NFT Community Consultation on Future Projects</span>
 
                     <div className="twae-description">
                       <p>
-                      Native tokens or any other ideas that benefit the community in long term.
+                      Discussion of native tokens and any other ideas that will benefit the community in the long term. 
                       </p>
                     </div>
                   </div>
@@ -765,11 +725,12 @@ function App() {
                   </div>
                   <div className="twae-icon"><i aria-hidden="true" className="fa fa-infinity"></i></div>
                   <div className="twae-data-container ">
-                    <span className="twae-title">We have something amazing coming up Soon. Timeline 2.0 Will be here</span>
+                    <span className="twae-title">Something amazing is on its way: Timeline 2.0. </span>
 
                     <div className="twae-description">
                       <p>
-                      Everything will be done with voting from the community. We are here and we are here for the long-term with our ever growing community.
+                      We, and our ever-expanding community, are here for the long term. <br></br>
+                      Everything will be decided through community voting. 
                       </p>
                     </div>
                   </div>
@@ -778,10 +739,10 @@ function App() {
             </div>
           </div>
 
-          <div className="elementor-divider" >
+          {/* <div className="elementor-divider" >
             <span className="elementor-divider-separator">
             </span>
-          </div>
+          </div> */}
 
         </Section>
 
@@ -799,22 +760,15 @@ function App() {
             </div>
           </div>
 
-          <div className="elementor-divider" >
-            <span className="elementor-divider-separator">
-            </span>
-          </div>
+
         </Section>
 
-        <Section id="team" style={{ marginTop: "100px", marginBottom: "-30px" }}>
+        {/* <Section id="team" style={{ marginTop: "100px", marginBottom: "-30px" }}>
           <div className='mintingStarttime_title'>OUR TEAM</div>
 
           <HomeTeam />
 
-          <div className="elementor-divider" >
-            <span className="elementor-divider-separator">
-            </span>
-          </div>
-        </Section>
+        </Section> */}
 
         <Section id="faqs" >
           <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>FAQ'S</div>

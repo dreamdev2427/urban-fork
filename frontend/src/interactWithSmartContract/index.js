@@ -58,6 +58,8 @@ export const checkNetwork = async () => {
 }
 
 export const checkNetworkById = async (chainId) => {
+  const cid = await window.web3.eth.getChainId();
+  store.dispatch(setConnectedChainId(cid));
   if (window.web3.utils.toHex(chainId) !== window.web3.utils.toHex(config.chainId)) 
   {
     store.dispatch(setWalletStatus(false));
@@ -96,7 +98,7 @@ const changeNetwork = async () =>
             params: [
               {
                 chainId: window.web3.utils.toHex(config.chainId),
-                chainName: 'Cronos',
+                chainName: 'Avalanche',
                 rpcUrls: [config.mainNetUrl] /* ... */,
               },
             ],

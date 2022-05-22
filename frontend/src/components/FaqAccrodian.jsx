@@ -24,7 +24,7 @@ const FAQList = () => {
                     </div>
                     <div className="panel">
                         <p>
-                        Birds of Paradise will officially launch on the TBA with the Price of 3 AVAX for (Whitelisted) & 5 AVAX (public Sale) Please make sure to get whitelist access and don’t miss the launch by joining our discord and Twitter, we will notify you when the project officially goes LIVE.
+                        The launch of Birds of Paradise will be announced shortly. 
                         </p>
                     </div>
                 </div>
@@ -33,11 +33,13 @@ const FAQList = () => {
                         clickItem(2)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">Can I earn money from my Birds of Paradise NFT?</span>
+                        <span className="accordion__title">How much will each bird cost? </span>
                     </div>
                     <div className="panel">
                         <p>
-                        YES Absolutely you will earn native tokens by staking your Birds of Paradise NFT also we will airdrop out native tokens for all Birds of Paradise NFT holders, you will also earn more as token and NFT values goes up.
+                        3 AVAX for those on the whitelist<br></br>
+                        5 AVAX for the public sale <br></br>
+                        Please make sure to get whitelist access and don't miss the launch by joining our Discord and Twitter, we will notify you when the project officially goes LIVE. 
                         </p>
                     </div>
                 </div>
@@ -47,11 +49,11 @@ const FAQList = () => {
                         clickItem(3)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">How do I know if this project is in good hands?</span>
+                        <span className="accordion__title">How do I get on the Whitelist? </span>
                     </div>
                     <div className="panel">
                         <p>
-                        Great Question, Unlike many NFT projects, which are made by anonymous, Birds of Paradise is Backed by Phoenix community capital, Visit (https://thephoenix.finance) Phoenix Community Capital, Inc is a very successful Project.
+                        Please check the whitelist information on Discord which will be updated regularly. 
                         </p>
                     </div>
                 </div>
@@ -61,11 +63,11 @@ const FAQList = () => {
                         clickItem(4)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">How do I get on the Whitelist?</span>
+                        <span className="accordion__title">Can I earn money from my Birds of Paradise NFT?</span>
                     </div>
                     <div className="panel">
                         <p>
-                        Please Check out the Whitelist info in Discord we will update it regularly.
+                        Yes, absolutely. You will earn native tokens by staking your Birds of Paradise NFT. We will also airdrop native tokens to all Birds of Paradise NFT holders. Your earnings will increase as the token and NFT values go up. 
                         </p>
                     </div>
                 </div>
@@ -75,11 +77,25 @@ const FAQList = () => {
                         clickItem(5)
                     }}>
                     <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
-                        <span className="accordion__title">Is there a Limit to Mint?</span>
+                        <span className="accordion__title">How do I know if this project is in good hands? </span>
                     </div>
                     <div className="panel">
                         <p>
-                        NO No limit to mint during Presale, you can mint as many as you wish to     
+                        Unlike many NFT projects, which are created anonymously, Birds of Paradise is backed by successful venture capitalists Phoenix Community Capital.inc (https://thephoenix.finance).    
+                        </p>
+                    </div>
+                </div>
+
+                <div className="accordion-wrapper">
+                    <div className={selId === 6 ? "accordion active" : "accordion"} onClick={() => {
+                        clickItem(6)
+                    }}>
+                    <span className="elementor-toggle-icon"><i className="fas fa-caret-right"></i></span>  
+                        <span className="accordion__title">Is there a limit to the number I can mint? </span>
+                    </div>
+                    <div className="panel">
+                        <p>
+                        NO, during the presale there is no limit. You can mint as many as you wish to.   
                         </p>
                     </div>
                 </div>

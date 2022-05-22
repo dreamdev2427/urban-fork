@@ -629,6 +629,7 @@
     }    
     .eael-creative-button-wrapper{
         padding: 18px;
+        padding-top: 0;
     }
     .elementor-heading-title {
         font-size: 18px;
@@ -651,6 +652,7 @@
     }
     #qodef-page-mobile-header .qodef-mobile-header-logo-link img {
         width: 80%;
+        height: auto;
     }
     .header{
         margin-bottom: 50px;
@@ -776,6 +778,7 @@
     }    
     .eael-creative-button-wrapper{
         padding: 16px;
+        padding-top: 0;
     }
     .elementor-heading-title {
         font-size: 16px;

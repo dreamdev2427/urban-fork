@@ -18,6 +18,7 @@ const HomeTeam = () => {
                                 <i className="fab fa-linkedin" style={{ color: "red" }} />
                             </a>
                         </div>
+                        <p  style={{ color: "white", fontSize: 20, }} >Eric Marshall</p>
                         <p  style={{ color: "white" }} >Co-Founder</p>
                     </div>
                     <div className="member">
@@ -31,6 +32,7 @@ const HomeTeam = () => {
                                 <i className="fab fa-linkedin" style={{ color: "red" }} />
                             </a>
                         </div>
+                        <p  style={{ color: "white", fontSize: 20, }} >Luke Sullivan</p>
                         <p  style={{ color: "white" }} >Co-Founder</p>
                     </div>
                 </div>
