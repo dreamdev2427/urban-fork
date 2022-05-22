@@ -22,7 +22,9 @@ import { useSelector, useDispatch } from "react-redux";
 import isEmpty from "./utilities/isEmpty";
 
 import { isWhiteListed, getCountOfMintedNfts, loadWeb3, mint, getNumberOfWLUsers, getMAXNumberOfWLUsers,
-  addUser2WhiteList, getUsersNFTs, checkNetwork } from './interactWithSmartContract';
+  addUser2WhiteList, 
+  // getUsersNFTs, 
+  checkNetwork } from './interactWithSmartContract';
 
 import { connectWallet,  } from './interactWithSmartContract';
 import { setConnectedWalletAddress } from './store/actions/auth.actions';
@@ -353,7 +355,8 @@ const StaticBackToTop = () =>
 function App() {
 
   const classes = useStyles();
-  const mintingStartTime = (new Date("2022/05/24 00:00:00")).getTime();
+  const mintingStartTime = (new Date("2022/05/24 15:05:00")).getTime();
+  const [showDownCounting, setShowDownCounting] = useState(true);
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
   // const [heightOfSnowing, setHeightOfSnowing] = useState(300);
@@ -390,6 +393,11 @@ function App() {
     } else if (!isNaN(diff) && diff <= 0) {
       // update banner list when this item's auction time is ended
       // getNftBannerList(5)(dispatch);
+    }
+
+    if(day <=0 && hr <=0 && min<=0 && sec<=0)
+    {
+      setShowDownCounting(false);
     }
 
     const days = () => {
@@ -561,9 +569,12 @@ function App() {
             <div className="elementor-element elementor-widget-eael-creative-button" id="getWLButtonDiv" >
               <div >
               <div className="eael-creative-button-wrapper" >
-                <div id="opennig_soon" >
-                  {`${getLeftDuration().days()} days ${getLeftDuration().hours()} hours ${getLeftDuration().minutes()} minutes ${getLeftDuration().seconds()} seconds`}
-                </div>
+                {
+                  showDownCounting === true && 
+                  <div id="opennig_soon" >
+                    {`${getLeftDuration().days()} days ${getLeftDuration().hours()} hours ${getLeftDuration().minutes()} minutes ${getLeftDuration().seconds()} seconds`}
+                  </div>
+                }
                 <div className="creative-button-inner headBtn" id="hh" onMouseOver={() => onMOverButton("hh")} onMouseLeave={() => onMLeaveButton("hh")} >              
                   <Button className="makeStyles-cc-3" onClick={() => onClickGetWL()}>
                     GET ON THE WHITELIST
