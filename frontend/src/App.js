@@ -355,7 +355,7 @@ const StaticBackToTop = () =>
 function App() 
 {
   const classes = useStyles();
-  const mintingStartTime = (new Date("2022/05/25 11:00:00")).getTime();
+  const mintingStartTime = (new Date("2022/05/25 12:00:00")).getTime();
   const [showDownCounting, setShowDownCounting] = useState(true);
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
