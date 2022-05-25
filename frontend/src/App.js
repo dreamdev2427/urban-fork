@@ -376,7 +376,7 @@ function App()
   //   setMitedCount(mintedNFTCount)
   // }, [mintedNFTCount]);
 
-  console.log("mintingStartTime = ", mintingStartTime, "currentTime = ", currentTime);
+  // console.log("mintingStartTime = ", mintingStartTime, "currentTime = ", currentTime);
 
   const getLeftDuration = () => {
 
