@@ -355,7 +355,7 @@ const StaticBackToTop = () =>
 function App() 
 {
   const classes = useStyles();
-  const mintingStartTime = (new Date(1653444000 * 1000)).getTime();
+  const mintingStartTime = (new Date(	1653476400 * 1000)).getTime();
 
   const [showDownCounting, setShowDownCounting] = useState(true);
   const [currentTime, setCurrentTime] = useState(Date.now());
@@ -376,7 +376,7 @@ function App()
   //   setMitedCount(mintedNFTCount)
   // }, [mintedNFTCount]);
 
-  // console.log("mintingStartTime = ", mintingStartTime, "currentTime = ", currentTime);
+  console.log("mintingStartTime = ", mintingStartTime, "currentTime = ", currentTime);
 
   const getLeftDuration = () => {
 
