@@ -9,20 +9,6 @@ const HomeTeam = () => {
                 <div className="members">
                     <div className="member">
                         <div className="member__photo">
-                            <img src="/img/anil-thapa.jpg"/>
-                            <a
-                                href="https://twitter.com/TheParadiseAnil"
-                                className="member__link"
-                                target="_blank"
-                            >
-                                <i className="fab fa-twitter" style={{ color: "red" }} />
-                            </a>
-                        </div>
-                        <p  style={{ color: "white", fontSize: 20, }} >Anil Thapa</p>
-                        <p  style={{ color: "white" }} >Founder</p>
-                    </div>
-                    <div className="member">
-                        <div className="member__photo">
                             <img src="/img/luke-sullivan.png"/>
                             <a
                                 href="https://www.linkedin.com/in/luke-sullivan-0750b7aa/"
@@ -48,6 +34,20 @@ const HomeTeam = () => {
                         </div>
                         <p  style={{ color: "white", fontSize: 20, }} >Eric Marshall</p>
                         <p  style={{ color: "white" }} >Advisor</p>
+                    </div>
+                    <div className="member">
+                        <div className="member__photo">
+                            <img src="/img/anil-thapa.jpg"/>
+                            <a
+                                href="https://twitter.com/TheParadiseAnil"
+                                className="member__link"
+                                target="_blank"
+                            >
+                                <i className="fab fa-twitter" style={{ color: "red" }} />
+                            </a>
+                        </div>
+                        <p  style={{ color: "white", fontSize: 20, }} >Anil Thapa</p>
+                        <p  style={{ color: "white" }} >Founder</p>
                     </div>
                     <div className="member">
                         <div className="member__photo">
