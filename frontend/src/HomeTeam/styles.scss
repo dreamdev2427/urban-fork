@@ -14,17 +14,20 @@
   display: flex;
   justify-content: center;
   align-content: space-around;
+  flex-wrap: wrap;
 }
 
 .member {
   padding: 30px;
   text-align: center;
+  box-sizing: border-box;
+  width: 33%;
 }
 
 .member__photo {
   position: relative;
   margin: 25px auto;
-  width: 355px;
+  width: 100%;
   height: auto;
 }
 
@@ -34,7 +37,7 @@
   font-size: 2.5em;
   position: absolute;
   bottom: 28px;
-  right: -6px;
+  right: 30px;
   background: rgb(129 35 159 / 46%);
   padding: 10px;
   border-radius: 15px;
@@ -54,6 +57,7 @@
 
   .member {
     padding: 5px;
+    width: 60%;
   }
 
   .member__link {
@@ -81,6 +85,6 @@
   .member__link {
     position: absolute;
     bottom: 30px;
-    right: 20px;
+    right: 30px;
   }
 }

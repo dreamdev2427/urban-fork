@@ -6770,10 +6770,17 @@ body, #qodef-page-wrapper {
   border: 15px solid white !important;
   border-radius: 3rem;
 }
-
+#team {
+  border-bottom: 44px solid #03cdac;
+}
+#faqs {
+  margin-top: 140px;
+}
 .member__photo img {
   border: 15px solid white;
   border-radius: 3rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #text-3 {

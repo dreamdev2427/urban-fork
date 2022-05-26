@@ -16,7 +16,7 @@ import {
   Section,
 } from 'react-scroll-section';
 // import Snowing from "./components/Snowing";
-// import HomeTeam from "./HomeTeam";
+import HomeTeam from "./HomeTeam";
 import { useSelector, useDispatch } from "react-redux";
 // import { CardContent } from '@mui/material';
 import isEmpty from "./utilities/isEmpty";
@@ -181,7 +181,7 @@ const StaticMenus = () =>
     <>
        <div className="header" id="qodef-page-header">
         <div id="qodef-page-header-inner" className=" qodef-skin--light">
-          <a className="qodef-header-logo-link " href="https://github.com/ChainSafe/web3.js/blob" target="_blank" >
+          <a className="qodef-header-logo-link " href="/" target="_blank" >
               <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main"  />
           </a>
           <nav className="qodef-header-navigation" >
@@ -201,11 +201,11 @@ const StaticMenus = () =>
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
-              {/* <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
                 <span className="qodef-menu-item-text">Team</span>
-              </li> */}
+              </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >
@@ -236,7 +236,7 @@ const StaticMenus = () =>
       </div>
       <div className="header" id="qodef_page_header_for_sticky">
         <div id="qodef-page-header-inner_for_sticky" className=" qodef-skin--light">
-          <a className="qodef-header-logo-link " href="https://github.com/ChainSafe/web3.js/blob" target="_blank" >    
+          <a className="qodef-header-logo-link " href="/" target="_blank" >    
               <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" />
           </a>
           <nav className="qodef-header-navigation" >
@@ -256,11 +256,11 @@ const StaticMenus = () =>
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
-              {/* <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
+              <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
                 <span className="qodef-menu-item-text">Team</span>
-              </li> */}
+              </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >
@@ -273,7 +273,7 @@ const StaticMenus = () =>
 
       <div className='header' id="qodef-page-mobile-header">
         <div id="qodef-page-mobile-header-inner" className="">
-          <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="https://github.com/ChainSafe/web3.js/blob" target="_blank" >
+          <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="/" target="_blank" >
             <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
           </a>
           <a href="javascript:void(0)" onClick={() => onClickShowMobileMenu()} className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
@@ -311,11 +311,11 @@ const StaticMenus = () =>
               >
                 <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
               </li>
-              {/* <li className="menu-item menu-item-type-custom "
+              <li className="menu-item menu-item-type-custom "
                 onClick={teamSection.onClick} selected={teamSection.selected}
               >
                 <span className="qodef-menu-item-text">Team</span>
-              </li> */}
+              </li>
               <li className="menu-item menu-item-type-custom "
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >
@@ -778,12 +778,12 @@ function App()
 
         </Section>
 
-        {/* <Section id="team" style={{ marginTop: "100px", marginBottom: "-30px" }}>
+        <Section id="team" style={{ marginTop: "100px", marginBottom: "-30px" }}>
           <div className='mintingStarttime_title'>OUR TEAM</div>
 
           <HomeTeam />
 
-        </Section> */}
+        </Section>
 
         <Section id="faqs" >
           <div className='mintingStarttime_title' style={{ marginTop: "50px", marginBottom: "30px" }}>FAQ'S</div>
@@ -801,7 +801,7 @@ function App()
         <div className="footer-innner ">
           <div className="footer-grid-item">
             <div id="text-10" className="  widget widget_text" data-area="qodef-footer-top-area-column-2">
-              <p>Support : team (@ ) birdsofparadise.com</p>
+              <p>Support : team ( @ ) theparadise.io</p>
             </div>
             <div id="block-16" className="widget widget_block" data-area="qodef-footer-top-area-column-2"><a href="https://raritysniper.com/nft-drops-calendar" style={{ textDecoration: "none" }}>NFT Drops</a></div>
           </div>
