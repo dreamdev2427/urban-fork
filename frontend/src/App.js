@@ -324,12 +324,23 @@ const StaticMenus = () =>
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >
                 <span className="qodef-menu-item-text">FAQ’s</span>
-              </li>              
-              <li className="menu-item menu-item-type-custom "
+              </li>        
+              {
+                walletStatus === false &&              
+                <li className="menu-item menu-item-type-custom "
+                onClick={() => onClickConnectWallet()} selected={homeSection.selected}      
+                >
+                  <span className="qodef-menu-item-text">Connect Wallet</span>
+                </li>
+              }         
+              {
+                walletStatus === true &&              
+                <li className="menu-item menu-item-type-custom "
                 onClick={() => onClickConnectWallet()} selected={homeSection.selected}
-              >
-                <span className="qodef-menu-item-text">Connect Wallet</span>
-              </li>
+                >
+                  <span>{compressedAddress}</span>
+                </li>
+              }            
             </ul>
           </nav>
         </div>
