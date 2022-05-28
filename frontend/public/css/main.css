@@ -5726,12 +5726,6 @@ nav>ul>li>span:hover {
     list-style: none;
 }
 
-.qodef-mobile-header-navigation ul li {
-    position: relative;
-    margin: 6px 0;
-    padding: 0;
-}
-
 .qodef-mobile-header-navigation>ul {
     margin: 0 auto;
     padding: 34px 0;
@@ -5741,8 +5735,7 @@ nav>ul>li>span:hover {
 
 .qodef-mobile-header-navigation ul li {
     position: relative;
-    margin: 6px 0;
-    padding: 0;
+    padding: 10px;
     color: #000;
 }
 

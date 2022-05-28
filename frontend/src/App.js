@@ -34,7 +34,7 @@ import { NotificationManager } from 'react-notifications';
 import { emptyNFTTradingResult } from './store/actions/nft.actions';
 import config from './config';
 
-loadWeb3();
+loadWeb3(  );
 
 const useStyles = makeStyles({
   aa: {
@@ -111,11 +111,12 @@ const StaticMenus = () =>
   const currentChainId = useSelector(state => state.auth.currentChainId);
   const dispatch = useDispatch();
   
-  useEffect(() => {
-    console.log(config.chainId, currentChainId);
-    if(window.web3.utils.toHex(currentChainId) !== window.web3.utils.toHex(config.chainId))
-    {      
-        NotificationManager.warning("Please connect to Avalanche network.");
+  useEffect(() => {  
+    if (window?.web3) {
+      if(window.web3.utils.toHex(currentChainId) !== window.web3.utils.toHex(config.chainId))
+      {      
+          NotificationManager.warning("Please connect to Avalanche network.");
+      }
     }
   }, [currentChainId]);
 
@@ -163,6 +164,9 @@ const StaticMenus = () =>
   {
     let connection = await connectWallet();
     if(connection.success === true) dispatch(setConnectedWalletAddress(connection.address));
+    else {
+      NotificationManager.warning(connection.message);
+    }
 
   }
 
@@ -320,6 +324,11 @@ const StaticMenus = () =>
                 onClick={faqsSection.onClick} selected={faqsSection.selected}
               >
                 <span className="qodef-menu-item-text">FAQ’s</span>
+              </li>              
+              <li className="menu-item menu-item-type-custom "
+                onClick={() => onClickConnectWallet()} selected={homeSection.selected}
+              >
+                <span className="qodef-menu-item-text">Connect Wallet</span>
               </li>
             </ul>
           </nav>
@@ -370,13 +379,6 @@ function App()
   const curLenOfWL = useSelector(state => state.nft.lengthOfWL);
   const nftOperationResult = useSelector(state => state.nft.tradingResult);
   const dispatch = useDispatch();
-  
-  // useEffect(() =>
-  // {
-  //   setMitedCount(mintedNFTCount)
-  // }, [mintedNFTCount]);
-
-  // console.log("mintingStartTime = ", mintingStartTime, "currentTime = ", currentTime);
 
   const getLeftDuration = () => {
 
@@ -774,7 +776,6 @@ function App()
               <SingleGallery />
             </div>
           </div>
-
 
         </Section>
 

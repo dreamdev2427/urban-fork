@@ -8,7 +8,7 @@ import { setNFTTradingResult,  updateEvoNFTList, updateMintedNFTCountAfterTradin
 // import isEmpty from "../utilities/isEmpty";
 import axios from "axios";
 
-export const loadWeb3 = async () => 
+export const loadWeb3 = async ( NotificationManager = null) => 
 {
   if (window.ethereum) 
   {
@@ -21,10 +21,22 @@ export const loadWeb3 = async () =>
     window.web3.eth.handleRevert = true;
   } 
   else {
-    // window.alert(
-    //   "Non-Ethereum browser detected. Please connect and unlock your wallet."
-    // );
-    return;
+    return {
+      success: false,
+      address: "",
+      message: (
+        <span>
+          <p>
+            {" "}
+            🦊{" "}
+            <a target="_blank" rel="noreferrer" href={`https://metamask.io/download.html`}>
+              You must install Metamask, a virtual BSC wallet, in your
+              browser.
+            </a>
+          </p>
+        </span>
+      ),
+    };
   }
   if (window.ethereum) {
     window.ethereum.on('chainChanged', function (chainId) {
@@ -287,7 +299,7 @@ const parseErrorMsg = (errMsg) =>
       let EvoManagerContract = await new window.web3.eth.Contract(config.PhoenixKnightNFT_abi, config.PhoenixKnightNFT_address);
       let minting_fee = window.web3.utils.toWei(fee !== null ? fee.toString() : '0', 'ether');
       
-      console.log("minting_fee = ", minting_fee);
+      // console.log("minting_fee = ", minting_fee);
 
       var mint = EvoManagerContract.methods.mint(1);
       let gasFee = await mint.estimateGas({ from: currentAddr, value: minting_fee });
@@ -328,7 +340,7 @@ const parseErrorMsg = (errMsg) =>
       const res = await axios.get("https://deep-index.moralis.io/api/v2/" + account + "/nft/" + config.PhoenixKnightNFT_address + "?chain=0x"+ config.chainId +"&format=hex", {
         headers: { "X-API-Key": config.MoralisAPIKey },
       });
-      console.log(res.data.result);
+      // console.log(res.data.result);
 
       const nftlist = res.data.result;
       if(nftlist && nftlist.length>0)
@@ -345,14 +357,14 @@ const parseErrorMsg = (errMsg) =>
             let queryRet = await PhonixKnightNFTContract.methods.getTokenURIsFromIds(tokenIds).call();
            
             let evoNftUris = queryRet;
-            console.log("[header useEffect] 11")
+            // console.log("[header useEffect] 11")
             let k; let metadata;
             for(k = 0 ; k < tokenIds.length; k++)
             {                
               metadata = await axios.get(evoNftUris[k]);
               nftItems.push({token_id:tokenIds[k], token_uri: evoNftUris[k], metadata:metadata.data });      
             };
-            console.log("nftItems = ", nftItems)
+            // console.log("nftItems = ", nftItems)
           store.dispatch(updateEvoNFTList(nftItems));
       }else{
         store.dispatch(updateEvoNFTList());
@@ -398,7 +410,7 @@ const parseErrorMsg = (errMsg) =>
        
       gotWL = await EvoManagerContract.methods.isWhiteListed(account).call();
 
-      console.log("gotWL = ", gotWL);
+      // console.log("gotWL = ", gotWL);
 
       store.dispatch(updateIsWhitelisted(gotWL));
   
@@ -422,7 +434,7 @@ const parseErrorMsg = (errMsg) =>
        
       curWLLen = await EvoManagerContract.methods.getNumberOfWLUsers().call();
 
-      console.log("curWLLen = ", curWLLen);
+      // console.log("curWLLen = ", curWLLen);
 
       store.dispatch(updteCurrentLenOfWL(curWLLen));
   
@@ -446,7 +458,7 @@ const parseErrorMsg = (errMsg) =>
        
       maxWL = await EvoManagerContract.methods.getMAXNumberOfWLUsers().call();
 
-      console.log("maxWL = ", maxWL);
+      // console.log("maxWL = ", maxWL);
 
       store.dispatch(updteMAXLenOfWL(maxWL));
   
@@ -467,7 +479,7 @@ export const addUser2WhiteList = async (currentAddr, fee) =>
     let EvoManagerContract = await new window.web3.eth.Contract(config.PhoenixKnightNFT_abi, config.PhoenixKnightNFT_address);
     let getting_wl_fee = window.web3.utils.toWei(fee !== null ? fee.toString() : '0', 'ether');
 
-    console.log("getting_wl_fee = ", getting_wl_fee);
+    // console.log("getting_wl_fee = ", getting_wl_fee);
     
     var mint = EvoManagerContract.methods.addUser2WhiteList(currentAddr);
     let gasFee = await mint.estimateGas({ from: currentAddr, value: getting_wl_fee });
