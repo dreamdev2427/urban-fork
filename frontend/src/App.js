@@ -58,7 +58,6 @@ const useStyles = makeStyles({
     height: "5vw",
     backgroundImage: 'url("./getWLbutton.png")', 
     backgroundColor: "#ffff00 !important", 
-    backgroundSize:"contain",
     borderRadius: "45px !important",
     backgroundRepeat: "no-repeat",
     display: 'flex',
@@ -99,7 +98,7 @@ const StaticMenus = () =>
   const homeSection = useScrollSection('home');
   const RoadmapSection = useScrollSection('Roadmap');
   const stakeSection = useScrollSection('stake');
-  const mintSection = useScrollSection('mint');
+  // const mintSection = useScrollSection('mint');
   const faqsSection = useScrollSection('faqs');
   const teamSection = useScrollSection('team');
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -475,8 +474,11 @@ function App()
     function resizeSnowing() {
       var VideoElement = document.getElementById("video_element");
       var getWLButtonDiv = document.getElementById("getWLButtonDiv");
-      getWLButtonDiv.style.position = "absolute";
-      getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
+      if(getWLButtonDiv !== undefined && getWLButtonDiv !== null)
+      {
+        getWLButtonDiv.style.position = "absolute";
+        getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
+      }
     }    
   }, [])
 
@@ -485,8 +487,11 @@ function App()
       setTimeout(() => {
       var VideoElement = document.getElementById("video_element");
       var getWLButtonDiv = document.getElementById("getWLButtonDiv");
-      getWLButtonDiv.style.position = "absolute";
-      getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
+      if(getWLButtonDiv !== undefined && getWLButtonDiv !== null)
+      {
+        getWLButtonDiv.style.position = "absolute";
+        getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
+      }
       }, 100);
     })
   }, [])
