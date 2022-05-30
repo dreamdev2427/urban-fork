@@ -5716,31 +5716,19 @@ nav>ul>li>span:hover {
     border-bottom: 1px solid #000;
     padding: 0;
     margin: 0;
-    overflow-y: scroll;
+    overflow-y: none;
     z-index: 150;
 }
 
 .qodef-mobile-header-navigation>ul {
-    margin: 0 auto;
-    padding: 34px 0;
-    list-style: none;
-}
-
-.qodef-mobile-header-navigation>ul {
-    margin: 0 auto;
     padding: 34px 0;
     list-style: none;
     padding-left: 20px;
 }
 
 .qodef-mobile-header-navigation ul li {
-    position: relative;
-    padding: 10px;
-    color: #000;
-}
-
-.qodef-mobile-header-navigation ul li {
     color: #000 !important;
+    padding: 10px;
 }
 
 .qodef-mobile-header-navigation ul li a{
@@ -6750,6 +6738,7 @@ body, #qodef-page-wrapper {
   font-family: "Oxanium";
   border-radius: 45px !important;
   padding: 10px 20px !important;
+  z-index: 30;
 }
 
 #stake {

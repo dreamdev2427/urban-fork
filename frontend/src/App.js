@@ -143,10 +143,10 @@ const StaticMenus = () =>
   
   const onClickShowMobileMenu = () => {
     if (showMobileMenu) {
-      document.getElementById("qodef-mobile-header-navigation").style.display = "block";
+      document.getElementById("qodef-mobile-header-navigation-id").style.display = "block";
     }
     else {
-      document.getElementById("qodef-mobile-header-navigation").style.display = "none";
+      document.getElementById("qodef-mobile-header-navigation-id").style.display = "none";
     }
     setShowMobileMenu(!showMobileMenu);
   }
@@ -273,15 +273,12 @@ const StaticMenus = () =>
           </nav>          
         </div>
       </div>
-
       <div className='header' id="qodef-page-mobile-header">
         <div id="qodef-page-mobile-header-inner" className="">
-          <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="/" target="_blank" >
-            <img width="1000" height="150" src="./logo.png" className="qodef-header-logo-image qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
+          <a className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image" href="/" target="_blank" rel="noreferrer noopener">
+            <img width="1000" height="150" src="./logo.png" className="qodef--main" alt="logo main" sizes="(max-width: 1000px) 100vw, 1000px" data-xblocker="passed" style={{ visibility: "visible" }} />
           </a>
-          <a href="javascript:void(0)" onClick={() => onClickShowMobileMenu()} className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
-
-          {/* <a href="javascript:void(0)" className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener"> */}
+          <div onClick={() => onClickShowMobileMenu()} className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener">
             <span className="qodef-m-icon qodef--open">
               <span className="qodef-m-lines">
                 <span className="qodef-m-line qodef--1"></span>
@@ -296,53 +293,53 @@ const StaticMenus = () =>
                 <span className="qodef-m-line qodef--3"></span>
               </span>
             </span>
-          </a>
-          <nav className="qodef-mobile-header-navigation" id="qodef-mobile-header-navigation" role="navigation" aria-label="Mobile Menu">
-            <ul id="menu-primary-menu-4" className="qodef-content-grid">
-              <li className="menu-item menu-item-type-custom "
-                onClick={homeSection.onClick} selected={homeSection.selected}
-              >
-                <span className="qodef-menu-item-text">Home</span>
-              </li>
-              <li className="menu-item menu-item-type-custom "
-                onClick={RoadmapSection.onClick} selected={RoadmapSection.selected}
-              >
-                <span className="qodef-menu-item-text">Roadmap</span>
-              </li>
-              <li className="menu-item menu-item-type-custom "
-                onClick={stakeSection.onClick} selected={stakeSection.selected}
-              >
-                <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
-              </li>
-              <li className="menu-item menu-item-type-custom "
-                onClick={teamSection.onClick} selected={teamSection.selected}
-              >
-                <span className="qodef-menu-item-text">Team</span>
-              </li>
-              <li className="menu-item menu-item-type-custom "
-                onClick={faqsSection.onClick} selected={faqsSection.selected}
-              >
-                <span className="qodef-menu-item-text">FAQ’s</span>
-              </li>        
-              {
-                walletStatus === false &&              
-                <li className="menu-item menu-item-type-custom "
-                onClick={() => onClickConnectWallet()} selected={homeSection.selected}      
-                >
-                  <span className="qodef-menu-item-text">Connect Wallet</span>
-                </li>
-              }         
-              {
-                walletStatus === true &&              
-                <li className="menu-item menu-item-type-custom "
-                onClick={() => onClickConnectWallet()} selected={homeSection.selected}
-                >
-                  <span>{compressedAddress}</span>
-                </li>
-              }            
-            </ul>
-          </nav>
+          </div>
         </div>
+        <nav className="qodef-mobile-header-navigation" id="qodef-mobile-header-navigation-id" role="navigation" aria-label="Mobile Menu">
+          <ul id="menu-primary-menu-4" className="qodef-content-grid">
+            <li className="menu-item menu-item-type-custom "
+              onClick={homeSection.onClick} selected={homeSection.selected}
+            >
+              <span className="qodef-menu-item-text">Home</span>
+            </li>
+            <li className="menu-item menu-item-type-custom "
+              onClick={RoadmapSection.onClick} selected={RoadmapSection.selected}
+            >
+              <span className="qodef-menu-item-text">Roadmap</span>
+            </li>
+            <li className="menu-item menu-item-type-custom "
+              onClick={stakeSection.onClick} selected={stakeSection.selected}
+            >
+              <span className="qodef-menu-item-text">Stake(Coming Soon)</span>
+            </li>
+            <li className="menu-item menu-item-type-custom "
+              onClick={teamSection.onClick} selected={teamSection.selected}
+            >
+              <span className="qodef-menu-item-text">Team</span>
+            </li>
+            <li className="menu-item menu-item-type-custom "
+              onClick={faqsSection.onClick} selected={faqsSection.selected}
+            >
+              <span className="qodef-menu-item-text">FAQ’s</span>
+            </li>        
+            {
+              walletStatus === false &&              
+              <li className="menu-item menu-item-type-custom "
+              onClick={() => onClickConnectWallet()} selected={homeSection.selected}      
+              >
+                <span className="qodef-menu-item-text">Connect Wallet</span>
+              </li>
+            }         
+            {
+              walletStatus === true &&              
+              <li className="menu-item menu-item-type-custom "
+              onClick={() => onClickConnectWallet()} selected={homeSection.selected}
+              >
+                <span>{compressedAddress}</span>
+              </li>
+            }            
+          </ul>
+        </nav>
       </div>
     </>
   )
@@ -377,6 +374,7 @@ function App()
   const mintingStartTime = (new Date(	1653562800 * 1000)).getTime();
 
   const [showDownCounting, setShowDownCounting] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [show2TopButton, setShow2TopButton] = useState(false);
   // const [heightOfSnowing, setHeightOfSnowing] = useState(300);
@@ -479,19 +477,53 @@ function App()
         getWLButtonDiv.style.position = "absolute";
         getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
       }
+      console.log(" VideoElement.clientWidth = ", VideoElement.clientWidth, " isMobile = ", isMobile);
+      if(Number(VideoElement.clientWidth) <= 720)
+      {  
+        console.log(" less than 720 ");
+        while (VideoElement.hasChildNodes()) {
+          VideoElement.removeChild(VideoElement.firstChild);
+        }
+      }else{
+        console.log(" more than 720 ");
+        while (VideoElement.hasChildNodes()) {
+          VideoElement.removeChild(VideoElement.firstChild);
+        }
+        const sourceElement = document.createElement("source");
+        sourceElement.setAttribute("src", "./01_Birds of paradise.mp4");
+        sourceElement.setAttribute("type", "video/mp4");
+        VideoElement.appendChild(sourceElement);
+      }
     }    
   }, [])
 
   useEffect(() => {
     window.addEventListener('load', (event) => {
       setTimeout(() => {
-      var VideoElement = document.getElementById("video_element");
-      var getWLButtonDiv = document.getElementById("getWLButtonDiv");
-      if(getWLButtonDiv !== undefined && getWLButtonDiv !== null)
-      {
-        getWLButtonDiv.style.position = "absolute";
-        getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
-      }
+        var VideoElement = document.getElementById("video_element");
+        var getWLButtonDiv = document.getElementById("getWLButtonDiv");
+        if(getWLButtonDiv !== undefined && getWLButtonDiv !== null)
+        {
+          getWLButtonDiv.style.position = "absolute";
+          getWLButtonDiv.style.top = Number(VideoElement.clientHeight*6/11) + "px";
+        }
+        console.log(" VideoElement.clientWidth = ", VideoElement.clientWidth);
+        if(Number(VideoElement.clientWidth) <= 720)
+        {
+          console.log(" less than 720 ");
+          while (VideoElement.hasChildNodes()) {
+            VideoElement.removeChild(VideoElement.firstChild);
+          }
+        }else{
+          console.log(" more than 720 ");
+          while (VideoElement.hasChildNodes()) {
+            VideoElement.removeChild(VideoElement.firstChild);
+          }
+          const sourceElement = document.createElement("source");
+          sourceElement.setAttribute("src", "./01_Birds of paradise.mp4");
+          sourceElement.setAttribute("type", "video/mp4");
+          VideoElement.appendChild(sourceElement);
+        }
       }, 100);
     })
   }, [])
@@ -580,14 +612,15 @@ function App()
         <StaticMenus />
 
         <Section id="home" style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", flexDirection: "column" }}>
-          <div className="elementor-background-video-container elementor-hidden-phone" >
-            <video className="elementor-background-video-hosted elementor-html5-video" 
-              id="video_element"
-              autoPlay={true} muted playsInline="" loop={true} src="./01_Birds of paradise.mp4" style={{ width: "100%" }} 
-            ></video>
+          <div className="elementor-background-video-container" >
+            <video id="video_element"
+              poster="./banner-poster.png" 
+              autoPlay={true} muted loop={true}  style={{ width: "100%" }} 
+            >
+              {/* <source src="./01_Birds of paradise.mp4" type="video/mp4"></source> */}
+            </video>
           </div>
           <div className="elementor-column-gap-default">
-
             <div className="elementor-element elementor-widget-eael-creative-button" id="getWLButtonDiv" >
               <div >
               <div className="eael-creative-button-wrapper" >
