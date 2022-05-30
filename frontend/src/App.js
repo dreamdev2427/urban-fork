@@ -484,6 +484,10 @@ function App()
         while (VideoElement.hasChildNodes()) {
           VideoElement.removeChild(VideoElement.firstChild);
         }
+        // const sourceElement = document.createElement("source");
+        // sourceElement.setAttribute("src", "./01_Birds of paradise_compressed.mp4");
+        // sourceElement.setAttribute("type", "video/mp4");
+        // VideoElement.appendChild(sourceElement);
       }else{
         console.log(" more than 720 ");
         while (VideoElement.hasChildNodes()) {
@@ -514,6 +518,10 @@ function App()
           while (VideoElement.hasChildNodes()) {
             VideoElement.removeChild(VideoElement.firstChild);
           }
+          // const sourceElement = document.createElement("source");
+          // sourceElement.setAttribute("src", "./01_Birds of paradise_compressed.mp4");
+          // sourceElement.setAttribute("type", "video/mp4");
+          // VideoElement.appendChild(sourceElement);
         }else{
           console.log(" more than 720 ");
           while (VideoElement.hasChildNodes()) {
@@ -614,7 +622,7 @@ function App()
         <Section id="home" style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", flexDirection: "column" }}>
           <div className="elementor-background-video-container" >
             <video id="video_element"
-              poster="./banner-poster.png" 
+              poster="./banner_animation.gif" 
               autoPlay={true} muted loop={true}  style={{ width: "100%" }} 
             >
               {/* <source src="./01_Birds of paradise.mp4" type="video/mp4"></source> */}
