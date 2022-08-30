@@ -518,10 +518,10 @@ function App()
           while (VideoElement.hasChildNodes()) {
             VideoElement.removeChild(VideoElement.firstChild);
           }
-          // const sourceElement = document.createElement("source");
-          // sourceElement.setAttribute("src", "./01_Birds of paradise_compressed.mp4");
-          // sourceElement.setAttribute("type", "video/mp4");
-          // VideoElement.appendChild(sourceElement);
+          const sourceElement = document.createElement("source");
+          sourceElement.setAttribute("src", "./01_Birds of paradise.mp4");
+          sourceElement.setAttribute("type", "video/mp4");
+          VideoElement.appendChild(sourceElement);
         }else{
           console.log(" more than 720 ");
           while (VideoElement.hasChildNodes()) {
